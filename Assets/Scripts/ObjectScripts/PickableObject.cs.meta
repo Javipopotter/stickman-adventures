@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: df7883ee3699557448b5255e527f09d7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sr: {instanceID: 0}
+  - HighLight: {fileID: 2100000, guid: 4615d79ba43d76c4cb62752b5614ba91, type: 2}
+  - InitMaterial: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
