@@ -5,13 +5,22 @@ using UnityEngine;
 public class PartsLifes : MonoBehaviour
 {
     StickmanLifesManager stickmanLifesManager;
-    public int lifes;
-    [HideInInspector] public int OrLifes;
+    AI ai;
+    public float lifes;
+    [HideInInspector] public float OrLifes;
     public bool vitalPoint;
+    [SerializeField] bool IsPlayer;
+    [SerializeField] bool IsLeg;
     SpriteRenderer sr;
     Color OrColor;
+    [SerializeField]float QuarterJ;
     void Start()
     {
+        if (transform.parent.TryGetComponent(out AI aI))
+        {
+            ai = aI;
+            QuarterJ = ai.jumpForce / 4;
+        }
         stickmanLifesManager = transform.parent.GetComponent<StickmanLifesManager>();
         stickmanLifesManager.partsLifes.Add(this);
         sr = GetComponent<SpriteRenderer>();
@@ -25,12 +34,21 @@ public class PartsLifes : MonoBehaviour
         {
             if (vitalPoint)
             {
-                stickmanLifesManager.respawn();
+                if (IsPlayer)
+                {
+                    stickmanLifesManager.respawn();
+                }
+                else
+                {
+                    ActiveDeactiveComponents(false);
+                    stickmanLifesManager.Death();
+                }
             }
             else
             {
                 ActiveDeactiveComponents(false);
             }
+            this.enabled = false;
         }
         sr.color = Color.Lerp(Color.red, OrColor, Percentaje(lifes, OrLifes));
     }
@@ -44,6 +62,10 @@ public class PartsLifes : MonoBehaviour
         if (TryGetComponent(out Balance bal))
         {
             bal.enabled = t;
+        }
+        if(IsLeg)
+        {
+            ai.jumpForce -= QuarterJ;
         }
     }
 

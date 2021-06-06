@@ -30,6 +30,7 @@ public class CameraFollow : MonoBehaviour
     {
         transform.position = new Vector3(player.transform.position.x - x, player.transform.position.y - y, transform.position.z); // update y
     }
+
     public void restartCameraPosition()
     {
         YUpdate(0, 0);

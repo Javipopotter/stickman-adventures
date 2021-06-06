@@ -12,8 +12,11 @@ public class PickableObject : MonoBehaviour
     bool takeOnMe = false;
     public bool Holded;
     GameObject Hand;
-    public Material HighLight;
     public Material InitMaterial;
+    public int OutLineThickness;
+    public bool CanPunch, BlockArm;
+    public float DmgMultiplier;
+    public bool IsPickedByEnemy;
     private void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -21,8 +24,9 @@ public class PickableObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void ChangeProperties(GameObject hand, bool take)
+    public void ChangeProperties(GameObject hand, bool take, bool PickedByEnemy)
     {
+        IsPickedByEnemy = PickedByEnemy;
         Hand = hand;
         if (take)
         {
@@ -98,6 +102,10 @@ public class PickableObject : MonoBehaviour
         if (pickaxe && collision.transform.CompareTag("floor") && transformsPos && GetComponent<MoveArms>().enabled)
         {
             transform.position = Hand.transform.position;
+        }
+        if(Holded == false && collision.transform.CompareTag("floor"))
+        {
+            IsPickedByEnemy = false;
         }
     }
 }

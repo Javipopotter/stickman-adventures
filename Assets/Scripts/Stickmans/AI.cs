@@ -30,7 +30,7 @@ public class AI : HumanoidController
         }
         if(Physics2D.Raycast(FeetRay, Vector2.right, 4, floor))
         {
-            Jump();
+            StartCoroutine(Jump());
         }
     }
 }

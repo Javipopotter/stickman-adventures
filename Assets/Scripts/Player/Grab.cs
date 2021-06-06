@@ -11,6 +11,7 @@ public class Grab : MonoBehaviour
     bool f = true;
     public bool Grabs;
     public PickableObject pickable;
+    bool CanPunch, BlockArm;
     // Update is called once per frame
     void Update()
     {
@@ -79,18 +80,21 @@ public class Grab : MonoBehaviour
 
             if (collision.gameObject.TryGetComponent(out PickableObject Picked))
             {
+                BlockArm = Picked.BlockArm;
+                CanPunch = Picked.CanPunch;
                 Picked.sr.material = Picked.InitMaterial;
                 objectGrab = true;
                 pickable = Picked;
-                ActiveDeactivePunches(false, true);
-                Picked.ChangeProperties(gameObject, true);
+                ActiveDeactivePunches(CanPunch, BlockArm);
+                Picked.ChangeProperties(gameObject, true, false);
             }
         }
         else if(collision.transform.CompareTag("Pickable") && Grabs)
         {
             if (collision.gameObject.TryGetComponent(out PickableObject Picked))
             {
-                Picked.sr.material = Picked.HighLight;
+                GameManager.Gm.highLight.SetFloat("_OutlineThickness", Picked.OutLineThickness);
+                Picked.sr.material = GameManager.Gm.highLight;
             }
         }
     }
@@ -111,8 +115,8 @@ public class Grab : MonoBehaviour
         if(Grabs)
         {
             grabbed = false;
-            ActiveDeactivePunches(true, false);
-            pickable.ChangeProperties(gameObject, false);
+            ActiveDeactivePunches(CanPunch, !BlockArm);
+            pickable.ChangeProperties(gameObject, false, false);
         }
     }
 
@@ -121,7 +125,7 @@ public class Grab : MonoBehaviour
         foreach (MoveArms arms in transform.parent.GetComponentsInChildren<MoveArms>())
         {
             arms.punch = p;
-            //arms.armLock = a;
+            arms.armLock = a;
         }
     }
 }

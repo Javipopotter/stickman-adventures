@@ -14,13 +14,9 @@ public class StickmanParts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<HingeJoint2D>() == false)
+        if(TryGetComponent(out PartsLifes PL) && PL.lifes <= 0)
         {
             separated = true;
-            if(TryGetComponent(out Balance bal))
-            {
-                bal.enabled = false;
-            }
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rope : MonoBehaviour
 {
-    GameObject RopeBase;
+    public GameObject RopeBase;
     [SerializeField] GameObject RopeInstance;
     [SerializeField] GameObject LastRope;
     [SerializeField] bool RandomLength;

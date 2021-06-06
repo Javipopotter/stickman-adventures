@@ -38,9 +38,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -61,6 +61,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -146,10 +148,10 @@ TextureImporter:
       name: Sword_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 18
-        width: 410
-        height: 1249
+        x: 10
+        y: 14
+        width: 423
+        height: 1259
       alignment: 9
       pivot: {x: 0.79651177, y: 0.14140213}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,10 +169,10 @@ TextureImporter:
       name: Sword_1
       rect:
         serializedVersion: 2
-        x: 493
-        y: 82
-        width: 292
-        height: 1156
+        x: 469
+        y: 69
+        width: 331
+        height: 1181
       alignment: 9
       pivot: {x: 0.5146085, y: 0.035063535}
       border: {x: 0, y: 0, z: 0, w: 0}

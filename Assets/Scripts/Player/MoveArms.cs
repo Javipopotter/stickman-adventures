@@ -9,7 +9,7 @@ public class MoveArms : MonoBehaviour
     float rotz;
     public bool punch = true;
     public bool armLock;
-    [SerializeField] float force;
+    public float force;
     [SerializeField] bool OnlyPunches;
     // Start is called before the first frame update
     void Start()
@@ -33,11 +33,16 @@ public class MoveArms : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && punch)
         {
-            dir = transform.InverseTransformDirection(dir);
-            rotz = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            NormalizeFloat(rotz);
-            rb.AddTorque(NormalizeFloat(rotz) * force);
+            Punch();
         }
+    }
+
+    public void Punch()
+    {
+        dir = transform.InverseTransformDirection(dir);
+        rotz = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        NormalizeFloat(rotz);
+        rb.AddTorque(NormalizeFloat(rotz) * force);
     }
 
     float NormalizeFloat(float f)

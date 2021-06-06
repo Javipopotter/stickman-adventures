@@ -21,14 +21,18 @@ public class Spear : PickableObject
         {
             if (Input.GetMouseButtonDown(0) && activeCoolDown == false)
             {
-                attackCount += 1;
-                coolDown = 1;
-                Vector2 dir = GameManager.Gm.GetMouseVector(transform.position) * force;
-                rb.AddForce(dir, ForceMode2D.Impulse);
+                Attack(GameManager.Gm.GetMouseVector(transform.position) * force);
             }
 
             coolDownTimer(); 
         }
+    }
+
+    public void Attack(Vector2 dir)
+    {
+        attackCount += 1;
+        coolDown = 1;
+        rb.velocity = dir;
     }
 
     void coolDownTimer()
@@ -58,9 +62,6 @@ public class Spear : PickableObject
     private void OnCollisionEnter2D(Collision2D collision)
     {
         rb = GetComponent<Rigidbody2D>();
-        if(collision.gameObject.TryGetComponent(out HingeJoint2D hinge) && collision.gameObject.CompareTag("enemy") && rb.velocity.magnitude > 20)
-        {
-            Destroy(hinge);
-        }
+        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, IsPickedByEnemy));
     }
 }

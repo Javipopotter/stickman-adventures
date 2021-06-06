@@ -43,7 +43,7 @@ public class PlataformerMovement : HumanoidController
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            StartCoroutine(Jump()); ;
         }
     }
 

@@ -11,6 +11,7 @@ public class HumanoidController : MonoBehaviour
     public float speed = 10;
     public float jumpForce;
     public bool canJump;
+    bool t;
 
     public void CheckCanJump()
     {
@@ -22,11 +23,14 @@ public class HumanoidController : MonoBehaviour
         an.Play("Move");
     }
 
-    public void Jump()
+    public IEnumerator Jump()
     {
-        if (canJump)
+        if (canJump && t)
         {
+            t = false;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+        yield return new WaitForSeconds(0.3f);
+        t = true;
     }
 }
