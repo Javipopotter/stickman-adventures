@@ -63,7 +63,7 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (holding && !grabbed && collision.transform.CompareTag("Pickable") && Grabs)
+        if (holding && !grabbed && collision.transform.CompareTag("Pickable") && Grabs && !collision.GetComponent<PickableObject>().Holded)
         {
             grabbed = true;
             objectGrab = false;
@@ -91,7 +91,7 @@ public class Grab : MonoBehaviour
         }
         else if(collision.transform.CompareTag("Pickable") && Grabs)
         {
-            if (collision.gameObject.TryGetComponent(out PickableObject Picked))
+            if (collision.gameObject.TryGetComponent(out PickableObject Picked) && !Picked.Holded)
             {
                 GameManager.Gm.highLight.SetFloat("_OutlineThickness", Picked.OutLineThickness);
                 Picked.sr.material = GameManager.Gm.highLight;
@@ -115,7 +115,7 @@ public class Grab : MonoBehaviour
         if(Grabs)
         {
             grabbed = false;
-            ActiveDeactivePunches(CanPunch, !BlockArm);
+            ActiveDeactivePunches(true, false);
             pickable.ChangeProperties(gameObject, false, false);
         }
     }

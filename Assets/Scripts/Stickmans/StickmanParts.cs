@@ -5,13 +5,7 @@ using UnityEngine;
 public class StickmanParts : MonoBehaviour
 {
     bool separated;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if(TryGetComponent(out PartsLifes PL) && PL.lifes <= 0)

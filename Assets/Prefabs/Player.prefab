@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 8621573056331816627}
   - component: {fileID: 8621573056331816630}
   - component: {fileID: 8621573056331816626}
-  - component: {fileID: 4498223504523569844}
+  - component: {fileID: 8575489918273600367}
   m_Layer: 10
   m_Name: LeftArm
   m_TagString: Player
@@ -995,7 +995,7 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
---- !u!114 &4498223504523569844
+--- !u!114 &8575489918273600367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1004,15 +1004,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573056331816624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0745cbe414385439fa05d2064ad9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 300
-  OrLifes: 0
   vitalPoint: 0
-  IsPlayer: 0
-  IsLeg: 0
-  QuarterJ: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8621573056370368448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +1024,7 @@ GameObject:
   - component: {fileID: 8621573056370368450}
   - component: {fileID: 8621573056370368452}
   - component: {fileID: 8621573056370368451}
-  - component: {fileID: 1150252781313377900}
+  - component: {fileID: 3284972088592957796}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -1111,7 +1110,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1150252781313377900
+--- !u!114 &3284972088592957796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1120,12 +1119,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573056370368448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 433a22103f471a34aaeba58d343e536a, type: 3}
+  m_Script: {fileID: 11500000, guid: e8e02df02f0a20740bfb1e5bbb82707e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   positions: []
   rotation: []
-  grabs: []
   partsLifes: []
 --- !u!1 &8621573056431185289
 GameObject:
@@ -1141,7 +1139,7 @@ GameObject:
   - component: {fileID: 8621573056431185295}
   - component: {fileID: 8621573056431185292}
   - component: {fileID: 8621573056431185291}
-  - component: {fileID: 835920165594665050}
+  - component: {fileID: 2233186335225087901}
   m_Layer: 10
   m_Name: Pierna21
   m_TagString: Player
@@ -1301,7 +1299,7 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -90
     m_UpperAngle: 90
---- !u!114 &835920165594665050
+--- !u!114 &2233186335225087901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1310,15 +1308,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573056431185289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0745cbe414385439fa05d2064ad9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
-  OrLifes: 0
+  lifes: 300
   vitalPoint: 0
-  IsPlayer: 0
-  IsLeg: 0
-  QuarterJ: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8621573056513774953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1330,7 @@ GameObject:
   - component: {fileID: 8621573056513774959}
   - component: {fileID: 8621573056513774956}
   - component: {fileID: 8621573056513774955}
-  - component: {fileID: 6425380146076655662}
+  - component: {fileID: 5721577460277974484}
   m_Layer: 10
   m_Name: Pierna2
   m_TagString: Player
@@ -1493,7 +1490,7 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
---- !u!114 &6425380146076655662
+--- !u!114 &5721577460277974484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1502,15 +1499,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573056513774953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0745cbe414385439fa05d2064ad9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
-  OrLifes: 0
+  lifes: 300
   vitalPoint: 0
-  IsPlayer: 0
-  IsLeg: 0
-  QuarterJ: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8621573056730976414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1695,7 @@ GameObject:
   - component: {fileID: 8621573056797649405}
   - component: {fileID: 8621573056797649402}
   - component: {fileID: 8621573056797649401}
-  - component: {fileID: 7469673685380720715}
+  - component: {fileID: 8238425498069206636}
   m_Layer: 10
   m_Name: Pierna12
   m_TagString: Player
@@ -1859,7 +1855,7 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -90
     m_UpperAngle: 90
---- !u!114 &7469673685380720715
+--- !u!114 &8238425498069206636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1868,15 +1864,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573056797649415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0745cbe414385439fa05d2064ad9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
-  OrLifes: 0
+  lifes: 300
   vitalPoint: 0
-  IsPlayer: 0
-  IsLeg: 0
-  QuarterJ: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8621573057137987694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,7 +2060,7 @@ GameObject:
   - component: {fileID: 8621573057186453953}
   - component: {fileID: 8621573057186453952}
   - component: {fileID: 8621573057186453956}
-  - component: {fileID: 5617460581223595264}
+  - component: {fileID: 4560632494448063235}
   m_Layer: 10
   m_Name: LeftForeArm
   m_TagString: Player
@@ -2226,7 +2221,7 @@ MonoBehaviour:
   armLock: 0
   force: 3100
   OnlyPunches: 0
---- !u!114 &5617460581223595264
+--- !u!114 &4560632494448063235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2235,15 +2230,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573057186453966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0745cbe414385439fa05d2064ad9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 300
-  OrLifes: 0
   vitalPoint: 0
-  IsPlayer: 0
-  IsLeg: 0
-  QuarterJ: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8621573057416835054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,7 +2378,7 @@ GameObject:
   - component: {fileID: 8621573057730418490}
   - component: {fileID: 8621573057730418489}
   - component: {fileID: 8621573057730418488}
-  - component: {fileID: 5295195893921678420}
+  - component: {fileID: 2670105441815265337}
   m_Layer: 10
   m_Name: Head
   m_TagString: Player
@@ -2520,7 +2514,7 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -10
     m_UpperAngle: 10
---- !u!114 &5295195893921678420
+--- !u!114 &2670105441815265337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2529,15 +2523,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573057730418502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0745cbe414385439fa05d2064ad9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 500
-  OrLifes: 0
+  lifes: 200
   vitalPoint: 1
-  IsPlayer: 0
-  IsLeg: 0
-  QuarterJ: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8621573057876320843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,7 +2627,7 @@ GameObject:
   - component: {fileID: 8621573058004041683}
   - component: {fileID: 8621573058004041695}
   - component: {fileID: 6131652289005472552}
-  - component: {fileID: 8949510867669648306}
+  - component: {fileID: 959843015127481924}
   m_Layer: 10
   m_Name: Torso
   m_TagString: Untagged
@@ -2782,7 +2775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ed68f5491e8ba4a8d6f976e6531d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8949510867669648306
+--- !u!114 &959843015127481924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2791,15 +2784,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573058004041694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0745cbe414385439fa05d2064ad9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 750
-  OrLifes: 0
+  lifes: 500
   vitalPoint: 1
-  IsPlayer: 0
-  IsLeg: 0
-  QuarterJ: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8621573058167237334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,7 +2933,7 @@ GameObject:
   - component: {fileID: 8621573058415199688}
   - component: {fileID: 8621573058415199701}
   - component: {fileID: 8621573058415199700}
-  - component: {fileID: 7250865319150574859}
+  - component: {fileID: 8379400929388600588}
   m_Layer: 10
   m_Name: Pierna1
   m_TagString: Player
@@ -3101,7 +3093,7 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
---- !u!114 &7250865319150574859
+--- !u!114 &8379400929388600588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3110,12 +3102,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8621573058415199698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0745cbe414385439fa05d2064ad9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
-  OrLifes: 0
+  lifes: 300
   vitalPoint: 0
-  IsPlayer: 0
-  IsLeg: 0
-  QuarterJ: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}

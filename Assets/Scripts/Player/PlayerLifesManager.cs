@@ -1,12 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickmanLifesManager : MonoBehaviour
+public class PlayerLifesManager : MonoBehaviour
 {
     public List<Vector2> positions;
     public List<Quaternion> rotation;
-    public List<Grab> grabs;
+    List<Grab> grabs;
     public List<PartsLifes> partsLifes;
     void Start()
     {
@@ -44,15 +44,5 @@ public class StickmanLifesManager : MonoBehaviour
                 grab.pickable.ChangeProperties(grab.gameObject, false, false);
             }
         }
-    }
-
-    public void Death()
-    {
-        foreach(PartsLifes part in partsLifes)
-        {
-            if (part.TryGetComponent(out Balance bal))
-                bal.enabled = false;
-        }
-        GetComponent<AI>().enabled = false;
     }
 }

@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 2149196483364079055}
   - component: {fileID: 2149196483364079054}
   - component: {fileID: 5548490679851659732}
-  - component: {fileID: 3955289819321519506}
-  m_Layer: 9
+  - component: {fileID: 6783317554956942518}
+  m_Layer: 11
   m_Name: Pierna1
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
   m_LocalScale: {x: 0.22883493, y: 1.2616369, z: 1}
   m_Children: []
   m_Father: {fileID: 2149196485094088667}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2149196483364079053
 SpriteRenderer:
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3955289819321519506
+--- !u!114 &6783317554956942518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,15 +195,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196483364079048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
-  OrLifes: 0
+  lifes: 300
   vitalPoint: 0
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 1
-  QuarterJ: 0
 --- !u!1 &2149196483506569156
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,8 +221,8 @@ GameObject:
   - component: {fileID: 2149196483506569161}
   - component: {fileID: 2149196483506569157}
   - component: {fileID: 2068402530836630796}
-  - component: {fileID: 143086771424284381}
-  m_Layer: 9
+  - component: {fileID: 1692811083037937042}
+  m_Layer: 11
   m_Name: Torso
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -239,7 +241,7 @@ Transform:
   m_LocalScale: {x: 0.22883493, y: 2.1917999, z: 1}
   m_Children: []
   m_Father: {fileID: 2149196485094088667}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2149196483506569163
 SpriteRenderer:
@@ -357,7 +359,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -378,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &143086771424284381
+--- !u!114 &1692811083037937042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,15 +389,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196483506569156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 750
-  OrLifes: 0
+  lifes: 500
   vitalPoint: 1
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 0
-  QuarterJ: 0
 --- !u!1 &2149196483769685852
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,8 +414,8 @@ GameObject:
   - component: {fileID: 2149196483769685795}
   - component: {fileID: 2149196483769685794}
   - component: {fileID: 1047098746673466668}
-  - component: {fileID: 9132313136422221073}
-  m_Layer: 9
+  - component: {fileID: 5785890406348651680}
+  m_Layer: 11
   m_Name: Head
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -512,7 +516,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -557,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9132313136422221073
+--- !u!114 &5785890406348651680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -566,15 +570,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196483769685852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 500
-  OrLifes: 0
+  lifes: 200
   vitalPoint: 1
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 0
-  QuarterJ: 0
 --- !u!1 &2149196483898778193
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2149196483898778198}
   - component: {fileID: 2149196483898778199}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,8 +677,8 @@ GameObject:
   - component: {fileID: 2149196484234186875}
   - component: {fileID: 2149196484234186874}
   - component: {fileID: 8139295448006080201}
-  - component: {fileID: 7656892749811545031}
-  m_Layer: 9
+  - component: {fileID: 8405768527283883704}
+  m_Layer: 11
   m_Name: RightForeArm
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -782,7 +788,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -827,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7656892749811545031
+--- !u!114 &8405768527283883704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -836,15 +842,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196484234186868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 300
-  OrLifes: 0
   vitalPoint: 0
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 0
-  QuarterJ: 0
 --- !u!1 &2149196484282194388
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,8 +867,8 @@ GameObject:
   - component: {fileID: 2149196484282194395}
   - component: {fileID: 2149196484282194394}
   - component: {fileID: 120167927173513109}
-  - component: {fileID: 6528944649886687694}
-  m_Layer: 9
+  - component: {fileID: 5017034515763384205}
+  m_Layer: 11
   m_Name: LeftForeArm
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -970,7 +978,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -1015,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6528944649886687694
+--- !u!114 &5017034515763384205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1024,15 +1032,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196484282194388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 300
-  OrLifes: 0
   vitalPoint: 0
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 1
+  AssignedHand: {fileID: 6356043256743123217}
   IsLeg: 0
-  QuarterJ: 0
 --- !u!1 &2149196484900458628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,8 +1057,8 @@ GameObject:
   - component: {fileID: 2149196484900458635}
   - component: {fileID: 2149196484900458634}
   - component: {fileID: 2164955979742207259}
-  - component: {fileID: 1031673400878225614}
-  m_Layer: 9
+  - component: {fileID: 8838181990038842511}
+  m_Layer: 11
   m_Name: RightArm
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -1158,7 +1168,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -1203,7 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1031673400878225614
+--- !u!114 &8838181990038842511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1212,15 +1222,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196484900458628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 300
-  OrLifes: 0
   vitalPoint: 0
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 0
-  QuarterJ: 0
 --- !u!1 &2149196484967754269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,8 +1248,8 @@ GameObject:
   - component: {fileID: 2149196484967754208}
   - component: {fileID: 2149196484967754211}
   - component: {fileID: 1292869960775868570}
-  - component: {fileID: 3329491278072573604}
-  m_Layer: 9
+  - component: {fileID: 6792731725117272689}
+  m_Layer: 11
   m_Name: Pierna12
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -1256,7 +1268,7 @@ Transform:
   m_LocalScale: {x: 0.22883493, y: 1.2616369, z: 1}
   m_Children: []
   m_Father: {fileID: 2149196485094088667}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2149196484967754214
 SpriteRenderer:
@@ -1362,7 +1374,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -1407,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3329491278072573604
+--- !u!114 &6792731725117272689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1416,15 +1428,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196484967754269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
-  OrLifes: 0
+  lifes: 300
   vitalPoint: 0
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 1
-  QuarterJ: 0
 --- !u!1 &2149196485038268074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,8 +1453,8 @@ GameObject:
   - component: {fileID: 2149196485038268073}
   - component: {fileID: 2149196485038268072}
   - component: {fileID: 5308059763697419408}
-  - component: {fileID: 6087342872499938046}
-  m_Layer: 9
+  - component: {fileID: 6500533313798022662}
+  m_Layer: 11
   m_Name: LeftArm
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -1550,7 +1564,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -1595,7 +1609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6087342872499938046
+--- !u!114 &6500533313798022662
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1604,15 +1618,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196485038268074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 300
-  OrLifes: 0
   vitalPoint: 0
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 1
+  AssignedHand: {fileID: 6356043256743123217}
   IsLeg: 0
-  QuarterJ: 0
 --- !u!1 &2149196485094088666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,6 +1666,7 @@ Transform:
   - {fileID: 2149196484234186869}
   - {fileID: 2149196485038268075}
   - {fileID: 2149196484282194389}
+  - {fileID: 1463491661909188949}
   - {fileID: 2149196483364079049}
   - {fileID: 2149196485220160880}
   - {fileID: 2149196484967754210}
@@ -1734,9 +1751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433a22103f471a34aaeba58d343e536a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions: []
-  rotation: []
-  grabs: []
   partsLifes: []
 --- !u!1 &2149196485138128275
 GameObject:
@@ -1753,8 +1767,8 @@ GameObject:
   - component: {fileID: 2149196485138128278}
   - component: {fileID: 2149196485138128273}
   - component: {fileID: 2549478371270751188}
-  - component: {fileID: 6529551807433937913}
-  m_Layer: 9
+  - component: {fileID: 3170079422716702229}
+  m_Layer: 11
   m_Name: Pierna21
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -1773,7 +1787,7 @@ Transform:
   m_LocalScale: {x: 0.22883493, y: 1.2616369, z: 1}
   m_Children: []
   m_Father: {fileID: 2149196485094088667}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2149196485138128276
 SpriteRenderer:
@@ -1879,7 +1893,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -1924,7 +1938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6529551807433937913
+--- !u!114 &3170079422716702229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1933,15 +1947,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196485138128275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
-  OrLifes: 0
+  lifes: 300
   vitalPoint: 0
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 1
-  QuarterJ: 0
 --- !u!1 &2149196485220160883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,8 +1973,8 @@ GameObject:
   - component: {fileID: 2149196485220160886}
   - component: {fileID: 2149196485220160881}
   - component: {fileID: 1910412535847885830}
-  - component: {fileID: 8772570069241643927}
-  m_Layer: 9
+  - component: {fileID: 6586871012902290919}
+  m_Layer: 11
   m_Name: Pierna2
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -1977,7 +1993,7 @@ Transform:
   m_LocalScale: {x: 0.22883493, y: 1.2616369, z: 1}
   m_Children: []
   m_Father: {fileID: 2149196485094088667}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2149196485220160884
 SpriteRenderer:
@@ -2083,7 +2099,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -2128,7 +2144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8772570069241643927
+--- !u!114 &6586871012902290919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2137,12 +2153,122 @@ MonoBehaviour:
   m_GameObject: {fileID: 2149196485220160883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6b9b806e647dd449366181c39df60a, type: 3}
+  m_Script: {fileID: 11500000, guid: d798eb5de6aa112418c21232e6ebb90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 100
-  OrLifes: 0
+  lifes: 300
   vitalPoint: 0
-  IsPlayer: 0
+  OrLifes: 0
+  sr: {fileID: 0}
+  OrColor: {r: 0, g: 0, b: 0, a: 0}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 1
-  QuarterJ: 0
+--- !u!1 &5066495884566824304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463491661909188949}
+  - component: {fileID: 2871399912557571215}
+  - component: {fileID: 4204747904917164198}
+  - component: {fileID: 8578048562133775170}
+  - component: {fileID: 6356043256743123217}
+  m_Layer: 11
+  m_Name: 'InteractionZone '
+  m_TagString: InteractionZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1463491661909188949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066495884566824304}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.099342, y: 2.0020003, z: 0}
+  m_LocalScale: {x: 1, y: 0.2288353, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2149196485094088667}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2871399912557571215
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066495884566824304}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
+--- !u!50 &4204747904917164198
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066495884566824304}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!233 &8578048562133775170
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066495884566824304}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 2149196484282194395}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: -0.004721105, y: -0.0000004407857}
+  m_ConnectedAnchor: {x: 0.49506283, y: -0.0553569}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
+--- !u!114 &6356043256743123217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066495884566824304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d93c70db7fe4f4997cca9bb3df6486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickableObject: {fileID: 0}

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TorsoCollisions : MonoBehaviour
 {
-    StickmanLifesManager respawn;
+    PlayerLifesManager respawn;
     private void Start()
     {
-        respawn = GetComponentInParent<StickmanLifesManager>();
+        respawn = GetComponentInParent<PlayerLifesManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

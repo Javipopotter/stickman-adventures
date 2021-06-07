@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockRot: 0
-  doesntCollide: 1
+  doesntCollide: 0
   transformsPos: 1
   pickaxe: 1
   Components:
@@ -225,6 +225,7 @@ MonoBehaviour:
   CanPunch: 0
   BlockArm: 0
   DmgMultiplier: 0.5
+  IsPickedByEnemy: 0
   HoldTimer: 0
 --- !u!114 &3768432273447598153
 MonoBehaviour:

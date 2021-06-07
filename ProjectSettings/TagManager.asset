@@ -18,12 +18,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - EnemyPickedObject
   - IgnoreAlmostAll
   - floor
   - PickedObject
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 

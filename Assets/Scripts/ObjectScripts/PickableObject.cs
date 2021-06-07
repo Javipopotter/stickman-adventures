@@ -77,11 +77,14 @@ public class PickableObject : MonoBehaviour
 
     public void ActiveDeactiveComponents(bool Switch)
     {
-        foreach (Behaviour component in Components)
+        if (!IsPickedByEnemy)
         {
-            component.enabled = Switch;
-            Holded = Switch;
+            foreach (Behaviour component in Components)
+            {
+                component.enabled = Switch;
+            } 
         }
+        Holded = Switch;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

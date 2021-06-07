@@ -19,12 +19,15 @@ public class Spear : PickableObject
     {
         if (Holded)
         {
-            if (Input.GetMouseButtonDown(0) && activeCoolDown == false)
+            if (!IsPickedByEnemy)
             {
-                Attack(GameManager.Gm.GetMouseVector(transform.position) * force);
-            }
+                if (Input.GetMouseButtonDown(0) && activeCoolDown == false)
+                {
+                    Attack(GameManager.Gm.GetMouseVector(transform.position) * force);
+                }
 
-            coolDownTimer(); 
+                coolDownTimer();  
+            }
         }
     }
 

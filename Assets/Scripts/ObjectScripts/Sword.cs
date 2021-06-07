@@ -26,17 +26,17 @@ public class Sword : PickableObject
         if (Holded)
         {
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && !IsPickedByEnemy)
             {
                 ChargeAttack();
             }
 
-            if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0))
+            if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0) && !IsPickedByEnemy)
             {
                 Atack();
             }
 
-            if (!Input.GetMouseButton(0))
+            if (!Input.GetMouseButton(0) && !IsPickedByEnemy)
             {
                 HoldTimer = 0;
             } 

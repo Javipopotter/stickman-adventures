@@ -28,10 +28,13 @@ public class HookShot : PickableObject
         if(Holded)
         {
             Hook.GetComponent<Hook>().PickedByEnemy = IsPickedByEnemy;
-            if (Input.GetMouseButton(0) && e)
-                Shot();
-            else if (!Input.GetMouseButton(0) && e == false)
-                UnShot();
+            if (!IsPickedByEnemy)
+            {
+                if (Input.GetMouseButton(0) && e)
+                    Shot();
+                else if (!Input.GetMouseButton(0) && e == false)
+                    UnShot(); 
+            }
         }
 
         if(e == false)
