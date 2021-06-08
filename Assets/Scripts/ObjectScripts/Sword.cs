@@ -5,10 +5,10 @@ using UnityEngine;
 public class Sword : PickableObject
 {
     Animator an;
-    MoveArms MoveArms;
+    public MoveArms MoveArms;
     [SerializeField] float HoldTimer;
     bool e = true;
-    private void Start()
+    private void Awake()
     {
         MoveArms = GetComponent<MoveArms>();
         an = GetComponent<Animator>();
@@ -33,7 +33,7 @@ public class Sword : PickableObject
 
             if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0) && !IsPickedByEnemy)
             {
-                Atack();
+                Attack();
             }
 
             if (!Input.GetMouseButton(0) && !IsPickedByEnemy)
@@ -51,7 +51,7 @@ public class Sword : PickableObject
         }
     }
 
-    public void Atack()
+    public void Attack()
     {
         e = false;
         sr.color = Color.yellow;

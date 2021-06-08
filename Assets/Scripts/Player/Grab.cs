@@ -6,7 +6,7 @@ using UnityEngine;
 public class Grab : MonoBehaviour
 {
     public bool holding;
-    bool grabbed;
+    public bool grabbed;
     bool objectGrab;
     bool f = true;
     public bool Grabs;
@@ -19,7 +19,6 @@ public class Grab : MonoBehaviour
         {
             Drop();
             f = false;
-            Destroy(GetComponent<FixedJoint2D>());
         }
 
         if(Input.GetMouseButton(1) && f)
@@ -110,9 +109,10 @@ public class Grab : MonoBehaviour
         }
     }
 
-    private void Drop()
+    public void Drop()
     {
-        if(Grabs)
+        Destroy(GetComponent<FixedJoint2D>());
+        if (Grabs)
         {
             grabbed = false;
             ActiveDeactivePunches(true, false);

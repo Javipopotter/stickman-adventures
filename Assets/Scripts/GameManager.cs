@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject DmgText;
     float DmgSum;
     public Material highLight;
+    [SerializeField] Color PlayerDmgColor;
 
     void Awake()
     {
@@ -29,29 +30,27 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator DoDamage(Collision2D collision, Rigidbody2D rb, float DmgMultiplier, bool PickedByEnemy)
     {
-        if (!PickedByEnemy)
+        if ((collision.gameObject.CompareTag("enemy") || collision.gameObject.CompareTag("Player")) && rb.velocity.magnitude > 20 && collision.transform.GetComponent<PartsLifes>().isActiveAndEnabled)
         {
-            if (collision.gameObject.CompareTag("enemy") && rb.velocity.magnitude > 20 && collision.transform.GetComponent<PartsLifes>().isActiveAndEnabled)
-            {
-                float dmg = DmgMultiplier * rb.velocity.magnitude;
-                DmgSum += dmg;
-                collision.transform.GetComponent<PartsLifes>().lifes -= dmg;
-                yield return new WaitForSeconds(0.1f);
-                if (DmgSum > 0)
-                    DmgText.GetComponent<TextMeshPro>().text = Mathf.RoundToInt(DmgSum) + "";
-                else
-                    DmgText.GetComponent<TextMeshPro>().text = "";
-                Instantiate(DmgText, collision.transform.position, Quaternion.identity);
-                DmgSum = 0;
-            } 
-        }
-        else
-        {
-            if(collision.transform.CompareTag("Player") && rb.velocity.magnitude > 20 && collision.transform.GetComponent<PartsLifes>().isActiveAndEnabled)
-            {
-                collision.transform.GetComponent<PartsLifes>().lifes -= DmgMultiplier * rb.velocity.magnitude;
-            }
-        }
+            float dmg = DmgMultiplier * rb.velocity.magnitude;
+            DmgSum += dmg;
+            collision.transform.GetComponent<PartsLifes>().lifes -= dmg;
+
+            yield return new WaitForSeconds(0.1f);
+
+            if (DmgSum > 0)
+                DmgText.GetComponent<TextMeshPro>().text = Mathf.RoundToInt(DmgSum) + "";
+            else
+                DmgText.GetComponent<TextMeshPro>().text = "";
+
+            if (!PickedByEnemy)
+                DmgText.GetComponent<TextMeshPro>().color = PlayerDmgColor;
+            else
+                DmgText.GetComponent<TextMeshPro>().color = Color.red;
+
+            Instantiate(DmgText, collision.GetContact(0).point, Quaternion.identity);
+            DmgSum = 0;
+        } 
 
         if (collision.gameObject.TryGetComponent(out HingeJoint2D hing) && collision.gameObject.CompareTag("rope") && rb.velocity.magnitude > 20)
         {

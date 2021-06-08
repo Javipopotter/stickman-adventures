@@ -13,7 +13,7 @@ public class Rope : MonoBehaviour
     public float minLength;
     public float maxLength;
 
-    void Start()   
+    void Awake()   
     {
         if (RandomLength) //You fell for it fool! Thunder cross split attack! 
             RopeLength = Random.Range(minLength, maxLength);

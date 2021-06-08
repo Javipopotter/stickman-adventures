@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomColor : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
         Color RandomCol = Random.ColorHSV();
         foreach(SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())

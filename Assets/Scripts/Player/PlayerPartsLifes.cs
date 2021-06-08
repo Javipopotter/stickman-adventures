@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerPartsLifes : PartsLifes
 {
     PlayerLifesManager playerLifesManager;
-    void Start()
+    void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         playerLifesManager = GetComponentInParent<PlayerLifesManager>();
@@ -28,8 +28,8 @@ public class PlayerPartsLifes : PartsLifes
             else
             {
                 ActiveDeactiveComponents(false);
+                this.enabled = false;
             }
-            this.enabled = false;
         }
     }
 }

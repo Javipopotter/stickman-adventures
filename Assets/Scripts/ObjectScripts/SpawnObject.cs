@@ -8,7 +8,7 @@ public class SpawnObject : MonoBehaviour
     [SerializeField] bool isItThere;
     [SerializeField] float probability;
 
-    private void Start()
+    private void Awake()
     {
         if (isItThere)
         {

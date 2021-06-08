@@ -10,7 +10,7 @@ public class AIPartLifes : PartsLifes
     public AIGrab AssignedHand;
     public bool IsLeg;
     float QuarterJ;
-    void Start()
+    void Awake()
     {
         if (transform.parent.TryGetComponent(out AI aI))
         {

@@ -17,7 +17,13 @@ public class PickableObject : MonoBehaviour
     public bool CanPunch, BlockArm;
     public float DmgMultiplier;
     public bool IsPickedByEnemy;
-    private void Start()
+    public float range;
+    public Weapon ThisWeapon;
+    public enum Weapon
+    {
+        Spear, Sword, HookShot
+    }
+    private void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         InitMaterial = sr.material;
@@ -67,7 +73,7 @@ public class PickableObject : MonoBehaviour
         }
     }
 
-    void SetLayers(int i)
+    public void SetLayers(int i)
     {
         foreach (Transform trans in GetComponentsInChildren<Transform>())
         {
@@ -97,7 +103,7 @@ public class PickableObject : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(pickaxe && collision.transform.CompareTag("floor") && takeOnMe)
+        if(pickaxe && collision.transform.CompareTag("floor") && takeOnMe && !IsPickedByEnemy)
         {
             takeOnMe = false;
             transform.eulerAngles = new Vector3(0,0,1);

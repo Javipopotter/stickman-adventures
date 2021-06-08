@@ -1124,6 +1124,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positions: []
   rotation: []
+  grabs:
+  - {fileID: 8621573058167237321}
+  - {fileID: 8621573057416835041}
   partsLifes: []
 --- !u!1 &8621573056431185289
 GameObject:
@@ -2347,6 +2350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holding: 0
+  grabbed: 0
   Grabs: 0
   pickable: {fileID: 0}
 --- !u!114 &8621573057416835040
@@ -2901,6 +2905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holding: 0
+  grabbed: 0
   Grabs: 1
   pickable: {fileID: 0}
 --- !u!114 &8621573058167237324

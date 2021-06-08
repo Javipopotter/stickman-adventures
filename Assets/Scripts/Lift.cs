@@ -11,7 +11,7 @@ public class Lift : MonoBehaviour
     [SerializeField] GameObject Ref;
     Rigidbody2D rb;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         InitPos = transform.position;

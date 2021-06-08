@@ -7,7 +7,7 @@ public class PlataformerMovement : HumanoidController
 {
     Vector2 StartPos;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = torso.GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();

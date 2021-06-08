@@ -165,7 +165,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.725819, y: 0.09775519}
+  m_Offset: {x: 4.6733937, y: 0.09775519}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -176,7 +176,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.946893, y: 7.1647267}
+  m_Size: {x: 15.043883, y: 7.1647267}
   m_EdgeRadius: 0
 --- !u!50 &5207459109483392944
 Rigidbody2D:
@@ -222,10 +222,13 @@ MonoBehaviour:
   Holded: 0
   InitMaterial: {fileID: 0}
   OutLineThickness: 10
-  CanPunch: 0
+  CanPunch: 1
   BlockArm: 0
   DmgMultiplier: 0.5
   IsPickedByEnemy: 0
+  range: 10
+  ThisWeapon: 1
+  MoveArms: {fileID: 0}
   HoldTimer: 0
 --- !u!114 &3768432273447598153
 MonoBehaviour:

@@ -8,19 +8,31 @@ public class Hook : MonoBehaviour
     [SerializeField] GameObject HookShot;
     Rigidbody2D rb;
     public DistanceJoint2D DisJoint;
-    [HideInInspector] public bool isHooked;
+    FixedJoint2D FJ;
+    public bool isHooked;
     [HideInInspector] public float DmgMultiplier;
     [HideInInspector] public bool PickedByEnemy;
+    public GameObject col;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("floor") && isHooked == false)
+        if (isHooked == false && !PickedByEnemy)
         {
+            col = collision.gameObject;
             isHooked = true;
             transform.parent = null;
-            gameObject.AddComponent<FixedJoint2D>();
+            FJ = gameObject.AddComponent<FixedJoint2D>();
             DisJoint = gameObject.AddComponent<DistanceJoint2D>();
-            DisJoint.enabled = true;
+            if (collision.gameObject.TryGetComponent(out Rigidbody2D ColRb))
+            {
+                FJ.connectedBody = ColRb;
+            }
             DisJoint.connectedBody = hookShotRb;
+            DisJoint.autoConfigureDistance = false;
+            DisJoint.maxDistanceOnly = true;
+        }
+        else if(PickedByEnemy)
+        {
+            HookShot.GetComponent<HookShot>().UnShot();
         }
 
         rb = GetComponent<Rigidbody2D>();

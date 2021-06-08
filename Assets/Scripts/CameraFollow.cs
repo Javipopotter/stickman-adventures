@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] GameObject camaraaddjust;
     float CamaraRadius;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CamaraRadius = camaraaddjust.transform.localPosition.y;
     }

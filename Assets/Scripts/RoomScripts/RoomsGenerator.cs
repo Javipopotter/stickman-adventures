@@ -65,7 +65,7 @@ public class RoomsGenerator : MonoBehaviour
             TypeOfRoom.Clear();
             GameManager.Gm.ocuppedPos.Add(roomPos);
             GameManager.Gm.GeneratedRooms.Add(lastRoom as GameObject);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
         Fill();
     }

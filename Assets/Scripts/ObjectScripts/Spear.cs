@@ -6,10 +6,10 @@ using UnityEngine;
 public class Spear : PickableObject
 {
     [SerializeField] float force = 150;
-    [SerializeField] float coolDown = 3;
+    [SerializeField] float coolDown = 0;
     [SerializeField] bool activeCoolDown;
     [SerializeField] int attackCount = 0;
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -17,13 +17,15 @@ public class Spear : PickableObject
     }
     private void Update()
     {
+        sr.color = Color.Lerp(Color.white,Color.red,coolDown / 3);
+
         if (Holded)
         {
             if (!IsPickedByEnemy)
             {
                 if (Input.GetMouseButtonDown(0) && activeCoolDown == false)
                 {
-                    Attack(GameManager.Gm.GetMouseVector(transform.position) * force);
+                    Attack(GameManager.Gm.GetMouseVector(transform.position));
                 }
 
                 coolDownTimer();  
@@ -35,7 +37,7 @@ public class Spear : PickableObject
     {
         attackCount += 1;
         coolDown = 1;
-        rb.velocity = dir;
+        rb.velocity = dir * force;
     }
 
     void coolDownTimer()

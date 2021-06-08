@@ -5,7 +5,7 @@ using UnityEngine;
 public class TorsoCollisions : MonoBehaviour
 {
     PlayerLifesManager respawn;
-    private void Start()
+    private void Awake()
     {
         respawn = GetComponentInParent<PlayerLifesManager>();
     }

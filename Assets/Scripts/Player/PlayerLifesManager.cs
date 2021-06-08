@@ -6,9 +6,9 @@ public class PlayerLifesManager : MonoBehaviour
 {
     public List<Vector2> positions;
     public List<Quaternion> rotation;
-    List<Grab> grabs;
+    public Grab[] grabs;
     public List<PartsLifes> partsLifes;
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -19,9 +19,11 @@ public class PlayerLifesManager : MonoBehaviour
 
     public void respawn()
     {
-        foreach (PartsLifes part in partsLifes)
+        foreach (PlayerPartsLifes part in partsLifes)
         {
             part.ActiveDeactiveComponents(true);
+            part.lifes = part.OrLifes;
+            part.enabled = true;
         }
 
         for (int i = 0; i < transform.childCount; i++)
@@ -31,17 +33,11 @@ public class PlayerLifesManager : MonoBehaviour
             transform.GetChild(i).GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
-        foreach (FixedJoint2D fixedJoint2D in GetComponentsInChildren<FixedJoint2D>())
-        {
-            Destroy(fixedJoint2D);
-        }
-
         foreach (Grab grab in grabs)
         {
-            grab.ActiveDeactivePunches(true, false);
-            if (grab.pickable != null)
+            if (grab.grabbed)
             {
-                grab.pickable.ChangeProperties(grab.gameObject, false, false);
+                grab.Drop();
             }
         }
     }

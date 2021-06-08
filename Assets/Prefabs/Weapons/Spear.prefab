@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1740154177434698925}
   - component: {fileID: 1740154177434698924}
   - component: {fileID: 1740154177434698926}
-  - component: {fileID: 1740154177434698921}
   - component: {fileID: 6185369692195282698}
   - component: {fileID: 5077445604471087439}
   - component: {fileID: 7031936277654608825}
+  - component: {fileID: 7488959190809536938}
   m_Layer: 9
   m_Name: Spear
   m_TagString: Pickable
@@ -84,22 +84,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &1740154177434698921
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740154177434698899}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.7, y: 0.1}
-  serializedVersion: 2
-  m_Radius: 2.05
 --- !u!114 &6185369692195282698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,8 +127,10 @@ MonoBehaviour:
   BlockArm: 0
   DmgMultiplier: 0.3
   IsPickedByEnemy: 0
+  range: 10
+  ThisWeapon: 0
   force: 150
-  coolDown: 3
+  coolDown: 0
   activeCoolDown: 0
   attackCount: 0
 --- !u!60 &7031936277654608825
@@ -179,6 +165,32 @@ PolygonCollider2D:
       - {x: 4.39, y: -0.67}
       - {x: 5.85, y: -0.71}
       - {x: 5.42, y: -0.33}
+--- !u!61 &7488959190809536938
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740154177434698899}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.1805327, y: 0.030508757}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.7271705, y: 4.2949405}
+  m_EdgeRadius: 0
 --- !u!1 &3642980705872572937
 GameObject:
   m_ObjectHideFlags: 0

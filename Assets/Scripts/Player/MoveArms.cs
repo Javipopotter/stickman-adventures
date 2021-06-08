@@ -12,7 +12,7 @@ public class MoveArms : MonoBehaviour
     public float force;
     [SerializeField] bool OnlyPunches;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -43,6 +43,11 @@ public class MoveArms : MonoBehaviour
         rotz = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         NormalizeFloat(rotz);
         rb.AddTorque(NormalizeFloat(rotz) * force);
+    }
+
+    public void EnemyPunch(float dir)
+    {
+        rb.AddTorque(force * NormalizeFloat(dir));
     }
 
     float NormalizeFloat(float f)
