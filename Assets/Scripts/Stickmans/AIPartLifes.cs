@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIPartLifes : PartsLifes
 {
+    [SerializeField]AIPartLifes ConnectedPart;
     AI ai;
     StickmanLifesManager stickmanLifesManager;
     public bool IsHand;
@@ -46,10 +47,19 @@ public class AIPartLifes : PartsLifes
     public override void ActiveDeactiveComponents(bool t)
     {
         base.ActiveDeactiveComponents(t);
+        if(ConnectedPart != null)
+        {
+            ConnectedPart.lifes = 0;
+        }
+
         if (IsLeg)
+        {
             ai.jumpForce -= QuarterJ;
+        }
 
         if (IsHand)
+        {
             AssignedHand.Drop();
+        }
     }
 }

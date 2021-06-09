@@ -103,14 +103,17 @@ public class PickableObject : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(pickaxe && collision.transform.CompareTag("floor") && takeOnMe && !IsPickedByEnemy)
+        if (Holded)
         {
-            takeOnMe = false;
-            transform.eulerAngles = new Vector3(0,0,1);
-        }
-        if (pickaxe && collision.transform.CompareTag("floor") && transformsPos && GetComponent<MoveArms>().enabled)
-        {
-            transform.position = Hand.transform.position;
+            if (pickaxe && collision.transform.CompareTag("floor") && takeOnMe && !IsPickedByEnemy)
+            {
+                takeOnMe = false;
+                transform.eulerAngles = new Vector3(0, 0, 1);
+            }
+            if (transformsPos)
+            {
+                transform.position = Hand.transform.position;
+            } 
         }
         if(Holded == false && collision.transform.CompareTag("floor"))
         {

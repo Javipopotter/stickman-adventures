@@ -11,7 +11,8 @@ public class HookShot : PickableObject
     Rigidbody2D hookRb;
     public GameObject OriginalHookPos;
     LineRenderer lineRenderer;
-    bool e = true;
+    [SerializeField]bool e = true;
+    bool GatheredUp;
     public Vector2 dir;
     bool HookGatherUp;
     void Awake()
@@ -33,7 +34,7 @@ public class HookShot : PickableObject
         lineRenderer.SetPosition(1, Hook.transform.position);
         if(Holded)
         {
-            Hook.GetComponent<Hook>().PickedByEnemy = IsPickedByEnemy;
+            HookScript.PickedByEnemy = IsPickedByEnemy;
             if (!IsPickedByEnemy)
             {
                 if (Input.GetMouseButton(0) && e)
@@ -46,6 +47,14 @@ public class HookShot : PickableObject
                 moveArms.enabled = false;
             }
         }
+        else if(!GatheredUp)
+        {
+            UnShot();
+        }
+        else
+        {
+            hookRb.velocity = Vector2.zero;
+        }
 
         if(e == false)
         {
@@ -57,28 +66,34 @@ public class HookShot : PickableObject
             {
                 if (HookScript.isHooked && HookScript.col.TryGetComponent(out Rigidbody2D colRb))
                 {
-                    colRb.AddForce(-dir * 1500 * Time.deltaTime, ForceMode2D.Impulse);
+                    colRb.AddForce(1500 * Time.deltaTime * -dir, ForceMode2D.Impulse);
                 }
                 else if (HookScript.isHooked)
                 {
-                    rb.AddForce(dir * 1500 * Time.deltaTime, ForceMode2D.Impulse);
+                    rb.AddForce(1500 * Time.deltaTime * dir, ForceMode2D.Impulse);
                 } 
             }
         }
 
         if(HookGatherUp)
         {
-            hookRb.velocity = -dir * HookForce * 2;
+            hookRb.velocity = 2 * HookForce * -dir;
             if(Vector2.Distance(Hook.transform.position, transform.position) < 3)
             {
+                GatheredUp = true;
                 e = true;
                 HookGatherUp = false;
-                GetComponent<MoveArms>().enabled = true;
-                Hook.transform.position = OriginalHookPos.transform.position;
-                Hook.transform.rotation = OriginalHookPos.transform.rotation;
+                Hook.transform.SetPositionAndRotation(OriginalHookPos.transform.position, OriginalHookPos.transform.rotation);
                 Hook.transform.parent = gameObject.transform;
                 hookRb.isKinematic = true;
+                if(Holded)
+                    GetComponent<MoveArms>().enabled = true;
             }
+        }
+
+        if(Vector2.Distance(transform.position, Hook.transform.position) > 80)
+        {
+            UnShot();
         }
     }
 
@@ -86,6 +101,7 @@ public class HookShot : PickableObject
     {
         if (!HookGatherUp)
         {
+            GatheredUp = false;
             e = false;
             hookRb.isKinematic = false;
             Hook.GetComponent<BoxCollider2D>().enabled = true;

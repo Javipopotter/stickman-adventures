@@ -203,6 +203,7 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 6792731725117272689}
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 1
@@ -397,6 +398,7 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
@@ -574,10 +576,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 200
-  vitalPoint: 1
+  vitalPoint: 0
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 1692811083037937042}
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
@@ -850,6 +853,7 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
@@ -1040,6 +1044,7 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 0}
   IsHand: 1
   AssignedHand: {fileID: 6356043256743123217}
   IsLeg: 0
@@ -1230,6 +1235,7 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 8405768527283883704}
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
@@ -1436,6 +1442,7 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 6792731725117272689}
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 1
@@ -1626,8 +1633,9 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  IsHand: 1
-  AssignedHand: {fileID: 6356043256743123217}
+  ConnectedPart: {fileID: 5017034515763384205}
+  IsHand: 0
+  AssignedHand: {fileID: 0}
   IsLeg: 0
 --- !u!1 &2149196485094088666
 GameObject:
@@ -1955,6 +1963,7 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 1
@@ -2161,6 +2170,7 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 1
@@ -2271,4 +2281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d93c70db7fe4f4997cca9bb3df6486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabbed: 0
   pickableObject: {fileID: 0}
+  grabbedObject: {fileID: 0}
