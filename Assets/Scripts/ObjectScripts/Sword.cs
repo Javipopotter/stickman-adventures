@@ -8,16 +8,14 @@ public class Sword : PickableObject
     public MoveArms MoveArms;
     [SerializeField] float HoldTimer;
     bool e = true;
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         MoveArms = GetComponent<MoveArms>();
         an = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponentInChildren<SpriteRenderer>();
-        InitMaterial = sr.material;
     }
 
-    private void Update()
+    void Update()
     {
         if (e)
         {
@@ -33,6 +31,7 @@ public class Sword : PickableObject
 
             if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0) && !IsPickedByEnemy)
             {
+                HoldTimer = 0;
                 Attack();
             }
 
@@ -43,11 +42,11 @@ public class Sword : PickableObject
         }
         else
         {
-            HoldTimer = 0;
             if(HoldTimer >= 1.5f)
             {
                 MoveArms.Punch();
             }
+            HoldTimer = 0;
         }
     }
 
@@ -56,7 +55,7 @@ public class Sword : PickableObject
         e = false;
         sr.color = Color.yellow;
         gameObject.layer = 7;
-        MoveArms.force = MoveArms.force * 4;
+        MoveArms.force *= 4;
         transform.localScale = transform.localScale * 2;
         MoveArms.Punch();
         an.Play("SwordAtk");
@@ -78,7 +77,7 @@ public class Sword : PickableObject
     {
         e = true;
         gameObject.layer = 9;
-        MoveArms.force = MoveArms.force / 4;
+        MoveArms.force /= 4;
         transform.localScale = transform.localScale / 2;
     }
 

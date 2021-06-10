@@ -164,7 +164,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4639685185850644186}
   - component: {fileID: -8788745272095435017}
-  - component: {fileID: 8498421379213805792}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -204,19 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direct: {x: 0, y: -1}
---- !u!114 &8498421379213805792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4639685185850644189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7713507e22f0364eb125c96b9401a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Distance: 200
 --- !u!1 &5488445100813971180
 GameObject:
   m_ObjectHideFlags: 0

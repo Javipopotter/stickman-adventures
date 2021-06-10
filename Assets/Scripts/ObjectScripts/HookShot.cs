@@ -15,16 +15,15 @@ public class HookShot : PickableObject
     bool GatheredUp;
     public Vector2 dir;
     bool HookGatherUp;
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), Hook.GetComponent<Collider2D>());
         HookScript = Hook.GetComponent<Hook>();
         moveArms = GetComponent<MoveArms>();
         lineRenderer = GetComponent<LineRenderer>();
         OriginalHookPos.transform.position = Hook.transform.position;
-        hookRb = Hook.GetComponent<Rigidbody2D>();
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponentInChildren<SpriteRenderer>();
-        InitMaterial = sr.material;
+        hookRb = Hook.GetComponent<Rigidbody2D>();      
         HookScript.DmgMultiplier = DmgMultiplier;
     }
 
@@ -86,7 +85,7 @@ public class HookShot : PickableObject
                 Hook.transform.SetPositionAndRotation(OriginalHookPos.transform.position, OriginalHookPos.transform.rotation);
                 Hook.transform.parent = gameObject.transform;
                 hookRb.isKinematic = true;
-                if(Holded)
+                if (Holded)
                     GetComponent<MoveArms>().enabled = true;
             }
         }

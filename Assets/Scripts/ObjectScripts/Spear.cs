@@ -9,11 +9,9 @@ public class Spear : PickableObject
     [SerializeField] float coolDown = 0;
     [SerializeField] bool activeCoolDown;
     [SerializeField] int attackCount = 0;
-    private void Awake()
+    public override void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponentInChildren<SpriteRenderer>();
-        InitMaterial = sr.material;
+        base.Awake();
     }
     private void Update()
     {

@@ -24,6 +24,19 @@ public class Rope : MonoBehaviour
             LastRope = RopeBase;
         }
         transform.eulerAngles = Vector3.forward * rot;
+        StartCoroutine(AutoconfigureConnectedAnchorIsAShit());
+    }
+
+    IEnumerator AutoconfigureConnectedAnchorIsAShit()
+    {
+        yield return new WaitForEndOfFrame();
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).TryGetComponent(out FixedJoint2D fj))
+            {
+                fj.autoConfigureConnectedAnchor = false; 
+            }
+        }
     }
 
     /*public void PickUpRope(bool t)

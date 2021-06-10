@@ -17,22 +17,15 @@ public class PlataformerMovement : HumanoidController
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.D))
-        {
-            Move(1);
-        }
-        else if(Input.GetKey(KeyCode.A))
-        {
-            Move(-1);
-        }
+        float translation = Input.GetAxisRaw("Horizontal");
+
+        if (translation != 0)
+            Move(translation);
+        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+            rb.velocity = new Vector2(0, rb.velocity.y);
         else if(Input.GetKey(KeyCode.S))
         {
             an.Play("Ragdoll");
-        }
-
-        if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         CheckCanJump();

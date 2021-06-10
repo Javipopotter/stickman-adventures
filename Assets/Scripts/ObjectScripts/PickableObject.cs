@@ -23,7 +23,7 @@ public class PickableObject : MonoBehaviour
     {
         Spear, Sword, HookShot
     }
-    private void Awake()
+    public virtual void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         InitMaterial = sr.material;
@@ -50,8 +50,14 @@ public class PickableObject : MonoBehaviour
 
             if (transformsPos)
             {
-                transform.position = hand.transform.position;
-                transform.rotation = hand.transform.rotation;
+                transform.SetPositionAndRotation(hand.transform.position, hand.transform.rotation);
+                if (Hand.TryGetComponent(out FixedJoint2D fj))
+                {
+                    fj.autoConfigureConnectedAnchor = false;
+                    fj.anchor = Vector2.zero;
+                    Vector2 RelativePos = Hand.transform.InverseTransformPoint(transform.position);
+                    fj.connectedAnchor = RelativePos;
+                }
             }
 
             ActiveDeactiveComponents(true);
@@ -110,10 +116,6 @@ public class PickableObject : MonoBehaviour
                 takeOnMe = false;
                 transform.eulerAngles = new Vector3(0, 0, 1);
             }
-            if (transformsPos)
-            {
-                transform.position = Hand.transform.position;
-            } 
         }
         if(Holded == false && collision.transform.CompareTag("floor"))
         {

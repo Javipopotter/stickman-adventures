@@ -86,6 +86,9 @@ TextureImporter:
   - first:
       213: 4447425773683075185
     second: HammerBase
+  - first:
+      213: -7499340820472659648
+    second: KatanaBlade
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -355,7 +358,7 @@ TextureImporter:
         x: 1080
         y: 15
         width: 66
-        height: 703
+        height: 161
       alignment: 9
       pivot: {x: 0.5, y: 0.100482054}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -806,6 +809,27 @@ TextureImporter:
       bones: []
       spriteID: 178eb4d7d2e68bd30800000000000000
       internalID: 4447425773683075185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KatanaBlade
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 558
+        width: 66
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041042ac14dfce790800000000000000
+      internalID: -7499340820472659648
       vertices: []
       indices: 
       edges: []

@@ -11,8 +11,10 @@ public class AIPartLifes : PartsLifes
     public AIGrab AssignedHand;
     public bool IsLeg;
     float QuarterJ;
+    float lifeChecker;
     void Awake()
     {
+        lifeChecker = lifes;
         if (transform.parent.TryGetComponent(out AI aI))
         {
             ai = aI;
@@ -29,6 +31,13 @@ public class AIPartLifes : PartsLifes
     public override void Update()
     {
         base.Update();
+
+        if (lifeChecker != lifes)
+        {
+            lifeChecker = lifes;
+            stickmanLifesManager.CheckLife();
+        }
+
         if (lifes <= 0)
         {
             if (vitalPoint)

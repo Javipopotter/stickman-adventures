@@ -127,7 +127,7 @@ MonoBehaviour:
   BlockArm: 0
   DmgMultiplier: 0.3
   IsPickedByEnemy: 0
-  range: 10
+  range: 20
   ThisWeapon: 0
   force: 150
   coolDown: 0

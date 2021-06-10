@@ -62,6 +62,22 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        grab(collision);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Pickable") && Grabs)
+        {
+            if (collision.gameObject.TryGetComponent(out PickableObject Picked))
+            {
+                Picked.sr.material = Picked.InitMaterial;
+            }
+        }
+    }
+
+    void grab(Collider2D collision)
+    {
         if (holding && !grabbed && collision.transform.CompareTag("Pickable") && Grabs && !collision.GetComponent<PickableObject>().Holded)
         {
             grabbed = true;
@@ -84,27 +100,17 @@ public class Grab : MonoBehaviour
                 Picked.sr.material = Picked.InitMaterial;
                 objectGrab = true;
                 pickable = Picked;
+                GameManager.Gm.UpdateColliders(pickable.GetComponent<Collider2D>(), grabbed, true);
                 ActiveDeactivePunches(CanPunch, BlockArm);
                 Picked.ChangeProperties(gameObject, true, false);
             }
         }
-        else if(collision.transform.CompareTag("Pickable") && Grabs)
+        else if (collision.transform.CompareTag("Pickable") && Grabs)
         {
             if (collision.gameObject.TryGetComponent(out PickableObject Picked) && !Picked.Holded)
             {
                 GameManager.Gm.highLight.SetFloat("_OutlineThickness", Picked.OutLineThickness);
                 Picked.sr.material = GameManager.Gm.highLight;
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Pickable") && Grabs)
-        {
-            if (collision.gameObject.TryGetComponent(out PickableObject Picked))
-            {
-                Picked.sr.material = Picked.InitMaterial;
             }
         }
     }
@@ -115,6 +121,7 @@ public class Grab : MonoBehaviour
         if (Grabs)
         {
             grabbed = false;
+            GameManager.Gm.UpdateColliders(pickable.GetComponent<Collider2D>(), grabbed, true);
             ActiveDeactivePunches(true, false);
             pickable.ChangeProperties(gameObject, false, false);
         }
