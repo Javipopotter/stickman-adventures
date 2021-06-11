@@ -39,12 +39,21 @@ public class AI : HumanoidController
 
             }
 
-            if (Vector2.Distance(torso.transform.position, enemy.transform.position) < 10 && aIGrab.grabbed)
+            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range && aIGrab.grabbed)
             {
                 Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
             }
         }
-        else if(Vector2.Distance(torso.transform.position, Player.transform.position) < 120 && Vector2.Distance(torso.transform.position, Player.transform.position) > Range)
+        else if(Vector2.Distance(torso.transform.position, Player.transform.position) > 5 && Friend)
+        {
+            MovementDir(Player);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+        if(Vector2.Distance(torso.transform.position, Player.transform.position) < 120 && Vector2.Distance(torso.transform.position, Player.transform.position) > Range && !Friend)
         {
             MovementDir(Player);
         }
@@ -91,11 +100,6 @@ public class AI : HumanoidController
         }
         if (AttackCoolDown < 0.1f || f.ThisWeapon == PickableObject.Weapon.HookShot)
             p.GetComponent<Rigidbody2D>().MoveRotation(rotz);
-    }
-
-    public void CheckRange(float range)
-    {
-        Range = range;
     }
 
     void MovementDir(GameObject chase)

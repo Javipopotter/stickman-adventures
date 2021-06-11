@@ -50,9 +50,15 @@ public class Sword : PickableObject
         }
     }
 
+    private void OnDisable()
+    {
+        HoldTimer = 0;
+    }
+
     public void Attack()
     {
         e = false;
+        CanGetChanged = false;
         sr.color = Color.yellow;
         gameObject.layer = 7;
         MoveArms.force *= 4;
@@ -76,6 +82,7 @@ public class Sword : PickableObject
     public void ResetForce()
     {
         e = true;
+        CanGetChanged = true;
         gameObject.layer = 9;
         MoveArms.force /= 4;
         transform.localScale = transform.localScale / 2;

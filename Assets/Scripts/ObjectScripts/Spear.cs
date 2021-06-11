@@ -26,9 +26,15 @@ public class Spear : PickableObject
                     Attack(GameManager.Gm.GetMouseVector(transform.position));
                 }
 
-                coolDownTimer();  
             }
         }
+        coolDownTimer();  
+    }
+
+    private void OnDisable()
+    {
+        coolDown = 1;
+        attackCount = 0;
     }
 
     public void Attack(Vector2 dir)

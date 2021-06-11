@@ -15,7 +15,7 @@ public class Hook : MonoBehaviour
     public GameObject col;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isHooked == false && !PickedByEnemy)
+        if (isHooked == false && !PickedByEnemy && collision.gameObject != HookShot)
         {
             col = collision.gameObject;
             isHooked = true;

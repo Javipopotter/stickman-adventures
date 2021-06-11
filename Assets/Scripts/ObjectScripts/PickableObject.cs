@@ -9,7 +9,6 @@ public class PickableObject : MonoBehaviour
     public List<Behaviour> Components;
     public Rigidbody2D rb;
     public SpriteRenderer sr;
-    bool takeOnMe = false;
     public bool Holded;
     GameObject Hand;
     public Material InitMaterial;
@@ -19,6 +18,7 @@ public class PickableObject : MonoBehaviour
     public bool IsPickedByEnemy;
     public float range;
     public Weapon ThisWeapon;
+    public bool CanGetChanged = true;
     public enum Weapon
     {
         Spear, Sword, HookShot
@@ -36,7 +36,6 @@ public class PickableObject : MonoBehaviour
         Hand = hand;
         if (take)
         {
-            takeOnMe = true;
             if (blockRot)
             {
                 rb.freezeRotation = true;
@@ -50,13 +49,13 @@ public class PickableObject : MonoBehaviour
 
             if (transformsPos)
             {
-                transform.SetPositionAndRotation(hand.transform.position, hand.transform.rotation);
+                transform.SetPositionAndRotation(hand.transform.position, Quaternion.identity);
                 if (Hand.TryGetComponent(out FixedJoint2D fj))
                 {
                     fj.autoConfigureConnectedAnchor = false;
+                    transform.position = hand.transform.position;
+                    fj.connectedAnchor = Vector2.zero;
                     fj.anchor = Vector2.zero;
-                    Vector2 RelativePos = Hand.transform.InverseTransformPoint(transform.position);
-                    fj.connectedAnchor = RelativePos;
                 }
             }
 
@@ -109,15 +108,7 @@ public class PickableObject : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (Holded)
-        {
-            if (pickaxe && collision.transform.CompareTag("floor") && takeOnMe && !IsPickedByEnemy)
-            {
-                takeOnMe = false;
-                transform.eulerAngles = new Vector3(0, 0, 1);
-            }
-        }
-        if(Holded == false && collision.transform.CompareTag("floor"))
+        if (Holded == false && collision.transform.CompareTag("floor"))
         {
             IsPickedByEnemy = false;
         }

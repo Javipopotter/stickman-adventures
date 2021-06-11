@@ -57,9 +57,9 @@ public class GameManager : MonoBehaviour
     {
         if(PlayerEnemy != null)
         {
-            if (!PlayerEnemy.GetComponentInParent<AI>().enabled)
+            if (PlayerEnemy.transform.parent.TryGetComponent(out AI ai))
             {
-                PlayerEnemy = null;
+                if (!ai.enabled) { PlayerEnemy = null; }
             }
         }
     }

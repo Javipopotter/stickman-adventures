@@ -32,16 +32,17 @@ public class StickmanLifesManager : MonoBehaviour
 
     public void Death()
     {
+        TotalLife = 0;
         foreach(AIPartLifes part in partsLifes)
         {
             if (part.TryGetComponent(out Balance bal))
                 bal.enabled = false;
             if (part.IsHand)
             {
-                part.AssignedHand.Drop();
+                part.AssignedHandDrop();
             }
-            part.enabled = false;
         }
+        enabled = false;
         GetComponent<AI>().enabled = false;
     }
 }

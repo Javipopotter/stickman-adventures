@@ -39,6 +39,8 @@ public class Grab : MonoBehaviour
                 grabbed = false;
             }
         }
+
+
     }
      private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -62,7 +64,7 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        grab(collision);
+        grab(collision, false);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -76,9 +78,9 @@ public class Grab : MonoBehaviour
         }
     }
 
-    void grab(Collider2D collision)
+    public void grab(Collider2D collision, bool Invoke)
     {
-        if (holding && !grabbed && collision.transform.CompareTag("Pickable") && Grabs && !collision.GetComponent<PickableObject>().Holded)
+        if ((holding && !grabbed && collision.transform.CompareTag("Pickable") && Grabs && !collision.GetComponent<PickableObject>().Holded) || Invoke)
         {
             grabbed = true;
             objectGrab = false;
@@ -118,12 +120,13 @@ public class Grab : MonoBehaviour
     public void Drop()
     {
         Destroy(GetComponent<FixedJoint2D>());
-        if (Grabs)
+        if (Grabs && pickable != null)
         {
             grabbed = false;
             GameManager.Gm.UpdateColliders(pickable.GetComponent<Collider2D>(), grabbed, true);
             ActiveDeactivePunches(true, false);
             pickable.ChangeProperties(gameObject, false, false);
+            pickable = null;
         }
     }
 

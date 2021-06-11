@@ -1725,7 +1725,7 @@ MonoBehaviour:
   torso: {fileID: 2149196483506569156}
   rb: {fileID: 0}
   an: {fileID: 0}
-  speed: 10
+  speed: 15
   jumpForce: 225
   canJump: 0
   Player: {fileID: 0}

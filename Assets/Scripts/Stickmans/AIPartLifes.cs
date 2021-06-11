@@ -32,29 +32,38 @@ public class AIPartLifes : PartsLifes
     {
         base.Update();
 
-        if (lifeChecker != lifes)
+        if (stickmanLifesManager.enabled)
         {
-            lifeChecker = lifes;
-            stickmanLifesManager.CheckLife();
-        }
+            if (lifeChecker != lifes && lifes > 0)
+            {
+                lifeChecker = lifes;
+                stickmanLifesManager.CheckLife();
+            }
 
-        if (lifes <= 0)
+            if (lifes <= 0)
+            {
+                if (vitalPoint)
+                {
+                    ActiveDeactiveComponents(false);
+                    stickmanLifesManager.Death();
+                }
+                else
+                {
+                    ActiveDeactiveComponents(false);
+                }
+                this.enabled = false;
+            } 
+        }
+        else if(lifes <= 0)
         {
-            if (vitalPoint)
-            {
-                ActiveDeactiveComponents(false);
-                stickmanLifesManager.Death();
-            }
-            else
-            {
-                ActiveDeactiveComponents(false);
-            }
-            this.enabled = false;
+            ActiveDeactiveComponents(false);
+            enabled = false;
         }
     }
 
     public override void ActiveDeactiveComponents(bool t)
     {
+        stickmanLifesManager.partsLifes.Remove(this);
         base.ActiveDeactiveComponents(t);
         if(ConnectedPart != null)
         {
@@ -66,9 +75,15 @@ public class AIPartLifes : PartsLifes
             ai.jumpForce -= QuarterJ;
         }
 
-        if (IsHand)
+        AssignedHandDrop();
+    }
+
+    public void AssignedHandDrop()
+    {
+        if (IsHand && AssignedHand != null)
         {
             AssignedHand.Drop();
+            Destroy(AssignedHand);
         }
     }
 }

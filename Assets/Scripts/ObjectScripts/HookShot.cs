@@ -12,7 +12,7 @@ public class HookShot : PickableObject
     public GameObject OriginalHookPos;
     LineRenderer lineRenderer;
     [SerializeField]bool e = true;
-    bool GatheredUp;
+    public bool GatheredUp;
     public Vector2 dir;
     bool HookGatherUp;
     public override void Awake()
@@ -87,6 +87,7 @@ public class HookShot : PickableObject
                 hookRb.isKinematic = true;
                 if (Holded)
                     GetComponent<MoveArms>().enabled = true;
+                CanGetChanged = true;
             }
         }
 
@@ -98,6 +99,7 @@ public class HookShot : PickableObject
 
     public void Shot()
     {
+        CanGetChanged = false;
         if (!HookGatherUp)
         {
             GatheredUp = false;

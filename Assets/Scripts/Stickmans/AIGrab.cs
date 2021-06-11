@@ -17,13 +17,13 @@ public class AIGrab : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out PickableObject pickable) && !pickable.Holded && !grabbed && collision.GetComponent<Rigidbody2D>().velocity.magnitude < 20)
+        if(collision.TryGetComponent(out PickableObject pickable) && !pickable.Holded && !grabbed && collision.GetComponent<Rigidbody2D>().velocity.magnitude < 20 && enabled)
         {
             grabbed = true;
             pickableObject = pickable;
             grabbedObject = pickable.gameObject;
             GameManager.Gm.UpdateColliders(grabbedObject.GetComponent<Collider2D>(), true, IsFriend);
-            ai.CheckRange(pickable.range);
+            ai.Range = pickable.range;
             if (!IsFriend)
             {
                 collision.transform.gameObject.layer = 6;
@@ -41,12 +41,13 @@ public class AIGrab : MonoBehaviour
 
     public void Drop()
     {
-        ai.CheckRange(5);
+        grabbed = false;
+        ai.Range = 5;
         Destroy(GetComponent<FixedJoint2D>());
         if (pickableObject != null)
         {
-            GameManager.Gm.UpdateColliders(grabbedObject.GetComponent<Collider2D>(),false,IsFriend);
             pickableObject.Holded = false;
+            GameManager.Gm.UpdateColliders(grabbedObject.GetComponent<Collider2D>(), false, IsFriend);
             pickableObject.transform.gameObject.layer = 9;
             pickableObject.SetLayers(9);
         }
