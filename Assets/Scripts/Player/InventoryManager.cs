@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject[] Items;
+    public GameObject[] ItemsAspect;
     [SerializeField]int ItemPos = 0;
     [SerializeField]int LastItemPos = 0;
     [SerializeField] Grab PlayerGrab;
@@ -13,6 +14,9 @@ public class InventoryManager : MonoBehaviour
     {
         if(Input.GetAxisRaw("Mouse ScrollWheel") != 0)
         {
+            if (PlayerGrab.grabbed && !PlayerGrab.objectGrab)
+                PlayerGrab.Drop();
+
             if (PlayerGrab.pickable != null)
             {
                 if (PlayerGrab.pickable.CanGetChanged)
@@ -64,7 +68,7 @@ public class InventoryManager : MonoBehaviour
         {
             Items[ItemPos].SetActive(true);
             Items[ItemPos].transform.SetPositionAndRotation(transform.position, PlayerGrab.transform.rotation);
-            PlayerGrab.grab(Items[ItemPos].GetComponent<Collider2D>(), true);
+            PlayerGrab.GrabWeapon(Items[ItemPos].GetComponent<Collider2D>(), true);
         }
     }
 }

@@ -1732,6 +1732,7 @@ MonoBehaviour:
   Range: 5
   Friend: 0
   Distance: 0
+  InitWeapon: {fileID: 5420210090255724594, guid: b6918ee7acb951d44a4a453410cbb013, type: 3}
 --- !u!95 &-3243091178101584318
 Animator:
   serializedVersion: 3

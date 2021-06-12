@@ -377,7 +377,6 @@ MonoBehaviour:
   blockRot: 0
   doesntCollide: 0
   transformsPos: 1
-  pickaxe: 1
   Components:
   - {fileID: 1514834740352186002}
   rb: {fileID: 0}
@@ -391,11 +390,14 @@ MonoBehaviour:
   IsPickedByEnemy: 0
   range: 80
   ThisWeapon: 2
+  CanGetChanged: 1
+  ObjectUiAspectID: 2
   Hook: {fileID: 6072104717040235818}
   HookScript: {fileID: 7901782932152690254}
   HookForce: 75
   OriginalHookPos: {fileID: 8787676018861112462}
   e: 1
+  GatheredUp: 0
   dir: {x: 0, y: 0}
 --- !u!114 &1514834740352186002
 MonoBehaviour:

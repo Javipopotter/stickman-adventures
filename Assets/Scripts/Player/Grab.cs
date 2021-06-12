@@ -7,11 +7,10 @@ public class Grab : MonoBehaviour
 {
     public bool holding;
     public bool grabbed;
-    bool objectGrab;
+    public bool objectGrab;
     bool f = true;
     public bool Grabs;
     public PickableObject pickable;
-    bool CanPunch, BlockArm;
     // Update is called once per frame
     void Update()
     {
@@ -35,8 +34,7 @@ public class Grab : MonoBehaviour
             f = true;
             if(objectGrab == false)
             {
-                Destroy(GetComponent<FixedJoint2D>());
-                grabbed = false;
+                Drop();
             }
         }
 
@@ -64,7 +62,7 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        grab(collision, false);
+        GrabWeapon(collision, false);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -73,59 +71,61 @@ public class Grab : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent(out PickableObject Picked))
             {
-                Picked.sr.material = Picked.InitMaterial;
+                ObjectSelect(Picked, Picked.InitMaterial);
             }
         }
     }
 
-    public void grab(Collider2D collision, bool Invoke)
+    public void GrabWeapon(Collider2D collision, bool Invoke)
     {
-        if ((holding && !grabbed && collision.transform.CompareTag("Pickable") && Grabs && !collision.GetComponent<PickableObject>().Holded) || Invoke)
+        if (collision.TryGetComponent(out PickableObject Picked))
         {
-            grabbed = true;
-            objectGrab = false;
-            Rigidbody2D rb = collision.transform.GetComponent<Rigidbody2D>();
-            if (rb != null)
+            if ((holding && !grabbed && Grabs && !collision.GetComponent<PickableObject>().Holded) || Invoke)
             {
-                FixedJoint2D fj = transform.gameObject.AddComponent(typeof(FixedJoint2D)) as FixedJoint2D;
-                fj.connectedBody = rb;
+                Rigidbody2D rb = collision.transform.GetComponent<Rigidbody2D>();
+                PickUp(Picked, rb);
             }
-            else
+            else if (Grabs)
             {
-                FixedJoint2D fj = transform.gameObject.AddComponent(typeof(FixedJoint2D)) as FixedJoint2D;
+                ObjectSelect(Picked, GameManager.Gm.highLight);
             }
+        }
+    }
 
-            if (collision.gameObject.TryGetComponent(out PickableObject Picked))
-            {
-                BlockArm = Picked.BlockArm;
-                CanPunch = Picked.CanPunch;
-                Picked.sr.material = Picked.InitMaterial;
-                objectGrab = true;
-                pickable = Picked;
-                GameManager.Gm.UpdateColliders(pickable.GetComponent<Collider2D>(), grabbed, true);
-                ActiveDeactivePunches(CanPunch, BlockArm);
-                Picked.ChangeProperties(gameObject, true, false);
-            }
-        }
-        else if (collision.transform.CompareTag("Pickable") && Grabs)
+    private static void ObjectSelect(PickableObject Picked, Material mat)
+    {
+        if (!Picked.Holded)
         {
-            if (collision.gameObject.TryGetComponent(out PickableObject Picked) && !Picked.Holded)
-            {
-                GameManager.Gm.highLight.SetFloat("_OutlineThickness", Picked.OutLineThickness);
-                Picked.sr.material = GameManager.Gm.highLight;
-            }
+            GameManager.Gm.highLight.SetFloat("_OutlineThickness", Picked.OutLineThickness);
+            Picked.sr.material = mat;
         }
+    }
+
+    private void PickUp(PickableObject Picked, Rigidbody2D rb)
+    {
+        pickable = Picked;
+        grabbed = true;
+        objectGrab = true;
+        FixedJoint2D fj = transform.gameObject.AddComponent(typeof(FixedJoint2D)) as FixedJoint2D;
+        fj.autoConfigureConnectedAnchor = false;
+        fj.connectedBody = rb;
+        Picked.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
+        fj.anchor = fj.connectedAnchor = Vector2.zero;
+        Picked.sr.material = Picked.InitMaterial;
+        GameManager.Gm.UpdateColliders(pickable.GetComponent<Collider2D>(), grabbed, true);
+        ActiveDeactivePunches(Picked.CanPunch, Picked.BlockArm);
+        Picked.ChangeProperties(true, false);
     }
 
     public void Drop()
     {
         Destroy(GetComponent<FixedJoint2D>());
+        grabbed = false;
         if (Grabs && pickable != null)
         {
-            grabbed = false;
             GameManager.Gm.UpdateColliders(pickable.GetComponent<Collider2D>(), grabbed, true);
             ActiveDeactivePunches(true, false);
-            pickable.ChangeProperties(gameObject, false, false);
+            pickable.ChangeProperties(false, false);
             pickable = null;
         }
     }

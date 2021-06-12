@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class PickableObject : MonoBehaviour
 {
-    public bool blockRot, doesntCollide, transformsPos, pickaxe;
+    public bool blockRot, doesntCollide;
     public List<Behaviour> Components;
     public Rigidbody2D rb;
     public SpriteRenderer sr;
     public bool Holded;
-    GameObject Hand;
     public Material InitMaterial;
     public int OutLineThickness;
     public bool CanPunch, BlockArm;
@@ -19,6 +18,7 @@ public class PickableObject : MonoBehaviour
     public float range;
     public Weapon ThisWeapon;
     public bool CanGetChanged = true;
+    public int ObjectUiAspectID;
     public enum Weapon
     {
         Spear, Sword, HookShot
@@ -30,10 +30,9 @@ public class PickableObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void ChangeProperties(GameObject hand, bool take, bool PickedByEnemy)
+    public void ChangeProperties(bool take, bool PickedByEnemy)
     {
         IsPickedByEnemy = PickedByEnemy;
-        Hand = hand;
         if (take)
         {
             if (blockRot)
@@ -43,20 +42,7 @@ public class PickableObject : MonoBehaviour
 
             if (doesntCollide)
             {
-                gameObject.layer = 9;
                 SetLayers(9);
-            }
-
-            if (transformsPos)
-            {
-                transform.SetPositionAndRotation(hand.transform.position, Quaternion.identity);
-                if (Hand.TryGetComponent(out FixedJoint2D fj))
-                {
-                    fj.autoConfigureConnectedAnchor = false;
-                    transform.position = hand.transform.position;
-                    fj.connectedAnchor = Vector2.zero;
-                    fj.anchor = Vector2.zero;
-                }
             }
 
             ActiveDeactiveComponents(true);
@@ -70,7 +56,6 @@ public class PickableObject : MonoBehaviour
 
             if (doesntCollide)
             {
-                gameObject.layer = 0;
                 SetLayers(0);
             }
 
@@ -80,6 +65,7 @@ public class PickableObject : MonoBehaviour
 
     public void SetLayers(int i)
     {
+        gameObject.layer = i;
         foreach (Transform trans in GetComponentsInChildren<Transform>())
         {
             trans.gameObject.layer = i;

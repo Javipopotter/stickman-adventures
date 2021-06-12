@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SocialPlatforms;
 
 public class GameManager : MonoBehaviour
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     public Material highLight;
     public GameObject Sparks;
     [SerializeField] Color PlayerDmgColor;
-    public GameObject PlayerEnemy = null;
+    public GameObject PlayerEnemy = null, EnemyLifeBar;
     public List<Collider2D> AlliesColliders;
     public List<Collider2D> EnemyColliders;
 
@@ -55,11 +56,26 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerEnemy != null)
+        CheckIfEnemyIsAlive();
+    }
+
+    private void CheckIfEnemyIsAlive()
+    {
+        if (PlayerEnemy != null)
         {
             if (PlayerEnemy.transform.parent.TryGetComponent(out AI ai))
             {
-                if (!ai.enabled) { PlayerEnemy = null; }
+                if (!ai.enabled) 
+                {
+                    PlayerEnemy = null; EnemyLifeBar.SetActive(false); 
+                }
+                else if(PlayerEnemy.transform.parent.TryGetComponent(out StickmanLifesManager lifesManager)) 
+                {
+                    EnemyLifeBar.SetActive(true);
+                    EnemyLifeBar.transform.position = new Vector2(ai.torso.transform.position.x, ai.torso.transform.position.y + 5);
+                    EnemyLifeBar.GetComponent<Slider>().minValue = lifesManager.requiredDmgToDie;
+                    EnemyLifeBar.GetComponent<Slider>().value = lifesManager.TotalLife / lifesManager.MaxLife;
+                }
             }
         }
     }

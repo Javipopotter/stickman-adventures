@@ -30,7 +30,7 @@ public class Hook : MonoBehaviour
             DisJoint.autoConfigureDistance = false;
             DisJoint.maxDistanceOnly = true;
         }
-        else if(PickedByEnemy)
+        else if(PickedByEnemy && collision.gameObject != HookShot)
         {
             HookShot.GetComponent<HookShot>().UnShot();
         }

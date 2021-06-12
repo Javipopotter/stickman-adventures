@@ -13,6 +13,7 @@ public class AI : HumanoidController
     public float Range = 5;
     public bool Friend;
     public float Distance;
+    public float PlayerPersonalDistance = 5;
     void Awake()
     {
         aIGrab = GetComponentInChildren<AIGrab>();
@@ -44,7 +45,7 @@ public class AI : HumanoidController
                 Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
             }
         }
-        else if(Vector2.Distance(torso.transform.position, Player.transform.position) > 5 && Friend)
+        else if(Vector2.Distance(torso.transform.position, Player.transform.position) > PlayerPersonalDistance && Friend)
         {
             MovementDir(Player);
         }

@@ -5,8 +5,9 @@ using UnityEngine;
 public class StickmanLifesManager : MonoBehaviour
 {
     public List<PartsLifes> partsLifes;
-    float MaxLife;
+    public float MaxLife;
     public float TotalLife;
+    public float requiredDmgToDie = 0.5f;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class StickmanLifesManager : MonoBehaviour
         {
             TotalLife += part.lifes;
         }
-        if (TotalLife / MaxLife <= 0.5f)
+        if (TotalLife / MaxLife <= requiredDmgToDie)
         {
             Death();
         }

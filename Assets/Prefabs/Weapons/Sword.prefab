@@ -91,12 +91,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4536557885312943277}
-  - component: {fileID: 7025975264443286757}
   - component: {fileID: 795870447136568340}
   - component: {fileID: 5207459109483392944}
   - component: {fileID: 3008382117174004163}
   - component: {fileID: 3768432273447598153}
   - component: {fileID: 6751754822022592936}
+  - component: {fileID: 6632668619617181128}
   m_Layer: 9
   m_Name: Sword
   m_TagString: Pickable
@@ -119,39 +119,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &7025975264443286757
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5420210090255724594}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.930717, y: 0.4227196}
-      - {x: -1.8110871, y: 0.43861058}
-      - {x: -1.7423463, y: -0.42023635}
-      - {x: 0.88231623, y: -0.408455}
-      - {x: 10.282114, y: -0.7774441}
-      - {x: 11.099578, y: -0.08906448}
-      - {x: 10.255574, y: 0.724959}
-      - {x: 2.541523, y: 0.49751693}
 --- !u!61 &795870447136568340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -214,7 +181,6 @@ MonoBehaviour:
   blockRot: 0
   doesntCollide: 0
   transformsPos: 1
-  pickaxe: 1
   Components:
   - {fileID: 3768432273447598153}
   rb: {fileID: 0}
@@ -228,6 +194,8 @@ MonoBehaviour:
   IsPickedByEnemy: 0
   range: 10
   ThisWeapon: 1
+  CanGetChanged: 1
+  ObjectUiAspectID: 1
   MoveArms: {fileID: 0}
   HoldTimer: 0
 --- !u!114 &3768432273447598153
@@ -265,3 +233,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &6632668619617181128
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420210090255724594}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.71452, y: -0.018505769}
+  m_Size: {x: 12.890323, y: 1.5304817}
+  m_Direction: 1

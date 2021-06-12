@@ -149,7 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 1740154177434698899, guid: c827a6c826212e54f807bd18f1449f94, type: 3}
-  - {fileID: 2149196485094088666, guid: b0eedf8e8748ca54dbbceeb9322b8900, type: 3}
   - {fileID: 5420210090255724594, guid: b6918ee7acb951d44a4a453410cbb013, type: 3}
   - {fileID: 9128810012514798793, guid: d519bac4630faa944970d267d3fcf9f7, type: 3}
   isItThere: 1
