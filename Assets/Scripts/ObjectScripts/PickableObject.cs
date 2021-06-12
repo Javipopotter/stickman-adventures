@@ -74,13 +74,10 @@ public class PickableObject : MonoBehaviour
 
     public void ActiveDeactiveComponents(bool Switch)
     {
-        if (!IsPickedByEnemy)
+        foreach (Behaviour component in Components)
         {
-            foreach (Behaviour component in Components)
-            {
-                component.enabled = Switch;
-            } 
-        }
+            component.enabled = Switch;
+        } 
         Holded = Switch;
     }
 
@@ -89,14 +86,6 @@ public class PickableObject : MonoBehaviour
         if(collision.transform.CompareTag("Chunk"))
         {
             transform.parent = collision.transform.parent;
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (Holded == false && collision.transform.CompareTag("floor"))
-        {
-            IsPickedByEnemy = false;
         }
     }
 }

@@ -42,7 +42,7 @@ public class Grab : MonoBehaviour
     }
      private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(holding && !grabbed && collision.gameObject.GetComponent<PickableObject>() == null)
+        if(holding && !grabbed && !collision.gameObject.GetComponent<PickableObject>())
         {
             grabbed = true;
             objectGrab = false;

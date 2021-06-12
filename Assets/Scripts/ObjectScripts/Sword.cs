@@ -40,7 +40,7 @@ public class Sword : PickableObject
                 HoldTimer = 0;
             } 
         }
-        else
+        else if(Holded)
         {
             if(HoldTimer >= 1.5f)
             {

@@ -61,8 +61,9 @@ public class AIGrab : MonoBehaviour
         {
             pickableObject.Holded = false;
             GameManager.Gm.UpdateColliders(grabbedObject.GetComponent<Collider2D>(), false, IsFriend);
-            pickableObject.transform.gameObject.layer = 9;
+            pickableObject.ChangeProperties(false, false);
             pickableObject.SetLayers(9);
+            pickableObject = null;
         }
     }
 }
