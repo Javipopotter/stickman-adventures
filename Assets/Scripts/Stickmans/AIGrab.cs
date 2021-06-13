@@ -9,10 +9,9 @@ public class AIGrab : MonoBehaviour
     public PickableObject pickableObject;
     public GameObject grabbedObject;
     [HideInInspector]public bool IsFriend;
-
     private void Awake()
     {
-        ai = GetComponentInParent<AI>();    
+        ai = GetComponentInParent<AI>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +29,6 @@ public class AIGrab : MonoBehaviour
             {
                 Picked.SetLayers(6);
             }
-
         }
     }
 
@@ -39,7 +37,6 @@ public class AIGrab : MonoBehaviour
         grabbed = true;
         pickableObject = Picked;
         grabbedObject = Picked.gameObject;
-        GameManager.Gm.UpdateColliders(grabbedObject.GetComponent<Collider2D>(), true, IsFriend);
         ai.Range = Picked.range;
         FixedJoint2D fj = transform.gameObject.AddComponent(typeof(FixedJoint2D)) as FixedJoint2D;
         fj.autoConfigureConnectedAnchor = false;
@@ -47,9 +44,10 @@ public class AIGrab : MonoBehaviour
         Picked.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
-        GameManager.Gm.UpdateColliders(Picked.GetComponent<Collider2D>(), grabbed, true);
-        Picked.ChangeProperties(true, false);
-        Picked.ChangeProperties(true, true);
+        if (IsFriend)
+            Picked.ChangeProperties(true, true, GameManager.Gm.AlliesColliders);
+        else
+            Picked.ChangeProperties(true, true, GameManager.Gm.EnemyColliders);
     }
 
     public void Drop()
@@ -59,9 +57,10 @@ public class AIGrab : MonoBehaviour
         Destroy(GetComponent<FixedJoint2D>());
         if (pickableObject != null)
         {
-            pickableObject.Holded = false;
-            GameManager.Gm.UpdateColliders(grabbedObject.GetComponent<Collider2D>(), false, IsFriend);
-            pickableObject.ChangeProperties(false, false);
+            if(IsFriend)
+                pickableObject.ChangeProperties(false, false, GameManager.Gm.AlliesColliders);
+            else
+                pickableObject.ChangeProperties(false, false, GameManager.Gm.EnemyColliders);
             pickableObject.SetLayers(9);
             pickableObject = null;
         }

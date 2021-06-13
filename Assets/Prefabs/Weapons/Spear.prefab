@@ -114,8 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockRot: 0
   doesntCollide: 0
-  transformsPos: 1
-  pickaxe: 1
   Components:
   - {fileID: 6185369692195282698}
   rb: {fileID: 0}
@@ -129,10 +127,11 @@ MonoBehaviour:
   IsPickedByEnemy: 0
   range: 20
   ThisWeapon: 0
+  CanGetChanged: 1
+  WeaponColliders:
+  - {fileID: 7031936277654608825}
+  - {fileID: 1740154177434698924}
   force: 150
-  coolDown: 0
-  activeCoolDown: 0
-  attackCount: 0
 --- !u!60 &7031936277654608825
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -261,7 +260,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1497478763720940017, guid: b294ed99efc218346909fe017cba12cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

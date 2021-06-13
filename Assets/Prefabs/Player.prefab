@@ -1141,6 +1141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff934b3815277b1449071347f04c9935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Items: []
+  ItemsAspect: []
+  ItemPos: 0
+  LastItemPos: 0
   PlayerGrab: {fileID: 8621573058167237321}
 --- !u!1 &8621573056431185289
 GameObject:
@@ -2269,7 +2273,7 @@ GameObject:
   - component: {fileID: 8621573057416835042}
   - component: {fileID: 8621573057416835041}
   - component: {fileID: 8621573057416835040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'InteractionZone '
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2365,6 +2369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holding: 0
   grabbed: 0
+  objectGrab: 0
   Grabs: 0
   pickable: {fileID: 0}
 --- !u!114 &8621573057416835040
@@ -2824,7 +2829,7 @@ GameObject:
   - component: {fileID: 8621573058167237322}
   - component: {fileID: 8621573058167237321}
   - component: {fileID: 8621573058167237324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InteractionZone
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2920,6 +2925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holding: 0
   grabbed: 0
+  objectGrab: 0
   Grabs: 1
   pickable: {fileID: 0}
 --- !u!114 &8621573058167237324

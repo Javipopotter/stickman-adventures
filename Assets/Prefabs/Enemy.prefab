@@ -1648,11 +1648,11 @@ GameObject:
   - component: {fileID: 2149196485094088667}
   - component: {fileID: 2149196485094088664}
   - component: {fileID: -394749854330752717}
-  - component: {fileID: 8242163969916552830}
   - component: {fileID: -3243091178101584318}
   - component: {fileID: 1282952717200370869}
+  - component: {fileID: -8049764556866030626}
   m_Layer: 9
-  m_Name: Stickman
+  m_Name: Enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1707,32 +1707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e3c1a1c4e2ea8418595c67208ea4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8242163969916552830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2149196485094088666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e4419370dacb041a768e7bf8074731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floor:
-    serializedVersion: 2
-    m_Bits: 256
-  torso: {fileID: 2149196483506569156}
-  rb: {fileID: 0}
-  an: {fileID: 0}
-  speed: 15
-  jumpForce: 225
-  canJump: 0
-  Player: {fileID: 0}
-  Range: 5
-  Friend: 0
-  Distance: 0
-  InitWeapon: {fileID: 5420210090255724594, guid: b6918ee7acb951d44a4a453410cbb013, type: 3}
 --- !u!95 &-3243091178101584318
 Animator:
   serializedVersion: 3
@@ -1765,7 +1739,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partsLifes: []
+  MaxLife: 0
   TotalLife: 0
+  requiredDmgToDie: 0.5
+--- !u!114 &-8049764556866030626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196485094088666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42c83cd6e041a34ab4c8fa69a2b521a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor:
+    serializedVersion: 2
+    m_Bits: 256
+  torso: {fileID: 2149196483506569156}
+  rb: {fileID: 0}
+  an: {fileID: 0}
+  speed: 10
+  jumpForce: 180
+  canJump: 0
+  Player: {fileID: 0}
+  enemy: {fileID: 0}
+  aIGrab: {fileID: 0}
+  Range: 5
+  PlayerPersonalDistance: 5
 --- !u!1 &2149196485138128275
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,76 +5,32 @@ using UnityEngine;
 public class AI : HumanoidController
 {
     public GameObject Player;
-    GameObject enemy;
+    public GameObject enemy;
     Vector2 FeetRay;
     Vector2 PlayerDir;
-    AIGrab aIGrab;
+    public AIGrab aIGrab;
     float AttackCoolDown;
     public float Range = 5;
-    public bool Friend;
-    public float Distance;
     public float PlayerPersonalDistance = 5;
-    void Awake()
+    public virtual void Awake()
     {
         aIGrab = GetComponentInChildren<AIGrab>();
-        aIGrab.IsFriend = Friend;
         rb = torso.GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
         Player = GameManager.Gm.PlayerTorso;
-        if(!Friend)
-        {
-            enemy = Player;
-        }
     }
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         FeetRay = new Vector2(torso.transform.position.x - 2, torso.transform.position.y - 1);
         CheckCanJump();
-
-        if (GameManager.Gm.PlayerEnemy != null && Friend)
-        {
-            if (Vector2.Distance(GameManager.Gm.PlayerEnemy.transform.position, transform.position) > Range)
-            {
-                enemy = GameManager.Gm.PlayerEnemy;
-                MovementDir(enemy);
-
-            }
-
-            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range && aIGrab.grabbed)
-            {
-                Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
-            }
-        }
-        else if(Vector2.Distance(torso.transform.position, Player.transform.position) > PlayerPersonalDistance && Friend)
-        {
-            MovementDir(Player);
-        }
-        else
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
-
-        if(Vector2.Distance(torso.transform.position, Player.transform.position) < 120 && Vector2.Distance(torso.transform.position, Player.transform.position) > Range && !Friend)
-        {
-            MovementDir(Player);
-        }
 
         if(Physics2D.Raycast(FeetRay, Vector2.right, 4, floor))
         {
             StartCoroutine(Jump());
         }
-
-        if (enemy != null)
-        {
-            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range && aIGrab.grabbed && !Friend)
-            {
-                Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
-            }  
-        }
-
     }
     
-    void Attack(GameObject p, PickableObject f, GameObject a)
+    public void Attack(GameObject p, PickableObject f, GameObject a)
     {
         PlayerDir = a.transform.position - torso.transform.position;
         PlayerDir.Normalize();
@@ -103,7 +59,7 @@ public class AI : HumanoidController
             p.GetComponent<Rigidbody2D>().MoveRotation(rotz);
     }
 
-    void MovementDir(GameObject chase)
+    public void MovementDir(GameObject chase)
     {
         if (torso.transform.position.x < chase.transform.position.x)
         {

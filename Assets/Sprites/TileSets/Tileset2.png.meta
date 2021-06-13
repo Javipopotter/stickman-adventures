@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 1752241fbe5632245bf88f004c6ff088
+guid: e4728f237f630e546ad9f2c4e79e2ccb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7087276373926056448
-    second: IMG_0834_0
+      213: 7615445153462884579
+    second: Tileset2_0
   - first:
-      213: 3567688328137286383
-    second: IMG_0834_1
+      213: -2302975187863120264
+    second: Tileset2_1
   - first:
-      213: -1614825452645202688
-    second: IMG_0834_2
+      213: 6129200408025254337
+    second: Tileset2_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,16 +41,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -64,6 +64,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -107,31 +109,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -146,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_0834_0
+      name: Tileset2_0
       rect:
         serializedVersion: 2
-        x: 603
-        y: 875
-        width: 64
-        height: 54
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00e6e1b10bfe4ad90800000000000000
-      internalID: -7087276373926056448
+      spriteID: 3e810aac40f7fa960800000000000000
+      internalID: 7615445153462884579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0834_1
+      name: Tileset2_1
       rect:
         serializedVersion: 2
-        x: 251
-        y: 868
-        width: 86
-        height: 78
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe22eebc1a9f28130800000000000000
-      internalID: 3567688328137286383
+      spriteID: 87651e0b4403a00e0800000000000000
+      internalID: -2302975187863120264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0834_2
+      name: Tileset2_2
       rect:
         serializedVersion: 2
-        x: 427
-        y: 869
-        width: 80
-        height: 65
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 005c2d87eccf699e0800000000000000
-      internalID: -1614825452645202688
+      spriteID: 1c946851c4b4f0550800000000000000
+      internalID: 6129200408025254337
       vertices: []
       indices: 
       edges: []

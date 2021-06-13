@@ -10,6 +10,7 @@ public class MoveArms : MonoBehaviour
     public bool punch = true;
     public bool armLock;
     public float force;
+    [SerializeField]float rotOffset;
     [SerializeField] bool OnlyPunches;
     // Start is called before the first frame update
     void Awake()
@@ -25,7 +26,7 @@ public class MoveArms : MonoBehaviour
 
         if ((Input.GetMouseButton(0) || armLock) && !OnlyPunches)
         {
-            rb.MoveRotation(rotz);
+            rb.MoveRotation(rotz + rotOffset);
         }
     }
 

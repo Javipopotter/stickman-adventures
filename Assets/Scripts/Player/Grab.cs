@@ -112,9 +112,8 @@ public class Grab : MonoBehaviour
         Picked.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
-        GameManager.Gm.UpdateColliders(pickable.GetComponent<Collider2D>(), grabbed, true);
         ActiveDeactivePunches(Picked.CanPunch, Picked.BlockArm);
-        Picked.ChangeProperties(true, false);
+        Picked.ChangeProperties(true, false, GameManager.Gm.AlliesColliders);
     }
 
     public void Drop()
@@ -123,9 +122,8 @@ public class Grab : MonoBehaviour
         grabbed = false;
         if (Grabs && pickable != null)
         {
-            GameManager.Gm.UpdateColliders(pickable.GetComponent<Collider2D>(), grabbed, true);
             ActiveDeactivePunches(true, false);
-            pickable.ChangeProperties(false, false);
+            pickable.ChangeProperties(false, false, GameManager.Gm.AlliesColliders);
             pickable = null;
         }
     }

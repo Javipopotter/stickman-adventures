@@ -21,21 +21,21 @@ public class Sword : PickableObject
         {
             sr.color = Color.Lerp(Color.white, Color.yellow, HoldTimer / 1.5f); 
         }
-        if (Holded)
+        if (Holded && IsPickedByEnemy == false)
         {
 
-            if (Input.GetMouseButton(0) && !IsPickedByEnemy)
+            if (Input.GetMouseButton(0))
             {
                 ChargeAttack();
             }
 
-            if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0) && !IsPickedByEnemy)
+            if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0))
             {
                 HoldTimer = 0;
                 Attack();
             }
 
-            if (!Input.GetMouseButton(0) && !IsPickedByEnemy)
+            if (!Input.GetMouseButton(0))
             {
                 HoldTimer = 0;
             } 

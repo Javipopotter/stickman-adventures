@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public List<Vector2> ocuppedPos;
     public List<GameObject> GeneratedRooms;
     public GameObject PlayerTorso;
-    public GameObject DmgText;
     float DmgSum;
     public Material highLight;
     public GameObject Sparks;
@@ -19,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerEnemy = null, EnemyLifeBar;
     public List<Collider2D> AlliesColliders;
     public List<Collider2D> EnemyColliders;
+    public List<FriendAI> Friends;
 
     void Awake()
     {
@@ -30,33 +30,58 @@ public class GameManager : MonoBehaviour
         StartCoroutine(CheckRoomDistance());
     }
 
-    public void UpdateColliders(Collider2D col, bool t, bool Allie)
+    private void Update()
     {
-        if (Allie)
+        CheckIfEnemyIsAlive();
+    }
+
+    public void UpdateAllies()
+    {
+        float relDis = 0;
+        foreach(FriendAI friendAI1 in Friends)
         {
-            AlliesColliders.Add(col); 
-            foreach (Collider2D AllieCol1 in AlliesColliders)
-            {
-                Physics2D.IgnoreCollision(AllieCol1, col, t);
-            }
-            foreach(GameObject InteractionZoneCollider in GameObject.FindGameObjectsWithTag("InteractionZone"))
-            {
-                Physics2D.IgnoreCollision(InteractionZoneCollider.GetComponent<Collider2D>(), col, t);
-            }
+            relDis += 5;
+            friendAI1.PlayerPersonalDistance = relDis;
         }
-        else
+    }
+
+    public void UpdateColliders(List<Collider2D> Colliders, bool active, List<Collider2D> list)
+    {
+        foreach (Collider2D col1 in Colliders)
         {
-            EnemyColliders.Add(col);
-            foreach (Collider2D EnemyCol1 in EnemyColliders)
+            if (active)
             {
-                Physics2D.IgnoreCollision(EnemyCol1, col, t);
+                list.Add(col1); 
+            }
+
+            foreach (Collider2D col2 in list)
+            {
+                Physics2D.IgnoreCollision(col1, col2, active);
+            }
+
+            if (!active)
+            {
+                list.Remove(col1);
             }
         }
     }
 
-    private void Update()
+    public void UpdateColliders(Collider2D col1, bool active, List<Collider2D> list)
     {
-        CheckIfEnemyIsAlive();
+        if (active)
+        {
+            list.Add(col1); 
+        }
+
+        foreach (Collider2D col2 in list)
+        {
+            Physics2D.IgnoreCollision(col1, col2, active);
+        }
+
+        if (!active)
+        {
+            list.Remove(col1);
+        }
     }
 
     private void CheckIfEnemyIsAlive()
@@ -117,17 +142,18 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(0.05f);
 
+            GameObject txt;
+            txt = ObjectPooler.pool.GetPooledObject(1);
+            txt.transform.position = collision.GetContact(0).point;
             if (DmgSum > 0)
-                DmgText.GetComponent<TextMeshPro>().text = Mathf.RoundToInt(DmgSum) + "";
+                txt.GetComponent<TextMeshPro>().text = Mathf.RoundToInt(DmgSum) + "";
             else
-                DmgText.GetComponent<TextMeshPro>().text = "";
+                txt.GetComponent<TextMeshPro>().text = "";
 
             if (!collision.gameObject.CompareTag("Player"))
-                DmgText.GetComponent<TextMeshPro>().color = PlayerDmgColor;
+                txt.GetComponent<TextMeshPro>().color = PlayerDmgColor;
             else
-                DmgText.GetComponent<TextMeshPro>().color = Color.red;
-
-            Instantiate(DmgText, collision.GetContact(0).point, Quaternion.identity);
+                txt.GetComponent<TextMeshPro>().color = Color.red;
             DmgSum = 0;
         } 
 

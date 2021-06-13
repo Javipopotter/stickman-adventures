@@ -16,7 +16,8 @@ public class DmgText : MonoBehaviour
 
         if(timer <= 0)
         {
-            Destroy(gameObject);
+            timer = 1;
+            gameObject.SetActive(false);
         }
     }
 }

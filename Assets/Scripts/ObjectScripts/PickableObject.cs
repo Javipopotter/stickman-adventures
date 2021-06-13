@@ -18,10 +18,12 @@ public class PickableObject : MonoBehaviour
     public float range;
     public Weapon ThisWeapon;
     public bool CanGetChanged = true;
-    public int ObjectUiAspectID;
+    [SerializeField] List<Collider2D> WeaponColliders;
+    public float WeaponCoolDown = 0;
+    public bool activateCoolDown;
     public enum Weapon
     {
-        Spear, Sword, HookShot
+        Spear, Sword, HookShot, Gun
     }
     public virtual void Awake()
     {
@@ -30,9 +32,11 @@ public class PickableObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void ChangeProperties(bool take, bool PickedByEnemy)
+    public void ChangeProperties(bool take, bool PickedByEnemy, List<Collider2D> list)
     {
         IsPickedByEnemy = PickedByEnemy;
+        Holded = take;
+        GameManager.Gm.UpdateColliders(WeaponColliders, take, list);
         if (take)
         {
             if (blockRot)
@@ -45,7 +49,7 @@ public class PickableObject : MonoBehaviour
                 SetLayers(9);
             }
 
-            ActiveDeactiveComponents(true);
+            ActiveDeactiveComponents(!PickedByEnemy);
         }
         else
         {
@@ -78,7 +82,6 @@ public class PickableObject : MonoBehaviour
         {
             component.enabled = Switch;
         } 
-        Holded = Switch;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

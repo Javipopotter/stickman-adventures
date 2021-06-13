@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 1740154177434698899, guid: c827a6c826212e54f807bd18f1449f94, type: 3}
   - {fileID: 5420210090255724594, guid: b6918ee7acb951d44a4a453410cbb013, type: 3}
   - {fileID: 9128810012514798793, guid: d519bac4630faa944970d267d3fcf9f7, type: 3}
+  - {fileID: 623173097607829517, guid: e0dfd315fa4c0d543816a5f63d7c8ba6, type: 3}
   isItThere: 1
   probability: 10
 --- !u!1 &4639685185850644189
@@ -202,6 +203,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direct: {x: 0, y: -1}
+  RoomSize:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 50, y: 50, z: 0}
 --- !u!1 &5488445100813971180
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,24 +269,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
+      propertyPath: m_Size.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_Color.b
-      value: 0.1981132
+      value: 0.27450982
       objectReference: {fileID: 0}
     - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_Color.g
-      value: 0.09261345
+      value: 0.11372549
       objectReference: {fileID: 0}
     - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_Color.r
-      value: 0.06448024
+      value: 0.050980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4204834474300860537, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7017824522726036673, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017824522726036673, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7017824522726036673, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_LocalPosition.x

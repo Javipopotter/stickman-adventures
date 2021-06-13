@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direct: {x: 0, y: 0}
+  RoomSize:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 50, y: 50, z: 0}
 --- !u!1001 &8130226810829082808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,28 +60,40 @@ PrefabInstance:
       value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
+      propertyPath: m_Size.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
+      propertyPath: m_Size.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_Color.b
-      value: 0.21568628
+      value: 0.27450982
       objectReference: {fileID: 0}
     - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_Color.g
-      value: 0.12156863
+      value: 0.11372549
       objectReference: {fileID: 0}
     - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_Color.r
-      value: 0.09803922
+      value: 0.050980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159565500469705026, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4204834474300860537, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4204834474300860537, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7017824522726036673, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017824522726036673, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 105
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017824522726036673, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 7017824522726036673, guid: 201a49d879e8a3948b89edc0cd2947b3, type: 3}
       propertyPath: m_LocalPosition.x

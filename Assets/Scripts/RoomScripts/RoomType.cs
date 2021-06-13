@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoomType : MonoBehaviour
 {
     public Vector2 Direct;
+    public Bounds RoomSize;
 
     public void AutoDestroy()
     {

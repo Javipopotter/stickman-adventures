@@ -823,9 +823,9 @@ GameObject:
   - component: {fileID: 4595674453831671072}
   - component: {fileID: 4595674453831671075}
   - component: {fileID: 6382153007866196936}
-  - component: {fileID: 5797939457912079493}
   - component: {fileID: 8136419582768909497}
   - component: {fileID: 3736177838763404878}
+  - component: {fileID: 4176058609517679294}
   m_Layer: 10
   m_Name: Friend
   m_TagString: Player
@@ -882,31 +882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e3c1a1c4e2ea8418595c67208ea4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5797939457912079493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4595674453831671073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e4419370dacb041a768e7bf8074731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floor:
-    serializedVersion: 2
-    m_Bits: 256
-  torso: {fileID: 4595674455419206975}
-  rb: {fileID: 0}
-  an: {fileID: 0}
-  speed: 20
-  jumpForce: 225
-  canJump: 0
-  Player: {fileID: 0}
-  Range: 5
-  Friend: 1
-  Distance: 0
 --- !u!95 &8136419582768909497
 Animator:
   serializedVersion: 3
@@ -939,7 +914,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partsLifes: []
+  MaxLife: 0
   TotalLife: 0
+  requiredDmgToDie: 0.5
+--- !u!114 &4176058609517679294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674453831671073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbe9edc909edd94f832d8344101f9cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor:
+    serializedVersion: 2
+    m_Bits: 256
+  torso: {fileID: 4595674455419206975}
+  rb: {fileID: 0}
+  an: {fileID: 0}
+  speed: 20
+  jumpForce: 180
+  canJump: 0
+  Player: {fileID: 0}
+  enemy: {fileID: 0}
+  aIGrab: {fileID: 0}
+  Range: 5
+  PlayerPersonalDistance: 5
 --- !u!1 &4595674453870713937
 GameObject:
   m_ObjectHideFlags: 0

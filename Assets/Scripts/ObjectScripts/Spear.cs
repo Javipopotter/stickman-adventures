@@ -6,22 +6,20 @@ using UnityEngine;
 public class Spear : PickableObject
 {
     [SerializeField] float force = 150;
-    [SerializeField] float coolDown = 0;
-    [SerializeField] bool activeCoolDown;
-    [SerializeField] int attackCount = 0;
+    int attackCount = 0;
     public override void Awake()
     {
         base.Awake();
     }
     private void Update()
     {
-        sr.color = Color.Lerp(Color.white,Color.red,coolDown / 3);
+        sr.color = Color.Lerp(Color.white,Color.red,WeaponCoolDown / 3);
 
         if (Holded)
         {
             if (!IsPickedByEnemy)
             {
-                if (Input.GetMouseButtonDown(0) && activeCoolDown == false)
+                if (Input.GetMouseButtonDown(0) && activateCoolDown == false)
                 {
                     Attack(GameManager.Gm.GetMouseVector(transform.position));
                 }
@@ -33,14 +31,14 @@ public class Spear : PickableObject
 
     private void OnDisable()
     {
-        coolDown = 1;
+        WeaponCoolDown = 1;
         attackCount = 0;
     }
 
     public void Attack(Vector2 dir)
     {
         attackCount += 1;
-        coolDown = 1;
+        WeaponCoolDown = 1;
         rb.velocity = dir * force;
     }
 
@@ -48,19 +46,19 @@ public class Spear : PickableObject
     {
         if(attackCount >= 3)
         {
-            if(activeCoolDown == false)
-                coolDown = 3;
+            if(activateCoolDown == false)
+                WeaponCoolDown = 3;
 
-            activeCoolDown = true;
+            activateCoolDown = true;
         }
         else
         {
-            activeCoolDown = false;
+            activateCoolDown = false;
         }
 
-        if (coolDown > 0)
+        if (WeaponCoolDown > 0)
         {
-            coolDown -= Time.deltaTime;
+            WeaponCoolDown -= Time.deltaTime;
         }
         else
         {
