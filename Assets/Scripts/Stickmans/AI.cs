@@ -7,7 +7,7 @@ public class AI : HumanoidController
     public GameObject Player;
     public GameObject enemy;
     Vector2 FeetRay;
-    Vector2 PlayerDir;
+    public Vector2 EnemyDir;
     public AIGrab aIGrab;
     float AttackCoolDown;
     public float Range = 5;
@@ -19,6 +19,7 @@ public class AI : HumanoidController
         an = GetComponent<Animator>();
         Player = GameManager.Gm.PlayerTorso;
     }
+
     public virtual void FixedUpdate()
     {
         FeetRay = new Vector2(torso.transform.position.x - 2, torso.transform.position.y - 1);
@@ -32,31 +33,42 @@ public class AI : HumanoidController
     
     public void Attack(GameObject p, PickableObject f, GameObject a)
     {
-        PlayerDir = a.transform.position - torso.transform.position;
-        PlayerDir.Normalize();
+        float n = 0;
+        EnemyDir = a.transform.position - torso.transform.position;
+        EnemyDir.Normalize();
         float rotz;
-        rotz = Mathf.Atan2(PlayerDir.y, PlayerDir.x) * Mathf.Rad2Deg;
+        rotz = Mathf.Atan2(EnemyDir.y, EnemyDir.x) * Mathf.Rad2Deg;
         AttackCoolDown -= Time.fixedDeltaTime;
         if (AttackCoolDown <= 0)
         {
             switch (f.ThisWeapon)
             {
                 case PickableObject.Weapon.Sword:
-                    p.GetComponent<Sword>().MoveArms.EnemyPunch(-PlayerDir.x);
+                    p.GetComponent<Sword>().MoveArms.EnemyPunch(-EnemyDir.x);
                     AttackCoolDown = 0.5f;
+                    n = 0.5f;
                     break;
                 case PickableObject.Weapon.Spear:                   
-                    p.GetComponent<Spear>().Attack(PlayerDir);
+                    p.GetComponent<Spear>().Attack(EnemyDir);
                     AttackCoolDown = 0.5f;
+                    n = 0.1f;
                     break;
                 case PickableObject.Weapon.HookShot:
                     p.GetComponent<HookShot>().Shot();
                     AttackCoolDown = 0.5f;
+                    n = 0;
+                    break;
+                case PickableObject.Weapon.Gun:
+                    p.GetComponent<Gun>().Shoot();
+                    AttackCoolDown = 0.5f;
+                    n = 0;
                     break;
             } 
         }
-        if (AttackCoolDown < 0.1f || f.ThisWeapon == PickableObject.Weapon.HookShot)
-            p.GetComponent<Rigidbody2D>().MoveRotation(rotz);
+        if (n < AttackCoolDown)
+        {
+            p.GetComponent<Rigidbody2D>().MoveRotation(rotz); 
+        }
     }
 
     public void MovementDir(GameObject chase)
@@ -68,6 +80,21 @@ public class AI : HumanoidController
         else
         {
             Move(-1);
+        }
+    }
+
+    public void Teleport(Vector2 pointToTeleport)
+    {
+        transform.position = pointToTeleport;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).transform.localPosition = Vector3.zero;
+            transform.GetChild(i).GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+
+        if(aIGrab.grabbed)
+        {
+            aIGrab.grabbedObject.transform.position = pointToTeleport;
         }
     }
 }

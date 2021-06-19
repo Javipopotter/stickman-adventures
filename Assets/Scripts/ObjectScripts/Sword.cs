@@ -21,7 +21,7 @@ public class Sword : PickableObject
         {
             sr.color = Color.Lerp(Color.white, Color.yellow, HoldTimer / 1.5f); 
         }
-        if (Holded && IsPickedByEnemy == false)
+        if (Holded && PickedByAI == false)
         {
 
             if (Input.GetMouseButton(0))
@@ -40,12 +40,8 @@ public class Sword : PickableObject
                 HoldTimer = 0;
             } 
         }
-        else if(Holded)
+        else
         {
-            if(HoldTimer >= 1.5f)
-            {
-                MoveArms.Punch();
-            }
             HoldTimer = 0;
         }
     }
@@ -86,11 +82,5 @@ public class Sword : PickableObject
         gameObject.layer = 9;
         MoveArms.force /= 4;
         transform.localScale = transform.localScale / 2;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        rb = GetComponent<Rigidbody2D>();
-        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, IsPickedByEnemy));
     }
 }

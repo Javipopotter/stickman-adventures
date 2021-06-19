@@ -13,6 +13,12 @@ public class Hook : MonoBehaviour
     [HideInInspector] public float DmgMultiplier;
     [HideInInspector] public bool PickedByEnemy;
     public GameObject col;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();    
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (isHooked == false && !PickedByEnemy && collision.gameObject != HookShot)
@@ -35,7 +41,6 @@ public class Hook : MonoBehaviour
             HookShot.GetComponent<HookShot>().UnShot();
         }
 
-        rb = GetComponent<Rigidbody2D>();
-        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByEnemy));
+        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByEnemy, 20));
     }
 }

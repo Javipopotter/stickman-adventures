@@ -17,9 +17,9 @@ public class Spear : PickableObject
 
         if (Holded)
         {
-            if (!IsPickedByEnemy)
+            if (!PickedByAI)
             {
-                if (Input.GetMouseButtonDown(0) && activateCoolDown == false)
+                if (Input.GetMouseButtonDown(0))
                 {
                     Attack(GameManager.Gm.GetMouseVector(transform.position));
                 }
@@ -37,9 +37,12 @@ public class Spear : PickableObject
 
     public void Attack(Vector2 dir)
     {
-        attackCount += 1;
-        WeaponCoolDown = 1;
-        rb.velocity = dir * force;
+        if (activateCoolDown == false)
+        {
+            attackCount += 1;
+            WeaponCoolDown = 1;
+            rb.velocity = dir * force; 
+        }
     }
 
     void coolDownTimer()
@@ -64,11 +67,5 @@ public class Spear : PickableObject
         {
             attackCount = 0;
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        rb = GetComponent<Rigidbody2D>();
-        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, IsPickedByEnemy));
     }
 }

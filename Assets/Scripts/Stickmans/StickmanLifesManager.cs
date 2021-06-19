@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StickmanLifesManager : MonoBehaviour
 {
+    AI aI;
     public List<PartsLifes> partsLifes;
     public float MaxLife;
     public float TotalLife;
@@ -11,6 +12,7 @@ public class StickmanLifesManager : MonoBehaviour
 
     private void Start()
     {
+        aI = GetComponent<AI>();
         foreach(AIPartLifes part in partsLifes)
         {
             TotalLife += part.lifes;
@@ -43,7 +45,13 @@ public class StickmanLifesManager : MonoBehaviour
                 part.AssignedHandDrop();
             }
         }
+        for (int i = 0; i < Random.Range(5, 15); i++)
+        {
+            GameObject g = ObjectPooler.pool.GetPooledObject(2);
+            g.transform.position = aI.torso.transform.position;
+            g.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10, 10), Random.Range(15, 25)), ForceMode2D.Impulse); 
+        }
         enabled = false;
-        GetComponent<AI>().enabled = false;
+        aI.enabled = false;
     }
 }

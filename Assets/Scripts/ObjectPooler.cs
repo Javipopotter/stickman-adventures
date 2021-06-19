@@ -19,7 +19,7 @@ public class ObjectPooler : MonoBehaviour
         foreach (GameObject objectToPool in ObjectsToPool)
         {
             GameObject tmp;
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 30; i++)
             {
                 tmp = Instantiate(objectToPool);
                 tmp.SetActive(false);
@@ -40,6 +40,10 @@ public class ObjectPooler : MonoBehaviour
                 return g;
             }
         }
-        return null;
+        return PooledObjects[index][0];
+        //GameObject NewG;
+        //NewG = Instantiate(ObjectsToPool[index], transform.position, Quaternion.identity);
+        //PooledObjects[index].Add(NewG);
+        //return NewG;
     }
 }

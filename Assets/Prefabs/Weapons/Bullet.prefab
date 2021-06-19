@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 313970040601770292}
   - component: {fileID: 3262672765520171737}
   - component: {fileID: 2536511035464902488}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c524ed883d4fb7c498c7ef856c4acd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPickedByEnemy: 0
+  PickedByAI: 0
+  ColList: []
 --- !u!1 &6395071787709460114
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2046626463310129059}
   - component: {fileID: 7153198765265537380}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Bullet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

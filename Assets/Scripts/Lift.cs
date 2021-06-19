@@ -6,10 +6,16 @@ public class Lift : MonoBehaviour
 {
     Vector2 InitPos;
     Vector2 Dist;
-    bool TakeBack;
+    bool GoBack;
     Vector2 dir;
     [SerializeField] GameObject Ref;
     Rigidbody2D rb;
+    enum States
+    {
+        Stop,
+        Moving
+    }
+    States LiftState = States.Stop;
 
     void Awake()
     {
@@ -22,23 +28,31 @@ public class Lift : MonoBehaviour
 
     private void Update()
     {
-        if (TakeBack && Vector2.Distance(transform.position, InitPos) > 1)
-            rb.MovePosition(rb.position + dir * 0.5f);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.transform.CompareTag("Player"))
+        if(LiftState == States.Moving)
         {
-            TakeBack = false;
-            if (Vector2.Distance(transform.position, Dist) > 1)
-                rb.MovePosition(rb.position + -dir * 0.3f);
+            Vector2 ParadePos;
+
+            if (GoBack)
+                ParadePos = InitPos;
+            else
+                ParadePos = Dist;
+
+            rb.MovePosition(rb.position - dir / 2);
+            if(Vector2.Distance(transform.position, ParadePos) < 1)
+            {
+                transform.position = ParadePos;
+                GoBack = !GoBack;
+                dir = -dir;
+                LiftState = States.Stop;
+            }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void Move()
     {
-        if(collision.transform.CompareTag("Player"))
-            TakeBack = true;
+        if(LiftState == States.Stop)
+        {
+            LiftState = States.Moving;
+        }
     }
 }

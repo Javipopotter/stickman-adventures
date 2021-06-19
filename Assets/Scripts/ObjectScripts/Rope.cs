@@ -8,6 +8,7 @@ public class Rope : MonoBehaviour
     [SerializeField] GameObject RopeInstance;
     [SerializeField] GameObject LastRope;
     [SerializeField] bool RandomLength;
+    [SerializeField] bool DoubleHolded;
     public float rot;
     public float RopeLength;
     public float minLength;
@@ -24,6 +25,10 @@ public class Rope : MonoBehaviour
             LastRope = RopeBase;
         }
         transform.eulerAngles = Vector3.forward * rot;
+        if(DoubleHolded)
+        {
+            LastRope.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+        }
         StartCoroutine(AutoconfigureConnectedAnchorIsAShit());
     }
 

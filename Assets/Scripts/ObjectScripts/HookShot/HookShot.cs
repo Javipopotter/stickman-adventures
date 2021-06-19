@@ -33,8 +33,8 @@ public class HookShot : PickableObject
         lineRenderer.SetPosition(1, Hook.transform.position);
         if(Holded)
         {
-            HookScript.PickedByEnemy = IsPickedByEnemy;
-            if (!IsPickedByEnemy)
+            HookScript.PickedByEnemy = PickedByAI;
+            if (!PickedByAI)
             {
                 if (Input.GetMouseButton(0) && e)
                     Shot();

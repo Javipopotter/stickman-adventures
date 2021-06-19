@@ -14,13 +14,16 @@ public class PickableObject : MonoBehaviour
     public int OutLineThickness;
     public bool CanPunch, BlockArm;
     public float DmgMultiplier;
-    public bool IsPickedByEnemy;
+    public bool PickedByAI;
     public float range;
     public Weapon ThisWeapon;
     public bool CanGetChanged = true;
     [SerializeField] List<Collider2D> WeaponColliders;
     public float WeaponCoolDown = 0;
     public bool activateCoolDown;
+    [SerializeField] float minVel;
+    public bool PickedByAllie;
+    public GameObject Holder;
     public enum Weapon
     {
         Spear, Sword, HookShot, Gun
@@ -32,11 +35,12 @@ public class PickableObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void ChangeProperties(bool take, bool PickedByEnemy, List<Collider2D> list)
+    public void ChangeProperties(bool take, bool PickedByAI, int layerToIgnore, bool PickedByAllie, GameObject Holder)
     {
-        IsPickedByEnemy = PickedByEnemy;
+        this.Holder = Holder;
+        this.PickedByAI = PickedByAI;
+        this.PickedByAllie = PickedByAllie;
         Holded = take;
-        GameManager.Gm.UpdateColliders(WeaponColliders, take, list);
         if (take)
         {
             if (blockRot)
@@ -46,10 +50,10 @@ public class PickableObject : MonoBehaviour
 
             if (doesntCollide)
             {
-                SetLayers(9);
+                SetLayers(layerToIgnore);
             }
 
-            ActiveDeactiveComponents(!PickedByEnemy);
+            ActiveDeactiveComponents(!PickedByAI);
         }
         else
         {
@@ -60,7 +64,7 @@ public class PickableObject : MonoBehaviour
 
             if (doesntCollide)
             {
-                SetLayers(0);
+                SetLayers(layerToIgnore);
             }
 
             ActiveDeactiveComponents(false);
@@ -89,6 +93,18 @@ public class PickableObject : MonoBehaviour
         if(collision.transform.CompareTag("Chunk"))
         {
             transform.parent = collision.transform.parent;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (Holded)
+        {
+            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, minVel)); 
+        }
+        else
+        {
+            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, minVel * 3));
         }
     }
 }

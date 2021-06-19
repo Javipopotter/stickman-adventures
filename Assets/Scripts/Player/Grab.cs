@@ -37,8 +37,6 @@ public class Grab : MonoBehaviour
                 Drop();
             }
         }
-
-
     }
      private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -113,7 +111,7 @@ public class Grab : MonoBehaviour
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
         ActiveDeactivePunches(Picked.CanPunch, Picked.BlockArm);
-        Picked.ChangeProperties(true, false, GameManager.Gm.AlliesColliders);
+        Picked.ChangeProperties(true, false, 9, true, gameObject);
     }
 
     public void Drop()
@@ -123,7 +121,7 @@ public class Grab : MonoBehaviour
         if (Grabs && pickable != null)
         {
             ActiveDeactivePunches(true, false);
-            pickable.ChangeProperties(false, false, GameManager.Gm.AlliesColliders);
+            pickable.ChangeProperties(false, false, 0, true, null);
             pickable = null;
         }
     }

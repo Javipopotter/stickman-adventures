@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3714786293001975541}
   - component: {fileID: -7163827653320997052}
   - component: {fileID: -514423557559365807}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RopeBase
   m_TagString: rope
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ MonoBehaviour:
   RopeInstance: {fileID: 2092183146048799107, guid: 8e03bc38f435ab2439dfb04940a1eb8b, type: 3}
   LastRope: {fileID: 3714786293558419701}
   RandomLength: 1
+  DoubleHolded: 0
   rot: 0
   RopeLength: 0
   minLength: 20
@@ -99,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092183146048799107, guid: 8e03bc38f435ab2439dfb04940a1eb8b, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2092183146048799107, guid: 8e03bc38f435ab2439dfb04940a1eb8b, type: 3}
       propertyPath: m_TagString
@@ -203,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092183146048799107, guid: 8e03bc38f435ab2439dfb04940a1eb8b, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2092183146048799107, guid: 8e03bc38f435ab2439dfb04940a1eb8b, type: 3}
       propertyPath: m_TagString

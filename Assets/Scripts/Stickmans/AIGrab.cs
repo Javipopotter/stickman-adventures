@@ -21,7 +21,7 @@ public class AIGrab : MonoBehaviour
 
     private void GrabWeapon(Collider2D collision)
     {
-        if (collision.TryGetComponent(out PickableObject Picked) && !Picked.Holded && !grabbed && collision.GetComponent<Rigidbody2D>().velocity.magnitude < 20 && enabled)
+        if (collision.TryGetComponent(out PickableObject Picked) && !Picked.Holded && !grabbed && enabled)
         {
             Rigidbody2D rb = collision.transform.GetComponent<Rigidbody2D>();
             PickUp(Picked, rb);
@@ -45,9 +45,9 @@ public class AIGrab : MonoBehaviour
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
         if (IsFriend)
-            Picked.ChangeProperties(true, true, GameManager.Gm.AlliesColliders);
+            Picked.ChangeProperties(true, true, 9, true, gameObject);
         else
-            Picked.ChangeProperties(true, true, GameManager.Gm.EnemyColliders);
+            Picked.ChangeProperties(true, true, 6, false, gameObject);
     }
 
     public void Drop()
@@ -57,11 +57,7 @@ public class AIGrab : MonoBehaviour
         Destroy(GetComponent<FixedJoint2D>());
         if (pickableObject != null)
         {
-            if(IsFriend)
-                pickableObject.ChangeProperties(false, false, GameManager.Gm.AlliesColliders);
-            else
-                pickableObject.ChangeProperties(false, false, GameManager.Gm.EnemyColliders);
-            pickableObject.SetLayers(9);
+            pickableObject.ChangeProperties(false, false, 0, false, null);
             pickableObject = null;
         }
     }

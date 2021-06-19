@@ -5,9 +5,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Rigidbody2D rb;
-    [HideInInspector] float DmgMultiplier = 1f;
-    public bool IsPickedByEnemy;
+    [HideInInspector] float DmgMultiplier = 0.8f;
+    public bool PickedByAI;
     float lifetime = 3;
+    public List<Collider2D> ColList;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -23,8 +29,7 @@ public class Bullet : MonoBehaviour
     {
         lifetime = 3;
         rb = GetComponent<Rigidbody2D>();
-        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, IsPickedByEnemy));
-        GameManager.Gm.UpdateColliders(GetComponent<Collider2D>(), false, GameManager.Gm.AlliesColliders);
+        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, 20));
         gameObject.SetActive(false);
     }
 }

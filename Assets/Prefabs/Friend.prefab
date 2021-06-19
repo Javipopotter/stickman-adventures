@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4595674453403314968}
   - component: {fileID: 3739488664978580065}
   - component: {fileID: 8957878196830761098}
+  - component: {fileID: 3362498190708755495}
   m_Layer: 10
   m_Name: Pierna12
   m_TagString: Player
@@ -31,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674453403314406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.91, z: 0}
+  m_LocalPosition: {x: 0, y: -2.973, z: 0}
   m_LocalScale: {x: 0.22883493, y: 1.2616369, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -207,6 +208,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 1
+--- !u!114 &3362498190708755495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674453403314406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674453470794367
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +235,7 @@ GameObject:
   - component: {fileID: 4595674453470794353}
   - component: {fileID: 4332199782627942368}
   - component: {fileID: 6391699620081266292}
+  - component: {fileID: 1636854955117732174}
   m_Layer: 10
   m_Name: RightArm
   m_TagString: Player
@@ -237,7 +251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674453470794367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61400026, y: 1.989333, z: 0}
+  m_LocalPosition: {x: 0.61400026, y: 0.92633283, z: 0}
   m_LocalScale: {x: 1, y: 0.2288353, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -398,6 +412,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
+--- !u!114 &1636854955117732174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674453470794367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674453687703432
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +440,7 @@ GameObject:
   - component: {fileID: 4595674453687703434}
   - component: {fileID: 4077799823902695165}
   - component: {fileID: 8754191769894094620}
+  - component: {fileID: 3134631668943604558}
   m_Layer: 10
   m_Name: Pierna2
   m_TagString: Player
@@ -429,7 +456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674453687703432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.656, z: 0}
+  m_LocalPosition: {x: 0, y: -1.7190002, z: 0}
   m_LocalScale: {x: 0.22883493, y: 1.2616369, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -605,6 +632,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 1
+--- !u!114 &3134631668943604558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674453687703432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674453703745384
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +660,7 @@ GameObject:
   - component: {fileID: 4595674453703745386}
   - component: {fileID: 105261006000107823}
   - component: {fileID: 714389201079610606}
+  - component: {fileID: 3434418552376813434}
   m_Layer: 10
   m_Name: Pierna21
   m_TagString: Player
@@ -636,7 +676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674453703745384}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.91, z: 0}
+  m_LocalPosition: {x: 0, y: -2.973, z: 0}
   m_LocalScale: {x: 0.22883493, y: 1.2616369, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -812,6 +852,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 1
+--- !u!114 &3434418552376813434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674453703745384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674453831671073
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +992,7 @@ MonoBehaviour:
   canJump: 0
   Player: {fileID: 0}
   enemy: {fileID: 0}
+  EnemyDir: {x: 0, y: 0}
   aIGrab: {fileID: 0}
   Range: 5
   PlayerPersonalDistance: 5
@@ -958,6 +1011,7 @@ GameObject:
   - component: {fileID: 4595674453870713939}
   - component: {fileID: 7763752186371032683}
   - component: {fileID: 8656745155068585213}
+  - component: {fileID: 5966748668964537931}
   m_Layer: 10
   m_Name: LeftArm
   m_TagString: Player
@@ -973,7 +1027,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674453870713937}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: -0.61400014, y: 1.989333, z: 0}
+  m_LocalPosition: {x: -0.61400014, y: 0.92633283, z: 0}
   m_LocalScale: {x: 1, y: 0.2288353, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -1134,6 +1188,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
+--- !u!114 &5966748668964537931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674453870713937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674454089849647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1215,7 @@ GameObject:
   - component: {fileID: 4595674454089849633}
   - component: {fileID: 2575649239357341038}
   - component: {fileID: 7472721988344548726}
+  - component: {fileID: 2485598099130340522}
   m_Layer: 10
   m_Name: LeftForeArm
   m_TagString: Player
@@ -1164,7 +1231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674454089849647}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: -1.609, y: 1.989333, z: 0}
+  m_LocalPosition: {x: -1.609, y: 0.92633283, z: 0}
   m_LocalScale: {x: 1, y: 0.2288353, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -1325,6 +1392,18 @@ MonoBehaviour:
   IsHand: 1
   AssignedHand: {fileID: 8800408516801371114}
   IsLeg: 0
+--- !u!114 &2485598099130340522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674454089849647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674454137787023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1419,7 @@ GameObject:
   - component: {fileID: 4595674454137787009}
   - component: {fileID: 5972038465635710002}
   - component: {fileID: 6247388447743298627}
+  - component: {fileID: 6065619464133721967}
   m_Layer: 10
   m_Name: RightForeArm
   m_TagString: Player
@@ -1355,7 +1435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674454137787023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.609, y: 1.989333, z: 0}
+  m_LocalPosition: {x: 1.609, y: 0.92633283, z: 0}
   m_LocalScale: {x: 1, y: 0.2288353, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -1516,6 +1596,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
+--- !u!114 &6065619464133721967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674454137787023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674454473466026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,6 +1705,7 @@ GameObject:
   - component: {fileID: 4595674454619067865}
   - component: {fileID: 3214564642459144151}
   - component: {fileID: 8241582827812175451}
+  - component: {fileID: 1292583207394451585}
   m_Layer: 10
   m_Name: Head
   m_TagString: Player
@@ -1628,7 +1721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674454619067815}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.644, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5809999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4595674454473466029}
@@ -1781,6 +1874,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
+--- !u!114 &1292583207394451585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674454619067815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674455008282419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1902,7 @@ GameObject:
   - component: {fileID: 4595674455008282421}
   - component: {fileID: 8004116590430516015}
   - component: {fileID: 8950702093150551629}
+  - component: {fileID: 8455607930121513241}
   m_Layer: 10
   m_Name: Pierna1
   m_TagString: Player
@@ -1812,7 +1918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674455008282419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.656, z: 0}
+  m_LocalPosition: {x: 0, y: -1.7190002, z: 0}
   m_LocalScale: {x: 0.22883493, y: 1.2616369, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -1988,6 +2094,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 1
+--- !u!114 &8455607930121513241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674455008282419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4595674455419206975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2004,6 +2122,7 @@ GameObject:
   - component: {fileID: 4595674455419206974}
   - component: {fileID: 4512631451727761399}
   - component: {fileID: 3849018539036266345}
+  - component: {fileID: 4707553072649477482}
   m_Layer: 10
   m_Name: Torso
   m_TagString: Player
@@ -2019,7 +2138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595674455419206975}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.057333, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.22883493, y: 2.1917999, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -2183,6 +2302,18 @@ MonoBehaviour:
   IsHand: 0
   AssignedHand: {fileID: 0}
   IsLeg: 0
+--- !u!114 &4707553072649477482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595674455419206975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7231558792157185931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,7 +2327,8 @@ GameObject:
   - component: {fileID: 1751377647584383581}
   - component: {fileID: 6133690460586963385}
   - component: {fileID: 8800408516801371114}
-  m_Layer: 9
+  - component: {fileID: 7661590023736800343}
+  m_Layer: 0
   m_Name: 'InteractionZone '
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2211,7 +2343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7231558792157185931}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.099342, y: 2.0020003, z: 0}
+  m_LocalPosition: {x: -2.099342, y: 0.939, z: 0}
   m_LocalScale: {x: 1, y: 0.2288353, z: 1}
   m_Children: []
   m_Father: {fileID: 4595674453831671072}
@@ -2294,6 +2426,18 @@ MonoBehaviour:
   pickableObject: {fileID: 0}
   grabbedObject: {fileID: 0}
   IsFriend: 0
+--- !u!114 &7661590023736800343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7231558792157185931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8201685155061072607
 GameObject:
   m_ObjectHideFlags: 0

@@ -970,6 +970,7 @@ MonoBehaviour:
   punch: 1
   armLock: 0
   force: 3100
+  rotOffset: 0
   OnlyPunches: 0
 --- !u!233 &8621573056331816626
 HingeJoint2D:
@@ -1656,6 +1657,7 @@ MonoBehaviour:
   punch: 1
   armLock: 0
   force: 3100
+  rotOffset: 0
   OnlyPunches: 0
 --- !u!50 &8621573056730976401
 Rigidbody2D:
@@ -2042,6 +2044,7 @@ MonoBehaviour:
   punch: 1
   armLock: 0
   force: 3100
+  rotOffset: 0
   OnlyPunches: 0
 --- !u!233 &8621573057137987680
 HingeJoint2D:
@@ -2241,6 +2244,7 @@ MonoBehaviour:
   punch: 1
   armLock: 0
   force: 3100
+  rotOffset: 0
   OnlyPunches: 0
 --- !u!114 &4560632494448063235
 MonoBehaviour:
@@ -2273,7 +2277,7 @@ GameObject:
   - component: {fileID: 8621573057416835042}
   - component: {fileID: 8621573057416835041}
   - component: {fileID: 8621573057416835040}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 'InteractionZone '
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2386,7 +2390,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punch: 1
   armLock: 0
-  force: 3000
+  force: 3100
+  rotOffset: 0
   OnlyPunches: 0
 --- !u!1 &8621573057730418502
 GameObject:
@@ -2829,7 +2834,7 @@ GameObject:
   - component: {fileID: 8621573058167237322}
   - component: {fileID: 8621573058167237321}
   - component: {fileID: 8621573058167237324}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: InteractionZone
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2942,7 +2947,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punch: 1
   armLock: 0
-  force: 3000
+  force: 3100
+  rotOffset: 0
   OnlyPunches: 0
 --- !u!1 &8621573058415199698
 GameObject:

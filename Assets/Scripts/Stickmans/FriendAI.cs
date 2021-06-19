@@ -18,10 +18,9 @@ public class FriendAI : AI
         if (GameManager.Gm.PlayerEnemy != null)
         {
             enemy = GameManager.Gm.PlayerEnemy;
-            if (Vector2.Distance(GameManager.Gm.PlayerEnemy.transform.position, transform.position) > Range)
+            if (Vector2.Distance(GameManager.Gm.PlayerEnemy.transform.position, torso.transform.position) > Range)
             {
                 MovementDir(enemy);
-
             }
 
             if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range && aIGrab.grabbed)
@@ -36,6 +35,12 @@ public class FriendAI : AI
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+        if (Vector2.Distance(Player.transform.position, torso.transform.position) > 75)
+        {
+            Teleport(new Vector2(Player.transform.position.x, Player.transform.position.y + 10));
+            enemy = null;
         }
     }
 }

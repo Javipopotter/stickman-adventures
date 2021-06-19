@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8275513114277717991}
   - component: {fileID: 827921023324943377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Assets_34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5196446489131388990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.5, z: 0}
+  m_LocalPosition: {x: 0, y: 6.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8275513114277717991}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 5196446489517017439}
   - component: {fileID: 5196446489517017443}
   - component: {fileID: 5196446489517017432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.035247803, y: 2.524479}
+  m_Offset: {x: 0.015940666, y: 3.689022}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -312,7 +312,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.8621674, y: 8.048958}
+  m_Size: {x: 3.1765766, y: 5.6686783}
   m_EdgeRadius: 0
 --- !u!1 &7771474506346040149
 GameObject:

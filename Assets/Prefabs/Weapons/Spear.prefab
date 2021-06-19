@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1740154177434698926}
   - component: {fileID: 6185369692195282698}
   - component: {fileID: 5077445604471087439}
-  - component: {fileID: 7031936277654608825}
   - component: {fileID: 7488959190809536938}
-  m_Layer: 9
+  - component: {fileID: 590167896779566956}
+  m_Layer: 0
   m_Name: Spear
   m_TagString: Pickable
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   punch: 0
   armLock: 0
   force: 0
+  rotOffset: 0
   OnlyPunches: 0
 --- !u!114 &5077445604471087439
 MonoBehaviour:
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockRot: 0
-  doesntCollide: 0
+  doesntCollide: 1
   Components:
   - {fileID: 6185369692195282698}
   rb: {fileID: 0}
@@ -124,46 +125,19 @@ MonoBehaviour:
   CanPunch: 0
   BlockArm: 0
   DmgMultiplier: 0.3
-  IsPickedByEnemy: 0
+  PickedByAI: 0
   range: 20
   ThisWeapon: 0
   CanGetChanged: 1
   WeaponColliders:
-  - {fileID: 7031936277654608825}
+  - {fileID: 0}
   - {fileID: 1740154177434698924}
+  WeaponCoolDown: 0
+  activateCoolDown: 0
+  minVel: 20
+  PickedByAllie: 0
+  Holder: {fileID: 0}
   force: 150
---- !u!60 &7031936277654608825
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740154177434698899}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 5.33, y: 0.19}
-      - {x: 4.97, y: 0.9}
-      - {x: 4.63, y: 0.87}
-      - {x: 5.05, y: 0.18}
-      - {x: 4.39, y: -0.67}
-      - {x: 5.85, y: -0.71}
-      - {x: 5.42, y: -0.33}
 --- !u!61 &7488959190809536938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -189,6 +163,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 7.7271705, y: 4.2949405}
+  m_EdgeRadius: 0
+--- !u!61 &590167896779566956
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740154177434698899}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5.173334, y: 0.06818235}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3579559, y: 1.681823}
   m_EdgeRadius: 0
 --- !u!1 &3642980705872572937
 GameObject:

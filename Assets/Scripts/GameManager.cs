@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public List<Collider2D> AlliesColliders;
     public List<Collider2D> EnemyColliders;
     public List<FriendAI> Friends;
+    public int MoneyAmount;
+    [SerializeField] TextMeshProUGUI MoneyCounter;
 
     void Awake()
     {
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CheckIfEnemyIsAlive();
+        MoneyCounter.text = MoneyAmount + "";
     }
 
     public void UpdateAllies()
@@ -45,44 +48,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateColliders(List<Collider2D> Colliders, bool active, List<Collider2D> list)
-    {
-        foreach (Collider2D col1 in Colliders)
-        {
-            if (active)
-            {
-                list.Add(col1); 
-            }
-
-            foreach (Collider2D col2 in list)
-            {
-                Physics2D.IgnoreCollision(col1, col2, active);
-            }
-
-            if (!active)
-            {
-                list.Remove(col1);
-            }
-        }
-    }
-
-    public void UpdateColliders(Collider2D col1, bool active, List<Collider2D> list)
-    {
-        if (active)
-        {
-            list.Add(col1); 
-        }
-
-        foreach (Collider2D col2 in list)
-        {
-            Physics2D.IgnoreCollision(col1, col2, active);
-        }
-
-        if (!active)
-        {
-            list.Remove(col1);
-        }
-    }
 
     private void CheckIfEnemyIsAlive()
     {
@@ -128,9 +93,9 @@ public class GameManager : MonoBehaviour
         return dir;
     }
 
-    public IEnumerator DoDamage(Collision2D collision, Rigidbody2D rb, float DmgMultiplier, bool PickedByEnemy)
+    public IEnumerator DoDamage(Collision2D collision, Rigidbody2D rb, float DmgMultiplier, bool PickedByEnemy, float minVel)
     {
-        if ((collision.gameObject.CompareTag("enemy") || collision.gameObject.CompareTag("Player")) && rb.velocity.magnitude > 20 && collision.transform.TryGetComponent(out PartsLifes pl) && pl.lifes > 0)
+        if ((collision.gameObject.CompareTag("enemy") || collision.gameObject.CompareTag("Player")) && rb.velocity.magnitude > minVel && collision.transform.TryGetComponent(out PartsLifes pl) && pl.lifes > 0)
         {
             if(!PickedByEnemy && collision.gameObject.GetComponent<AIPartLifes>())
             {
@@ -172,3 +137,41 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+    //public void UpdateColliders(List<Collider2D> Colliders, bool active, List<Collider2D> list)
+    //{
+    //    foreach (Collider2D col1 in Colliders)
+    //    {
+    //        if (active)
+    //        {
+    //            list.Add(col1); 
+    //        }
+
+    //        foreach (Collider2D col2 in list)
+    //        {
+    //            Physics2D.IgnoreCollision(col1, col2, active);
+    //        }
+
+    //        if (!active)
+    //        {
+    //            list.Remove(col1);
+    //        }
+    //    }
+    //}
+
+    //public void UpdateColliders(Collider2D col1, bool active, List<Collider2D> list)
+    //{
+    //    if (active)
+    //    {
+    //        list.Add(col1); 
+    //    }
+
+    //    foreach (Collider2D col2 in list)
+    //    {
+    //        Physics2D.IgnoreCollision(col1, col2, active);
+    //    }
+
+    //    if (!active)
+    //    {
+    //        list.Remove(col1);
+    //    }
+    //}
