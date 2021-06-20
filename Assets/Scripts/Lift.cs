@@ -55,4 +55,12 @@ public class Lift : MonoBehaviour
             LiftState = States.Moving;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == GameManager.Gm.PlayerTorso && LiftState == States.Stop)
+        {
+            Move();
+        }
+    }
 }

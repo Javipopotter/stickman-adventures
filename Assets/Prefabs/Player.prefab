@@ -835,6 +835,7 @@ GameObject:
   - component: {fileID: 8621573056331816630}
   - component: {fileID: 8621573056331816626}
   - component: {fileID: 8575489918273600367}
+  - component: {fileID: 5623452121114365247}
   m_Layer: 10
   m_Name: LeftArm
   m_TagString: Player
@@ -953,7 +954,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &8621573056331816630
 MonoBehaviour:
@@ -1013,6 +1014,18 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &5623452121114365247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573056331816624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573056370368448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1175,7 @@ GameObject:
   - component: {fileID: 8621573056431185292}
   - component: {fileID: 8621573056431185291}
   - component: {fileID: 2233186335225087901}
+  - component: {fileID: 8415304480313887853}
   m_Layer: 10
   m_Name: Pierna21
   m_TagString: Player
@@ -1295,7 +1309,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573056431185291
 HingeJoint2D:
@@ -1338,6 +1352,18 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &8415304480313887853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573056431185289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573056513774953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1379,7 @@ GameObject:
   - component: {fileID: 8621573056513774956}
   - component: {fileID: 8621573056513774955}
   - component: {fileID: 5721577460277974484}
+  - component: {fileID: 4219571053200992282}
   m_Layer: 10
   m_Name: Pierna2
   m_TagString: Player
@@ -1486,7 +1513,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573056513774955
 HingeJoint2D:
@@ -1529,6 +1556,18 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &4219571053200992282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573056513774953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573056730976414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1582,7 @@ GameObject:
   - component: {fileID: 8621573056730976404}
   - component: {fileID: 8621573056730976401}
   - component: {fileID: 8621573056730976400}
+  - component: {fileID: 4548577498640839071}
   m_Layer: 10
   m_Name: RightArm
   m_TagString: Player
@@ -1678,7 +1718,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573056730976400
 HingeJoint2D:
@@ -1704,6 +1744,18 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &4548577498640839071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573056730976414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573056797649415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,6 +1771,7 @@ GameObject:
   - component: {fileID: 8621573056797649402}
   - component: {fileID: 8621573056797649401}
   - component: {fileID: 8238425498069206636}
+  - component: {fileID: 2138008626846372515}
   m_Layer: 10
   m_Name: Pierna12
   m_TagString: Player
@@ -1852,7 +1905,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573056797649401
 HingeJoint2D:
@@ -1895,6 +1948,18 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &2138008626846372515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573056797649415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573057137987694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,6 +1974,7 @@ GameObject:
   - component: {fileID: 8621573057137987681}
   - component: {fileID: 8621573057137987684}
   - component: {fileID: 8621573057137987680}
+  - component: {fileID: 3226687193192669152}
   m_Layer: 10
   m_Name: RightForeArm
   m_TagString: Player
@@ -2027,7 +2093,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &8621573057137987684
 MonoBehaviour:
@@ -2070,6 +2136,18 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 16.296686
     m_UpperAngle: 169.28362
+--- !u!114 &3226687193192669152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573057137987694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573057186453966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,6 +2163,7 @@ GameObject:
   - component: {fileID: 8621573057186453952}
   - component: {fileID: 8621573057186453956}
   - component: {fileID: 4560632494448063235}
+  - component: {fileID: 9067820446535269602}
   m_Layer: 10
   m_Name: LeftForeArm
   m_TagString: Player
@@ -2203,7 +2282,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573057186453952
 HingeJoint2D:
@@ -2263,6 +2342,18 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &9067820446535269602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573057186453966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573057416835054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,7 +2368,8 @@ GameObject:
   - component: {fileID: 8621573057416835042}
   - component: {fileID: 8621573057416835041}
   - component: {fileID: 8621573057416835040}
-  m_Layer: 0
+  - component: {fileID: 3447801095021592801}
+  m_Layer: 9
   m_Name: 'InteractionZone '
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2333,7 +2425,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573057416835042
 HingeJoint2D:
@@ -2393,6 +2485,18 @@ MonoBehaviour:
   force: 3100
   rotOffset: 0
   OnlyPunches: 0
+--- !u!114 &3447801095021592801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573057416835054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573057730418502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,6 +2511,7 @@ GameObject:
   - component: {fileID: 8621573057730418489}
   - component: {fileID: 8621573057730418488}
   - component: {fileID: 2670105441815265337}
+  - component: {fileID: 951041938457490701}
   m_Layer: 10
   m_Name: Head
   m_TagString: Player
@@ -2516,7 +2621,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573057730418488
 HingeJoint2D:
@@ -2559,6 +2664,18 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &951041938457490701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573057730418502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573057876320843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,7 +2906,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &6131652289005472552
 MonoBehaviour:
@@ -2834,7 +2951,8 @@ GameObject:
   - component: {fileID: 8621573058167237322}
   - component: {fileID: 8621573058167237321}
   - component: {fileID: 8621573058167237324}
-  m_Layer: 0
+  - component: {fileID: 21930386082518290}
+  m_Layer: 9
   m_Name: InteractionZone
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2890,7 +3008,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573058167237322
 HingeJoint2D:
@@ -2950,6 +3068,18 @@ MonoBehaviour:
   force: 3100
   rotOffset: 0
   OnlyPunches: 0
+--- !u!114 &21930386082518290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573058167237334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8621573058415199698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,6 +3095,7 @@ GameObject:
   - component: {fileID: 8621573058415199701}
   - component: {fileID: 8621573058415199700}
   - component: {fileID: 8379400929388600588}
+  - component: {fileID: 2801000871254809409}
   m_Layer: 10
   m_Name: Pierna1
   m_TagString: Player
@@ -3098,7 +3229,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!233 &8621573058415199700
 HingeJoint2D:
@@ -3141,3 +3272,15 @@ MonoBehaviour:
   OrLifes: 0
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &2801000871254809409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573058415199698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

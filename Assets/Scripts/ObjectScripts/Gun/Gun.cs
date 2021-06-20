@@ -29,13 +29,14 @@ public class Gun : PickableObject
         WeaponCoolDown = 0.3f;
         InstantiatedBullet = ObjectPooler.pool.GetPooledObject(0);
         if(PickedByAllie)
-            InstantiatedBullet.gameObject.layer = 9;
+            InstantiatedBullet.layer = 9;
         else
-            InstantiatedBullet.gameObject.layer = 6;
+            InstantiatedBullet.layer = 6;
         InstantiatedBulletRb = InstantiatedBullet.GetComponent<Rigidbody2D>();
-        InstantiatedBullet.transform.SetPositionAndRotation(Zubroska.transform.position, Zubroska.transform.rotation);
+        InstantiatedBullet.transform.SetPositionAndRotation(Zubroska.transform.position, transform.rotation);
         InstantiatedBullet.GetComponent<Bullet>().PickedByAI = PickedByAI;
-        InstantiatedBulletRb.velocity = Zubroska.transform.right * BulletForce;
+        Vector2 dir = GameManager.Gm.GetMouseVector(InstantiatedBullet.transform.position);
+        InstantiatedBulletRb.velocity = dir * BulletForce;
     }
 
     void GunCoolDown()

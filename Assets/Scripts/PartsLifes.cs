@@ -20,6 +20,7 @@ public class PartsLifes : MonoBehaviour
         if(TryGetComponent(out HingeJoint2D HJ))
         {
             HJ.enabled = t;
+            GetComponent<PhysicsHelper>().enabled = t;
         }
         if (TryGetComponent(out Balance bal))
         {

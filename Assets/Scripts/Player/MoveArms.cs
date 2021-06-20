@@ -54,7 +54,7 @@ public class MoveArms : MonoBehaviour
     float NormalizeFloat(float f)
     {
 
-        if (transform.rotation.z < f)
+        if (transform.rotation.z <= f)
         {
             return 1;
         }
@@ -64,7 +64,3 @@ public class MoveArms : MonoBehaviour
         }
     }
 }
-        /*if(Input.GetMouseButtonDown(0))
-        {
-            rb.AddForce(dir * force);
-        }*/

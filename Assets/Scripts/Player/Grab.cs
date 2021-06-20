@@ -53,7 +53,6 @@ public class Grab : MonoBehaviour
             else
             {
                 FixedJoint2D fj = transform.gameObject.AddComponent(typeof(FixedJoint2D)) as FixedJoint2D;
-                fj.breakForce = 120000;
             }
         }
     }

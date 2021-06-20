@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5548490679851659732}
   - component: {fileID: 6783317554956942518}
   - component: {fileID: 5308643603871784476}
+  - component: {fileID: 3562010231219836904}
   m_Layer: 11
   m_Name: Pierna1
   m_TagString: enemy
@@ -220,6 +221,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3562010231219836904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196483364079048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2149196483506569156
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +249,6 @@ GameObject:
   - component: {fileID: 2068402530836630796}
   - component: {fileID: 1692811083037937042}
   - component: {fileID: 4444294199073533726}
-  - component: {fileID: 6089423588660512787}
   m_Layer: 11
   m_Name: Torso
   m_TagString: enemy
@@ -416,18 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6089423588660512787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2149196483506569156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2149196483769685852
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 1047098746673466668}
   - component: {fileID: 5785890406348651680}
   - component: {fileID: 3055524899374522009}
+  - component: {fileID: 2328434723827823568}
   m_Layer: 11
   m_Name: Head
   m_TagString: enemy
@@ -623,6 +624,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2328434723827823568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196483769685852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2149196483898778193
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +734,7 @@ GameObject:
   - component: {fileID: 8139295448006080201}
   - component: {fileID: 8405768527283883704}
   - component: {fileID: 3933991134902073540}
+  - component: {fileID: 1013991731261088186}
   m_Layer: 11
   m_Name: RightForeArm
   m_TagString: enemy
@@ -909,6 +923,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1013991731261088186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196484234186868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2149196484282194388
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +951,7 @@ GameObject:
   - component: {fileID: 120167927173513109}
   - component: {fileID: 5017034515763384205}
   - component: {fileID: 1366003559509788669}
+  - component: {fileID: 5270454474867707652}
   m_Layer: 11
   m_Name: LeftForeArm
   m_TagString: enemy
@@ -1113,6 +1140,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5270454474867707652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196484282194388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2149196484900458628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1168,7 @@ GameObject:
   - component: {fileID: 2164955979742207259}
   - component: {fileID: 8838181990038842511}
   - component: {fileID: 6008841715154405768}
+  - component: {fileID: 6738203354829699732}
   m_Layer: 11
   m_Name: RightArm
   m_TagString: enemy
@@ -1317,6 +1357,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6738203354829699732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196484900458628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2149196484967754269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1386,7 @@ GameObject:
   - component: {fileID: 1292869960775868570}
   - component: {fileID: 6792731725117272689}
   - component: {fileID: 1519747848606288797}
+  - component: {fileID: 1837001345281808173}
   m_Layer: 11
   m_Name: Pierna12
   m_TagString: enemy
@@ -1537,6 +1590,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1837001345281808173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196484967754269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2149196485038268074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1618,7 @@ GameObject:
   - component: {fileID: 5308059763697419408}
   - component: {fileID: 6500533313798022662}
   - component: {fileID: 6881294941500852388}
+  - component: {fileID: 4146134596717360717}
   m_Layer: 11
   m_Name: LeftArm
   m_TagString: enemy
@@ -1741,6 +1807,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4146134596717360717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196485038268074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2149196485094088666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,6 +1968,7 @@ GameObject:
   - component: {fileID: 2549478371270751188}
   - component: {fileID: 3170079422716702229}
   - component: {fileID: 1988749043956642879}
+  - component: {fileID: 1355698202857850059}
   m_Layer: 11
   m_Name: Pierna21
   m_TagString: enemy
@@ -2093,6 +2172,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1355698202857850059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196485138128275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2149196485220160883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,6 +2201,7 @@ GameObject:
   - component: {fileID: 1910412535847885830}
   - component: {fileID: 6586871012902290919}
   - component: {fileID: 7964514078283261948}
+  - component: {fileID: 1842768611282580985}
   m_Layer: 11
   m_Name: Pierna2
   m_TagString: enemy
@@ -2313,6 +2405,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1842768611282580985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196485220160883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5066495884566824304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,7 +2431,8 @@ GameObject:
   - component: {fileID: 8578048562133775170}
   - component: {fileID: 6356043256743123217}
   - component: {fileID: 6624892300453754688}
-  m_Layer: 0
+  - component: {fileID: 5945805434516636489}
+  m_Layer: 6
   m_Name: 'InteractionZone '
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2435,5 +2540,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65da78a34025e5848843f2fd12fda415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5945805434516636489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066495884566824304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

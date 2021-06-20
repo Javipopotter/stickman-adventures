@@ -43,7 +43,7 @@ public class Rope : MonoBehaviour
             }
         }
     }
-
+}
     /*public void PickUpRope(bool t)
     {
         foreach(Balance b in ropeParts)
@@ -58,4 +58,3 @@ public class Rope : MonoBehaviour
             }
         }
     }*/
-}
