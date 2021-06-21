@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D rb;
     [HideInInspector] float DmgMultiplier = 0.8f;
+    public GameObject holder;
     public bool PickedByAI;
     float lifetime = 3;
     public List<Collider2D> ColList;
@@ -29,7 +30,7 @@ public class Bullet : MonoBehaviour
     {
         lifetime = 3;
         rb = GetComponent<Rigidbody2D>();
-        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, 20));
+        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, 20, holder));
         gameObject.SetActive(false);
     }
 }

@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RoomsGenerator : MonoBehaviour
 {
+    public List<GameObject> IIOO, IOIO, IOOI, OIIO, OIOI, OOII;
     public List<GameObject> leftRooms;
     public List<GameObject> rightRooms;
     public List<GameObject> upRooms;
     public List<GameObject> downRooms;
+    [SerializeField] GameObject InitialRoom;
     GameObject lastRoom;
+    RoomType.RoomStructure lastRoomOrigin;
     GameObject SpawnRoom;
     [SerializeField] GameObject Filler;
     public float distance;
@@ -26,8 +28,9 @@ public class RoomsGenerator : MonoBehaviour
     IEnumerator Produce()
     {
         roomPos = transform.position;
-        lastRoom = Instantiate(rightRooms[0], roomPos, Quaternion.identity) as GameObject;
+        lastRoom = Instantiate(InitialRoom, roomPos, Quaternion.identity) as GameObject;
         GameManager.Gm.ocuppedPos.Add(roomPos);
+        GameManager.Gm.GeneratedRooms.Add(lastRoom);
         for (int i = 0; i < 100; i++)
         {
             dir = directions[Random.Range(0, directions.Length)];
@@ -94,23 +97,69 @@ public class RoomsGenerator : MonoBehaviour
     void CheckTypeOfRoom()
     {
         if (dir == Vector2.right)
+        {
             TypeOfRoom.AddRange(leftRooms);
+            lastRoomOrigin = new RoomType.RoomStructure(false, false, false, true);
+        }
         else if (dir == Vector2.up)
+        {
             TypeOfRoom.AddRange(downRooms);
+            lastRoomOrigin = new RoomType.RoomStructure(false, false, true, false);
+        }
         else if (dir == Vector2.down)
+        {
             TypeOfRoom.AddRange(upRooms);
+            lastRoomOrigin = new RoomType.RoomStructure(true, false, false, false);
+        }
         else
+        {
             TypeOfRoom.AddRange(rightRooms);
+            lastRoomOrigin = new RoomType.RoomStructure(false, true, false, false);
+        }
 
     }
 
     void CheckRoomChange()
     {
-        if(dir == Vector2.up && !lastRoom.GetComponent<RoomType>().TypeOfRoom.Up)
+
+        if (lastRoomOrigin.Up)
+        {
+            TypeOfRoomChange(null, IOIO, IIOO, IOOI); 
+        }
+        else if(lastRoomOrigin.Down)
+        {
+            TypeOfRoomChange(IOIO, null, OIIO, OOII);
+        }
+        else if(lastRoomOrigin.Right)
+        {
+            TypeOfRoomChange(IIOO, OIIO, null, OIOI);
+        }
+        else if(lastRoomOrigin.Left)
+        {
+            TypeOfRoomChange(IOOI, OOII, OIOI, null);
+        }
+    }
+
+    void TypeOfRoomChange(List<GameObject> upFixedType, List<GameObject> downFixedType, List<GameObject> rightFixedType, List<GameObject> leftFixedType)
+    {
+        RoomType roomType = lastRoom.GetComponent<RoomType>();
+        
+        RoomChange(Vector2.up, roomType.TypeOfRoom.Up, upFixedType);
+
+        RoomChange(Vector2.down, roomType.TypeOfRoom.Down, downFixedType);
+
+        RoomChange(Vector2.right, roomType.TypeOfRoom.Right, rightFixedType);
+
+        RoomChange(Vector2.left, roomType.TypeOfRoom.Left, leftFixedType);
+    }
+
+    void RoomChange(Vector2 vector, bool typeOfRoom, List<GameObject> rooms)
+    {
+        if (dir == vector && !typeOfRoom)
         {
             lastRoom.GetComponent<RoomType>().AutoDestroy();
             GameManager.Gm.GeneratedRooms.Remove(lastRoom);
-            GameManager.Gm.GeneratedRooms.Add(Instantiate(upRooms[Random.Range(0, upRooms.Count)], roomPos - dir * distance, Quaternion.identity));
+            GameManager.Gm.GeneratedRooms.Add(lastRoom = Instantiate(rooms[Random.Range(0, rooms.Count)], roomPos - dir * distance, Quaternion.identity));
         }
     }
 

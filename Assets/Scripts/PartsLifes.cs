@@ -7,6 +7,7 @@ public class PartsLifes : MonoBehaviour
     public float lifes;
     public bool vitalPoint;
     [HideInInspector] public float OrLifes;
+    public GameObject Damager;
     public SpriteRenderer sr;
     public Color OrColor;
 
@@ -17,7 +18,7 @@ public class PartsLifes : MonoBehaviour
 
     public virtual void ActiveDeactiveComponents(bool t)
     {
-        if(TryGetComponent(out HingeJoint2D HJ))
+        if(TryGetComponent(out Joint2D HJ))
         {
             HJ.enabled = t;
             GetComponent<PhysicsHelper>().enabled = t;

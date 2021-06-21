@@ -6,6 +6,7 @@ public class Hook : MonoBehaviour
 {
     [SerializeField] Rigidbody2D hookShotRb;
     [SerializeField] GameObject HookShot;
+    PickableObject HookShootScript;
     Rigidbody2D rb;
     public DistanceJoint2D DisJoint;
     FixedJoint2D FJ;
@@ -16,7 +17,8 @@ public class Hook : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();    
+        rb = GetComponent<Rigidbody2D>();
+        HookShootScript = HookShot.GetComponent<HookShot>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,6 +43,6 @@ public class Hook : MonoBehaviour
             HookShot.GetComponent<HookShot>().UnShot();
         }
 
-        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByEnemy, 20));
+        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByEnemy, 20, HookShootScript.Holder));
     }
 }

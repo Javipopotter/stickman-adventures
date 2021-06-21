@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 7395162542966096087}
   - component: {fileID: 2363130328880136442}
   m_Layer: 0
-  m_Name: RopeJump
+  m_Name: RopeJump(OIII)
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -205,12 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a8f88da5afa4249a90b202a79c27d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Direct: {x: 0, y: -1}
   TypeOfRoom:
-    Right: 1
-    Left: 1
     Up: 0
+    Right: 1
     Down: 1
+    Left: 1
 --- !u!1 &7703762870109878497
 GameObject:
   m_ObjectHideFlags: 0

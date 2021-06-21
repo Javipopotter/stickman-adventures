@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SocialPlatforms;
 
 public class GameManager : MonoBehaviour
 {
@@ -93,34 +92,23 @@ public class GameManager : MonoBehaviour
         return dir;
     }
 
-    public IEnumerator DoDamage(Collision2D collision, Rigidbody2D rb, float DmgMultiplier, bool PickedByEnemy, float minVel)
+    public IEnumerator DoDamage(Collision2D collision, Rigidbody2D rb, float DmgMultiplier, bool PickedByEnemy, float minVel, GameObject Holder)
     {
         if ((collision.gameObject.CompareTag("enemy") || collision.gameObject.CompareTag("Player")) && rb.velocity.magnitude > minVel && collision.transform.TryGetComponent(out PartsLifes pl) && pl.lifes > 0)
         {
-            if(!PickedByEnemy && collision.gameObject.GetComponent<AIPartLifes>())
+            if (!PickedByEnemy)
             {
                 PlayerEnemy = collision.gameObject;
             }
             float dmg = DmgMultiplier * rb.velocity.magnitude;
             DmgSum += dmg;
-            collision.transform.GetComponent<PartsLifes>().lifes -= dmg;
+            pl.lifes -= dmg;
+            pl.Damager = Holder.GetComponentInParent<HumanoidController>().torso;
 
             yield return new WaitForSeconds(0.05f);
-
-            GameObject txt;
-            txt = ObjectPooler.pool.GetPooledObject(1);
-            txt.transform.position = collision.GetContact(0).point;
-            if (DmgSum > 0)
-                txt.GetComponent<TextMeshPro>().text = Mathf.RoundToInt(DmgSum) + "";
-            else
-                txt.GetComponent<TextMeshPro>().text = "";
-
-            if (!collision.gameObject.CompareTag("Player"))
-                txt.GetComponent<TextMeshPro>().color = PlayerDmgColor;
-            else
-                txt.GetComponent<TextMeshPro>().color = Color.red;
+            DmgTextManagement(collision);
             DmgSum = 0;
-        } 
+        }
 
         if (collision.gameObject.TryGetComponent(out HingeJoint2D hing) && collision.gameObject.CompareTag("rope") && rb.velocity.magnitude > 20)
         {
@@ -129,11 +117,36 @@ public class GameManager : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Pickable") && rb.velocity.magnitude > 40)
         {
-            ParticleSystem Ps = Sparks.GetComponent<ParticleSystem>();
-            Sparks.transform.position = collision.GetContact(0).point;
-            var Emission = Ps.emission;
-            Emission.rateOverTime = rb.velocity.magnitude * 5;
-            Ps.Play();
+            ParticleSystemPlay(collision, rb, Sparks);
+        }
+    }
+
+    private void ParticleSystemPlay(Collision2D collision, Rigidbody2D rb, GameObject particleSystem)
+    {
+        ParticleSystem Ps = particleSystem.GetComponent<ParticleSystem>();
+        particleSystem.transform.position = collision.GetContact(0).point;
+        var Emission = Ps.emission;
+        Emission.rateOverTime = rb.velocity.magnitude * 5;
+        Ps.Play();
+    }
+
+    private void DmgTextManagement(Collision2D collision)
+    {
+        GameObject txt = ObjectPooler.pool.GetPooledObject(1);
+        TextMeshPro txtMesh = txt.GetComponent<TextMeshPro>();
+        txt.transform.position = collision.GetContact(0).point;
+        if (DmgSum > 0)
+            txtMesh.text = Mathf.RoundToInt(DmgSum) + "";
+        else
+            txtMesh.text = "";
+
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            txtMesh.color = PlayerDmgColor;
+        }
+        else
+        {
+            txtMesh.color = Color.red;
         }
     }
 }

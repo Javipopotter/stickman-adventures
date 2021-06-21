@@ -8,7 +8,7 @@ public class AIGrab : MonoBehaviour
     public bool grabbed;
     public PickableObject pickableObject;
     public GameObject grabbedObject;
-    [HideInInspector]public bool IsFriend;
+    [HideInInspector] public int LayerOfTheWeapon;
     private void Awake()
     {
         ai = GetComponentInParent<AI>();
@@ -25,10 +25,6 @@ public class AIGrab : MonoBehaviour
         {
             Rigidbody2D rb = collision.transform.GetComponent<Rigidbody2D>();
             PickUp(Picked, rb);
-            if (!IsFriend)
-            {
-                Picked.SetLayers(6);
-            }
         }
     }
 
@@ -44,10 +40,7 @@ public class AIGrab : MonoBehaviour
         Picked.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
-        if (IsFriend)
-            Picked.ChangeProperties(true, true, 9, true, gameObject);
-        else
-            Picked.ChangeProperties(true, true, 6, false, gameObject);
+        Picked.ChangeProperties(true, true, LayerOfTheWeapon, true, gameObject);
     }
 
     public void Drop()

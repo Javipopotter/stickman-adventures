@@ -59,6 +59,12 @@ public class AIPartLifes : PartsLifes
             ActiveDeactiveComponents(false);
             enabled = false;
         }
+
+        if(Damager != null)
+        {
+            ai.GetEnemy(Damager);
+            Damager = null;
+        }
     }
 
     public override void ActiveDeactiveComponents(bool t)

@@ -7,17 +7,7 @@ public class NeutralStickman : AI
     public override void Awake()
     {
         base.Awake();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out PickableObject picked))
-        {
-            if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude > 20)
-            {
-                enemy = picked.Holder;
-            } 
-        }
+        aIGrab.LayerOfTheWeapon = 0;
     }
 
     public override void FixedUpdate()

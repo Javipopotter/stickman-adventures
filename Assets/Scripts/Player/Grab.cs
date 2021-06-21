@@ -11,6 +11,13 @@ public class Grab : MonoBehaviour
     bool f = true;
     public bool Grabs;
     public PickableObject pickable;
+    Collider2D col;
+
+    private void Awake()
+    {
+        col = GetComponent<Collider2D>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +44,15 @@ public class Grab : MonoBehaviour
                 Drop();
             }
         }
+
+        //if(holding || grabbed)
+        //{
+        //    col.enabled = true;
+        //}
+        //else
+        //{
+        //    col.enabled = false;
+        //}
     }
      private void OnCollisionEnter2D(Collision2D collision)
     {

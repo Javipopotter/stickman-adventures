@@ -100,11 +100,11 @@ public class PickableObject : MonoBehaviour
     {
         if (Holded)
         {
-            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, minVel)); 
+            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, minVel, Holder)); 
         }
         else
         {
-            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, minVel * 3));
+            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, minVel * 3, Holder));
         }
     }
 }

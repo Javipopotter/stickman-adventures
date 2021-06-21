@@ -20,6 +20,14 @@ public class AI : HumanoidController
         Player = GameManager.Gm.PlayerTorso;
     }
 
+    public void GetEnemy(GameObject en)
+    {
+        if(enemy == null)
+        {
+            enemy = en;
+        }
+    }
+
     public virtual void FixedUpdate()
     {
         FeetRay = new Vector2(torso.transform.position.x - 2, torso.transform.position.y - 1);
@@ -46,7 +54,7 @@ public class AI : HumanoidController
                 case PickableObject.Weapon.Sword:
                     p.GetComponent<Sword>().MoveArms.EnemyPunch(-EnemyDir.x);
                     AttackCoolDown = 0.5f;
-                    n = 0.5f;
+                    n = 0.1f;
                     break;
                 case PickableObject.Weapon.Spear:                   
                     p.GetComponent<Spear>().Attack(EnemyDir);
