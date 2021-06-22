@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
-
 public class PlataformerMovement : HumanoidController
 {
     Vector2 StartPos;

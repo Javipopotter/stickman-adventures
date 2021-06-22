@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a8f88da5afa4249a90b202a79c27d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Direct: {x: 0, y: 0}
-  RoomSize:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 50, y: 50, z: 0}
+  TypeOfRoom:
+    Up: 0
+    Right: 0
+    Down: 0
+    Left: 0
 --- !u!1001 &8130226810829082808
 PrefabInstance:
   m_ObjectHideFlags: 0

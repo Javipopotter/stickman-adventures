@@ -13,8 +13,10 @@ public class AI : HumanoidController
     public float Range = 5;
     public float PlayerPersonalDistance = 5;
     public Balance[] Arms;
+    LayerMask DefaultLayer;
     public virtual void Awake()
     {
+        DefaultLayer = LayerMask.NameToLayer("Default");
         aIGrab = GetComponentInChildren<AIGrab>();
         rb = torso.GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
@@ -39,16 +41,28 @@ public class AI : HumanoidController
             StartCoroutine(Jump());
         }
 
-        if(enemy != null && aIGrab.grabbed == false)
+        if(aIGrab.grabbed == false)
         {
-            if(Vector2.Distance(torso.transform.position, enemy.transform.position) <= 20)
+            Collider2D col = Physics2D.OverlapCircle(torso.transform.position, 50, DefaultLayer);
+            if(col)
             {
-                MovementDir(enemy, -2);
-                ArmsMove(90, 300);
+                if (col.gameObject.CompareTag("Pickable"))
+                {
+                    MovementDir(col.gameObject, 2);
+                    ArmsMove(col.transform.position - torso.transform.position, 300); 
+                }
             }
-            else
+            else if (enemy != null)
             {
-                ArmsMove(0, 0);
+                if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= 20)
+                {
+                    MovementDir(enemy, -2);
+                    ArmsMove(90, 300);
+                }
+                else
+                {
+                    ArmsMove(0, 0);
+                } 
             }
         }   
     }
@@ -58,6 +72,17 @@ public class AI : HumanoidController
         foreach (Balance bal in Arms)
         {
             bal.TargetRotation = targetRot;
+            bal.force = force;
+        }
+    }
+
+    void ArmsMove(Vector3 targetRot, float force)
+    {
+        float rotz;
+        rotz = Mathf.Atan2(targetRot.y, targetRot.x) * Mathf.Rad2Deg;
+        foreach (Balance bal in Arms)
+        {
+            bal.TargetRotation = rotz;
             bal.force = force;
         }
     }
@@ -91,7 +116,7 @@ public class AI : HumanoidController
                     n = 0;
                     break;
                 case PickableObject.Weapon.Gun:
-                    p.GetComponent<Gun>().Shoot();
+                    p.GetComponent<Gun>().Shoot(enemy.transform.position);
                     AttackCoolDown = 0.5f;
                     n = 0;
                     break;

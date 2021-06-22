@@ -18,13 +18,13 @@ public class Gun : PickableObject
     {
         if(Input.GetMouseButton(0) && WeaponCoolDown <= 0 && Holded && !PickedByAI)
         {
-            Shoot();
+            Shoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
 
         GunCoolDown();
     }
 
-    public void Shoot()
+    public void Shoot(Vector2 dir)
     {
         WeaponCoolDown = 0.3f;
         InstantiatedBullet = ObjectPooler.pool.GetPooledObject(0);
@@ -33,8 +33,9 @@ public class Gun : PickableObject
         InstantiatedBullet.transform.SetPositionAndRotation(Zubroska.transform.position, transform.rotation);
         InstantiatedBullet.GetComponent<Bullet>().holder = Holder;
         InstantiatedBullet.GetComponent<Bullet>().PickedByAI = PickedByAI;
-        Vector2 dir = GameManager.Gm.GetMouseVector(InstantiatedBullet.transform.position);
-        InstantiatedBulletRb.velocity = dir * BulletForce;
+        dir = new Vector2(InstantiatedBullet.transform.position.x, InstantiatedBullet.transform.position.y) - dir;
+        dir.Normalize();
+        InstantiatedBulletRb.velocity = -dir * BulletForce;
     }
 
     void GunCoolDown()

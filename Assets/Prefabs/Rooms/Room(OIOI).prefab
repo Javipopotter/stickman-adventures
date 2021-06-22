@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 2149196485094088666, guid: b0eedf8e8748ca54dbbceeb9322b8900, type: 3}
-  isItThere: 1
+  Spawner: 1
   probability: 10
 --- !u!1 &4461015390501414231
 GameObject:
@@ -152,7 +152,7 @@ MonoBehaviour:
   - {fileID: 5420210090255724594, guid: b6918ee7acb951d44a4a453410cbb013, type: 3}
   - {fileID: 9128810012514798793, guid: d519bac4630faa944970d267d3fcf9f7, type: 3}
   - {fileID: 623173097607829517, guid: e0dfd315fa4c0d543816a5f63d7c8ba6, type: 3}
-  isItThere: 1
+  Spawner: 1
   probability: 10
 --- !u!1 &4639685185850644189
 GameObject:
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 2149196485094088666, guid: b0eedf8e8748ca54dbbceeb9322b8900, type: 3}
-  isItThere: 1
+  Spawner: 1
   probability: 10
 --- !u!1001 &1408686083017073334
 PrefabInstance:
