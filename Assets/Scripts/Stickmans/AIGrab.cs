@@ -40,7 +40,7 @@ public class AIGrab : MonoBehaviour
         Picked.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
-        Picked.ChangeProperties(true, true, LayerOfTheWeapon, true, gameObject);
+        Picked.ChangeProperties(true, true, LayerOfTheWeapon, true, ai.torso);
     }
 
     public void Drop()

@@ -14,13 +14,16 @@ public class EnemyAI : AI
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (Vector2.Distance(torso.transform.position, Player.transform.position) < 120 && Vector2.Distance(torso.transform.position, Player.transform.position) > Range)
+        if (aIGrab.grabbed)
         {
-            MovementDir(Player);
-        }
-        if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range && aIGrab.grabbed)
-        {
-            Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
+            if (Vector2.Distance(torso.transform.position, Player.transform.position) < 120 && Vector2.Distance(torso.transform.position, Player.transform.position) > Range)
+            {
+                MovementDir(enemy, 1);
+            }
+            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range)
+            {
+                Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
+            } 
         }
     }
 }

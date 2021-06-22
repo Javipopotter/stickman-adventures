@@ -14,15 +14,14 @@ public class NeutralStickman : AI
     {
         base.FixedUpdate();
 
-        if (enemy != null)
+        if (enemy != null && aIGrab.grabbed)
         {
             if (Vector2.Distance(enemy.transform.position, torso.transform.position) > Range)
             {
-                MovementDir(enemy);
-
+                MovementDir(enemy, 1);
             }
 
-            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range && aIGrab.grabbed)
+            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range)
             {
                 Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
             } 

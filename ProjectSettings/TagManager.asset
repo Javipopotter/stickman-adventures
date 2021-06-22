@@ -19,7 +19,7 @@ TagManager:
   - Water
   - UI
   - EnemyPickedObject
-  - IgnoreAlmostAll
+  - SpecialAttack
   - floor
   - PickedObject
   - Player

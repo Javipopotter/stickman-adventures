@@ -34,7 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.2288353, z: 1}
   m_Children: []
   m_Father: {fileID: 6574247537739119836}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &7004877104197455752
 CircleCollider2D:
@@ -112,7 +112,7 @@ MonoBehaviour:
   grabbed: 0
   pickableObject: {fileID: 0}
   grabbedObject: {fileID: 0}
-  IsFriend: 0
+  LayerOfTheWeapon: 0
 --- !u!114 &2098477243383944263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 1785873918855388221}
   - component: {fileID: 1785873918855388218}
   - component: {fileID: 1785873918855388219}
+  - component: {fileID: 873125872211067735}
   m_Layer: 11
   m_Name: LeftForeArm
   m_TagString: enemy
@@ -173,7 +174,7 @@ Transform:
   m_LocalScale: {x: 0.43741095, y: 0.43741095, z: 0.43741095}
   m_Children: []
   m_Father: {fileID: 6574247537739119836}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &1785873918855388222
 SpriteRenderer:
@@ -324,6 +325,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 1785873919047238819}
@@ -354,6 +356,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &873125872211067735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785873918855388165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b636aa8a9b7e24cb49a7df6fd3e6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetRotation: 0
+  rb: {fileID: 0}
+  force: 0
 --- !u!1 &1785873919047238831
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +388,7 @@ GameObject:
   - component: {fileID: 1785873919047238819}
   - component: {fileID: 1785873919047238828}
   - component: {fileID: 1785873919047238829}
+  - component: {fileID: 2615810755320945209}
   m_Layer: 11
   m_Name: LefArm
   m_TagString: enemy
@@ -390,7 +408,7 @@ Transform:
   m_LocalScale: {x: 0.4840011, y: 0.4840011, z: 0.4840011}
   m_Children: []
   m_Father: {fileID: 6574247537739119836}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &1785873919047238822
 SpriteRenderer:
@@ -541,6 +559,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 1785873918855388221}
@@ -571,6 +590,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2615810755320945209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785873919047238831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b636aa8a9b7e24cb49a7df6fd3e6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetRotation: 0
+  rb: {fileID: 0}
+  force: 0
 --- !u!1 &1785873919748290696
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +745,7 @@ MonoBehaviour:
   lifes: 200
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -933,6 +968,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -1166,6 +1202,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 1785873920203637595}
@@ -1399,6 +1436,7 @@ MonoBehaviour:
   lifes: 200
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 5877482472898440853}
@@ -1464,7 +1502,7 @@ Transform:
   m_LocalScale: {x: 0.71019, y: 0.71019, z: 0.71019}
   m_Children: []
   m_Father: {fileID: 6574247537739119836}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6574247537212742860
 SpriteRenderer:
@@ -1557,7 +1595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetRotation: 0
   rb: {fileID: 6574247537212742850}
-  force: 300
+  force: 1000
 --- !u!50 &6574247537212742850
 Rigidbody2D:
   serializedVersion: 4
@@ -1606,6 +1644,7 @@ MonoBehaviour:
   lifes: 500
   vitalPoint: 1
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -1658,12 +1697,12 @@ Transform:
   - {fileID: 6574247536951587930}
   - {fileID: 6574247538233357186}
   - {fileID: 6574247538632438642}
+  - {fileID: 1785873918855388220}
+  - {fileID: 1785873919047238830}
   - {fileID: 5953842771322716754}
   - {fileID: 6574247537881970295}
   - {fileID: 6574247537997069975}
   - {fileID: 6574247537212742863}
-  - {fileID: 1785873918855388220}
-  - {fileID: 1785873919047238830}
   - {fileID: 1785873919748290689}
   - {fileID: 1785873920851828773}
   - {fileID: 1785873920203637671}
@@ -1744,6 +1783,11 @@ MonoBehaviour:
   aIGrab: {fileID: 0}
   Range: 5
   PlayerPersonalDistance: 5
+  Arms:
+  - {fileID: 3656523009230071155}
+  - {fileID: 2124876292167241379}
+  - {fileID: 873125872211067735}
+  - {fileID: 2615810755320945209}
 --- !u!1 &6574247537881970292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,7 +1825,7 @@ Transform:
   m_LocalScale: {x: 0.5729824, y: 0.5729824, z: 0.5729824}
   m_Children: []
   m_Father: {fileID: 6574247537739119836}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6574247537881970291
 SpriteRenderer:
@@ -1921,6 +1965,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 7859190287995620626}
@@ -2014,7 +2059,7 @@ Transform:
   m_LocalScale: {x: 0.6656228, y: 0.6656228, z: 0.6656228}
   m_Children: []
   m_Father: {fileID: 6574247537739119836}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6574247537997069971
 SpriteRenderer:
@@ -2154,6 +2199,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -2227,6 +2273,7 @@ GameObject:
   - component: {fileID: 4343886957636816776}
   - component: {fileID: 1552792069787085455}
   - component: {fileID: 1976510539506391443}
+  - component: {fileID: 3656523009230071155}
   m_Layer: 11
   m_Name: RightArm
   m_TagString: enemy
@@ -2397,6 +2444,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 3623243128247037375}
@@ -2427,6 +2475,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3656523009230071155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574247538233357187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b636aa8a9b7e24cb49a7df6fd3e6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetRotation: 0
+  rb: {fileID: 0}
+  force: 0
 --- !u!1 &6574247538632438643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,6 +2507,7 @@ GameObject:
   - component: {fileID: 3623243128247037375}
   - component: {fileID: 8104026890722843587}
   - component: {fileID: 5259497955490005693}
+  - component: {fileID: 2124876292167241379}
   m_Layer: 11
   m_Name: RightForeArm
   m_TagString: enemy
@@ -2614,6 +2678,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -2644,3 +2709,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2124876292167241379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574247538632438643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b636aa8a9b7e24cb49a7df6fd3e6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetRotation: 0
+  rb: {fileID: 0}
+  force: 0

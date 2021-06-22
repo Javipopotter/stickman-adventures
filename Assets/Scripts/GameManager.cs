@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
             float dmg = DmgMultiplier * rb.velocity.magnitude;
             DmgSum += dmg;
             pl.lifes -= dmg;
-            pl.Damager = Holder.GetComponentInParent<HumanoidController>().torso;
+            pl.Damager = Holder;
 
             yield return new WaitForSeconds(0.05f);
             DmgTextManagement(collision);

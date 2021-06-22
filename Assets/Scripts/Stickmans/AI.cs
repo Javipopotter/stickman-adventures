@@ -12,6 +12,7 @@ public class AI : HumanoidController
     float AttackCoolDown;
     public float Range = 5;
     public float PlayerPersonalDistance = 5;
+    public Balance[] Arms;
     public virtual void Awake()
     {
         aIGrab = GetComponentInChildren<AIGrab>();
@@ -37,6 +38,28 @@ public class AI : HumanoidController
         {
             StartCoroutine(Jump());
         }
+
+        if(enemy != null && aIGrab.grabbed == false)
+        {
+            if(Vector2.Distance(torso.transform.position, enemy.transform.position) <= 20)
+            {
+                MovementDir(enemy, -2);
+                ArmsMove(90, 300);
+            }
+            else
+            {
+                ArmsMove(0, 0);
+            }
+        }   
+    }
+
+    void ArmsMove(float targetRot, float force)
+    {
+        foreach (Balance bal in Arms)
+        {
+            bal.TargetRotation = targetRot;
+            bal.force = force;
+        }
     }
     
     public void Attack(GameObject p, PickableObject f, GameObject a)
@@ -46,6 +69,7 @@ public class AI : HumanoidController
         EnemyDir.Normalize();
         float rotz;
         rotz = Mathf.Atan2(EnemyDir.y, EnemyDir.x) * Mathf.Rad2Deg;
+        ArmsMove(rotz, 300);
         AttackCoolDown -= Time.fixedDeltaTime;
         if (AttackCoolDown <= 0)
         {
@@ -54,7 +78,7 @@ public class AI : HumanoidController
                 case PickableObject.Weapon.Sword:
                     p.GetComponent<Sword>().MoveArms.EnemyPunch(-EnemyDir.x);
                     AttackCoolDown = 0.5f;
-                    n = 0.1f;
+                    n = -0.5f;
                     break;
                 case PickableObject.Weapon.Spear:                   
                     p.GetComponent<Spear>().Attack(EnemyDir);
@@ -75,19 +99,19 @@ public class AI : HumanoidController
         }
         if (n < AttackCoolDown)
         {
-            p.GetComponent<Rigidbody2D>().MoveRotation(rotz); 
+            p.GetComponent<Rigidbody2D>().MoveRotation(rotz);
         }
     }
 
-    public void MovementDir(GameObject chase)
+    public void MovementDir(GameObject chase, int moveDirection)
     {
         if (torso.transform.position.x < chase.transform.position.x)
         {
-            Move(1);
+            Move(moveDirection);
         }
         else
         {
-            Move(-1);
+            Move(-moveDirection);
         }
     }
 

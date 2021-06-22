@@ -203,6 +203,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 6792731725117272689}
@@ -361,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetRotation: 0
   rb: {fileID: 2149196483506569157}
-  force: 300
+  force: 1000
 --- !u!50 &2149196483506569157
 Rigidbody2D:
   serializedVersion: 4
@@ -410,6 +411,7 @@ MonoBehaviour:
   lifes: 500
   vitalPoint: 1
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -606,6 +608,7 @@ MonoBehaviour:
   lifes: 200
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 1692811083037937042}
@@ -735,6 +738,7 @@ GameObject:
   - component: {fileID: 8405768527283883704}
   - component: {fileID: 3933991134902073540}
   - component: {fileID: 1013991731261088186}
+  - component: {fileID: 1659164103235493357}
   m_Layer: 11
   m_Name: RightForeArm
   m_TagString: enemy
@@ -905,6 +909,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -935,6 +940,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1659164103235493357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196484234186868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b636aa8a9b7e24cb49a7df6fd3e6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetRotation: 0
+  rb: {fileID: 0}
+  force: 0
 --- !u!1 &2149196484282194388
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +972,7 @@ GameObject:
   - component: {fileID: 5017034515763384205}
   - component: {fileID: 1366003559509788669}
   - component: {fileID: 5270454474867707652}
+  - component: {fileID: 6649524205389968472}
   m_Layer: 11
   m_Name: LeftForeArm
   m_TagString: enemy
@@ -1122,6 +1143,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -1152,6 +1174,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6649524205389968472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196484282194388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b636aa8a9b7e24cb49a7df6fd3e6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetRotation: 0
+  rb: {fileID: 0}
+  force: 0
 --- !u!1 &2149196484900458628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1206,7 @@ GameObject:
   - component: {fileID: 8838181990038842511}
   - component: {fileID: 6008841715154405768}
   - component: {fileID: 6738203354829699732}
+  - component: {fileID: 8911700148151644754}
   m_Layer: 11
   m_Name: RightArm
   m_TagString: enemy
@@ -1339,6 +1377,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 8405768527283883704}
@@ -1369,6 +1408,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8911700148151644754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196484900458628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b636aa8a9b7e24cb49a7df6fd3e6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetRotation: 0
+  rb: {fileID: 0}
+  force: 0
 --- !u!1 &2149196484967754269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,6 +1626,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 6792731725117272689}
@@ -1619,6 +1674,7 @@ GameObject:
   - component: {fileID: 6500533313798022662}
   - component: {fileID: 6881294941500852388}
   - component: {fileID: 4146134596717360717}
+  - component: {fileID: 836547350211444002}
   m_Layer: 11
   m_Name: LeftArm
   m_TagString: enemy
@@ -1789,6 +1845,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 5017034515763384205}
@@ -1819,6 +1876,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97d0457aa3ab0c4aa9db1963adfbbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &836547350211444002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149196485038268074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b636aa8a9b7e24cb49a7df6fd3e6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetRotation: 0
+  rb: {fileID: 0}
+  force: 0
 --- !u!1 &2149196485094088666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,6 +2010,11 @@ MonoBehaviour:
   aIGrab: {fileID: 0}
   Range: 5
   PlayerPersonalDistance: 5
+  Arms:
+  - {fileID: 8911700148151644754}
+  - {fileID: 1659164103235493357}
+  - {fileID: 836547350211444002}
+  - {fileID: 6649524205389968472}
 --- !u!1 &2149196485138128275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2218,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 0}
@@ -2374,6 +2452,7 @@ MonoBehaviour:
   lifes: 300
   vitalPoint: 0
   OrLifes: 0
+  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   ConnectedPart: {fileID: 3170079422716702229}
@@ -2516,7 +2595,7 @@ MonoBehaviour:
   grabbed: 0
   pickableObject: {fileID: 0}
   grabbedObject: {fileID: 0}
-  IsFriend: 0
+  LayerOfTheWeapon: 0
 --- !u!114 &6624892300453754688
 MonoBehaviour:
   m_ObjectHideFlags: 0

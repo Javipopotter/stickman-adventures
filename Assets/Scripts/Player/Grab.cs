@@ -126,7 +126,7 @@ public class Grab : MonoBehaviour
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
         ActiveDeactivePunches(Picked.CanPunch, Picked.BlockArm);
-        Picked.ChangeProperties(true, false, 9, true, gameObject);
+        Picked.ChangeProperties(true, false, 9, true, GameManager.Gm.PlayerTorso);
     }
 
     public void Drop()

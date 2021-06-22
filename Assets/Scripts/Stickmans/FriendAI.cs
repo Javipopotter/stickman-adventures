@@ -15,22 +15,22 @@ public class FriendAI : AI
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (GameManager.Gm.PlayerEnemy != null)
+        if (GameManager.Gm.PlayerEnemy != null && aIGrab.grabbed)
         {
             enemy = GameManager.Gm.PlayerEnemy;
-            if (Vector2.Distance(GameManager.Gm.PlayerEnemy.transform.position, torso.transform.position) > Range)
+            if (Vector2.Distance(torso.transform.position, Player.transform.position) < 120 && Vector2.Distance(GameManager.Gm.PlayerEnemy.transform.position, torso.transform.position) > Range)
             {
-                MovementDir(enemy);
+                MovementDir(enemy, 1);
             }
 
-            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range && aIGrab.grabbed)
+            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range)
             {
                 Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
             }
         }
         else if (Vector2.Distance(torso.transform.position, Player.transform.position) > PlayerPersonalDistance)
         {
-            MovementDir(Player);
+            MovementDir(Player, 1);
         }
         else
         {
@@ -40,7 +40,6 @@ public class FriendAI : AI
         if (Vector2.Distance(Player.transform.position, torso.transform.position) > 75)
         {
             Teleport(new Vector2(Player.transform.position.x, Player.transform.position.y + 10));
-            enemy = null;
         }
     }
 }
