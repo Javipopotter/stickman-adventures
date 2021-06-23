@@ -5,56 +5,45 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] GameObject camaraaddjust;
-    float CamaraRadius;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        CamaraRadius = camaraaddjust.transform.localPosition.y;
-    }
+    Vector2 dir;
+    [SerializeField]Bounds area;
+    [Range(0, 1)]
+    public float Hardness;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-        if (player.transform.position.y >= transform.position.y + CamaraRadius)
+        //transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+        area.center = new Vector3(transform.position.x, transform.position.y, 0);
+        if (!area.Contains(player.transform.position))
         {
-            YUpdate(0, CamaraRadius);
-        }
-        if (player.transform.position.y <= transform.position.y - CamaraRadius)
-        {
-            YUpdate(0, -CamaraRadius);
+            dir = transform.position - player.transform.position;
+            dir.Normalize();
+            transform.Translate(new Vector2(-dir.x * Hardness, 0));
+            if (player.transform.position.y >= transform.position.y + area.extents.y)
+            {
+                YUpdate(area.extents.y);
+            }
+            if (player.transform.position.y <= transform.position.y - area.extents.y)
+            {
+                YUpdate(-area.extents.y);
+            } 
         }
     }
-    public void YUpdate(float x, float y)
+    public void YUpdate(float y)
     {
-        transform.position = new Vector3(player.transform.position.x - x, player.transform.position.y - y, transform.position.z); // update y
+        transform.position = new Vector3(transform.position.x, player.transform.position.y - y, transform.position.z); // update y
+        //transform.Translate(new Vector2(0, -dir.y * 0.5f));
     }
 
-    public void restartCameraPosition()
+    public void RestartCameraPosition()
     {
-        YUpdate(0, 0);
+        YUpdate(0);
+    }
+
+    private void OnDrawGizmos()
+    {
+        area.center = transform.position;
+        Gizmos.DrawCube(area.center, area.extents * 2);
     }
 }
-        /*if (Mathf.Abs(transform.position.y - player.transform.position.y) >= 25)
-        {
-            if(transform.position.y < player.transform.position.y)
-                transform.Translate(new Vector2(0, 50));
-            else
-                transform.Translate(new Vector2(0, -50));
-        }
-        if (Mathf.Abs(transform.position.x - player.transform.position.x) >= 44.461)
-        {
-            if (transform.position.x < player.transform.position.x)
-                transform.Translate(new Vector2(88.922f, 0));
-            else
-                transform.Translate(new Vector2(-88.922f, 0));
-        }*/
-        /*if(player.transform.position.x >= transform.position.x + CamaraRadius)
-        {
-            YUpdate(CamaraRadius, 0);
-        }
-        if (player.transform.position.x <= transform.position.x - CamaraRadius)
-        {
-            YUpdate(-CamaraRadius, 0);
-        }*/

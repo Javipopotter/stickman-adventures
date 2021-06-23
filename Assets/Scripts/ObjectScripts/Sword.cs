@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Sword : PickableObject
 {
-    Animator an;
     public MoveArms MoveArms;
     [SerializeField] float HoldTimer;
     bool e = true;
@@ -12,37 +11,36 @@ public class Sword : PickableObject
     {
         base.Awake();
         MoveArms = GetComponent<MoveArms>();
-        an = GetComponent<Animator>();
     }
 
     void Update()
     {
         if (e)
         {
-            sr.color = Color.Lerp(Color.white, Color.yellow, HoldTimer / 1.5f); 
-        }
-        if (Holded && PickedByAI == false)
-        {
-
-            if (Input.GetMouseButton(0))
+            sr.color = Color.Lerp(Color.white, Color.yellow, HoldTimer / 1.5f);
+            if (Holded && PickedByAI == false)
             {
-                ChargeAttack();
-            }
 
-            if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0))
+                if (Input.GetMouseButton(0))
+                {
+                    ChargeAttack();
+                }
+
+                if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0))
+                {
+                    HoldTimer = 0;
+                    StartCoroutine(Attack());
+                }
+
+                if (!Input.GetMouseButton(0))
+                {
+                    HoldTimer = 0;
+                }
+            }
+            else
             {
                 HoldTimer = 0;
-                Attack();
             }
-
-            if (!Input.GetMouseButton(0))
-            {
-                HoldTimer = 0;
-            } 
-        }
-        else
-        {
-            HoldTimer = 0;
         }
     }
 
@@ -51,16 +49,26 @@ public class Sword : PickableObject
         HoldTimer = 0;
     }
 
-    public void Attack()
+    public IEnumerator Attack()
     {
         e = false;
+        MoveArms.punch = false;
         CanGetChanged = false;
         sr.color = Color.yellow;
         gameObject.layer = 7;
         MoveArms.force *= 4;
         transform.localScale = transform.localScale * 2;
         MoveArms.Punch();
-        an.Play("SwordAtk");
+        yield return new WaitForSeconds(0.3f);
+        e = true;
+        MoveArms.punch = true;
+        CanGetChanged = true;
+        if (Holded)
+        {
+            gameObject.layer = 9; 
+        }
+        MoveArms.force /= 4;
+        transform.localScale = transform.localScale / 2;
     }
     public void ChargeAttack()
     {
@@ -73,14 +81,5 @@ public class Sword : PickableObject
             rb.MoveRotation(rotz);
         }
         HoldTimer += Time.deltaTime;
-    }
-
-    public void ResetForce()
-    {
-        e = true;
-        CanGetChanged = true;
-        gameObject.layer = 9;
-        MoveArms.force /= 4;
-        transform.localScale = transform.localScale / 2;
     }
 }

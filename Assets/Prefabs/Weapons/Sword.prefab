@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 5207459109483392944}
   - component: {fileID: 3008382117174004163}
   - component: {fileID: 3768432273447598153}
-  - component: {fileID: 6751754822022592936}
   - component: {fileID: 6632668619617181128}
   m_Layer: 0
   m_Name: Sword
@@ -220,25 +219,6 @@ MonoBehaviour:
   force: 50000
   rotOffset: 0
   OnlyPunches: 1
---- !u!95 &6751754822022592936
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5420210090255724594}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9e217a10ca3b3c44e9ced857b5bc4be7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!70 &6632668619617181128
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
