@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2092183146048799106}
   - component: {fileID: 2092183146048799105}
   - component: {fileID: 3107835137206748640}
-  - component: {fileID: -5923739263757325530}
   m_Layer: 0
   m_Name: RopeInstance
   m_TagString: rope
@@ -173,15 +172,3 @@ MonoBehaviour:
   TargetRotation: 180
   rb: {fileID: 2092183146048799106}
   force: 0
---- !u!114 &-5923739263757325530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092183146048799107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

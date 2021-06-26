@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(StickmanLifesManager))]
 public class AI : HumanoidController
 {
     public GameObject Player;
@@ -14,6 +15,8 @@ public class AI : HumanoidController
     public float PlayerPersonalDistance = 5;
     public Balance[] Arms;
     LayerMask DefaultLayer;
+    float n1;
+    float n2;
     public virtual void Awake()
     {
         DefaultLayer = LayerMask.NameToLayer("Default");
@@ -89,7 +92,6 @@ public class AI : HumanoidController
     
     public void Attack(GameObject p, PickableObject f, GameObject a)
     {
-        float n = 0;
         EnemyDir = a.transform.position - torso.transform.position;
         EnemyDir.Normalize();
         float rotz;
@@ -103,26 +105,30 @@ public class AI : HumanoidController
                 case PickableObject.Weapon.Sword:
                     p.GetComponent<Sword>().MoveArms.EnemyPunch(-EnemyDir.x);
                     AttackCoolDown = 0.5f;
-                    n = -0.5f;
+                    n1 = 0.1f;
+                    n2 = 0.2f;
                     break;
                 case PickableObject.Weapon.Spear:                   
                     p.GetComponent<Spear>().Attack(EnemyDir);
                     AttackCoolDown = 0.5f;
-                    n = 0.1f;
+                    n1 = 0.1f;
+                    n2 = 0.5f;
                     break;
                 case PickableObject.Weapon.HookShot:
-                    p.GetComponent<HookShot>().Shot();
+                    p.GetComponent<HookShot>().Shoot();
                     AttackCoolDown = 0.5f;
-                    n = 0;
+                    n1 = 0;
+                    n2 = AttackCoolDown;
                     break;
                 case PickableObject.Weapon.Gun:
                     p.GetComponent<Gun>().Shoot(enemy.transform.position);
                     AttackCoolDown = 0.5f;
-                    n = 0;
+                    n1 = 0;
+                    n2 = AttackCoolDown;
                     break;
             } 
         }
-        if (n < AttackCoolDown)
+        if (n1 < AttackCoolDown && n2 > AttackCoolDown)
         {
             p.GetComponent<Rigidbody2D>().MoveRotation(rotz);
         }

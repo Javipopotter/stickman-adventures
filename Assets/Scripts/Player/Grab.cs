@@ -136,7 +136,7 @@ public class Grab : MonoBehaviour
         if (Grabs && pickable != null)
         {
             ActiveDeactivePunches(true, false);
-            pickable.ChangeProperties(false, false, 0, true, null);
+            pickable.ChangeProperties(false, false, 9, true, null);
             pickable = null;
         }
     }

@@ -11,8 +11,9 @@ public class Spear : PickableObject
     {
         base.Awake();
     }
-    private void Update()
+    public override void Update()
     {
+        base.Update();
         sr.color = Color.Lerp(Color.white,Color.red,WeaponCoolDown / 3);
 
         if (Holded)
@@ -26,7 +27,7 @@ public class Spear : PickableObject
 
             }
         }
-        coolDownTimer();  
+        CoolDownTimer();  
     }
 
     private void OnDisable()
@@ -45,7 +46,7 @@ public class Spear : PickableObject
         }
     }
 
-    void coolDownTimer()
+    void CoolDownTimer()
     {
         if(attackCount >= 3)
         {

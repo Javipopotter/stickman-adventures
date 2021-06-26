@@ -15,10 +15,10 @@ public class CameraFollow : MonoBehaviour
     {
         //transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
         area.center = new Vector3(transform.position.x, transform.position.y, 0);
+        dir = transform.position - player.transform.position;
+        dir.Normalize();
         if (!area.Contains(player.transform.position))
         {
-            dir = transform.position - player.transform.position;
-            dir.Normalize();
             transform.Translate(new Vector2(-dir.x * Hardness, 0));
             if (player.transform.position.y >= transform.position.y + area.extents.y)
             {
@@ -30,6 +30,7 @@ public class CameraFollow : MonoBehaviour
             } 
         }
     }
+
     public void YUpdate(float y)
     {
         transform.position = new Vector3(transform.position.x, player.transform.position.y - y, transform.position.z); // update y
@@ -41,7 +42,7 @@ public class CameraFollow : MonoBehaviour
         YUpdate(0);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         area.center = transform.position;
         Gizmos.DrawCube(area.center, area.extents * 2);

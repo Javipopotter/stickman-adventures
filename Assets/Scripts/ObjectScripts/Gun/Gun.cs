@@ -14,8 +14,9 @@ public class Gun : PickableObject
         base.Awake();
     }
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
         if(Input.GetMouseButton(0) && WeaponCoolDown <= 0 && Holded && !PickedByAI)
         {
             Shoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));

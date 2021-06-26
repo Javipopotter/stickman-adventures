@@ -20,16 +20,12 @@ public class PlayerPartsLifes : PartsLifes
         base.Update();
         if (lifes <= 0)
         {
+            ActiveDeactiveComponents(false);
             if (vitalPoint)
             {
-                ActiveDeactiveComponents(false);
-                playerLifesManager.respawn();
+                StartCoroutine(playerLifesManager.Respawn());
             }
-            else
-            {
-                ActiveDeactiveComponents(false);
-                this.enabled = false;
-            }
+            this.enabled = false;
         }
     }
 }

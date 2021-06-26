@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2348420231666797156}
   - component: {fileID: 1711698069056246112}
   - component: {fileID: 3657502250158634749}
-  - component: {fileID: -7113997496721822321}
   m_Layer: 8
   m_Name: Box
   m_TagString: floor
@@ -132,15 +131,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-7113997496721822321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3088832556457469570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7561fc78083858240a2b9789170f9d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

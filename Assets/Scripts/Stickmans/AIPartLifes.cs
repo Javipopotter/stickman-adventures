@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class AIPartLifes : PartsLifes
 {
-    [SerializeField]AIPartLifes ConnectedPart;
     AI ai;
     StickmanLifesManager stickmanLifesManager;
     public bool IsHand;
     public AIGrab AssignedHand;
-    public bool IsLeg;
-    float QuarterJ;
     float lifeChecker;
+    bool separated;
     void Awake()
     {
         lifeChecker = lifes;
-        if (transform.parent.TryGetComponent(out AI aI))
-        {
-            ai = aI;
-            QuarterJ = ai.jumpForce / 4;
-        }
         sr = GetComponent<SpriteRenderer>();
         stickmanLifesManager = GetComponentInParent<StickmanLifesManager>();
         stickmanLifesManager.partsLifes.Add(this);
@@ -60,27 +53,19 @@ public class AIPartLifes : PartsLifes
             enabled = false;
         }
 
-        if(Damager != null)
-        {
-            ai.GetEnemy(Damager);
-            Damager = null;
-        }
+        //if(Damager != null)
+        //{
+        //    ai.GetEnemy(Damager);
+        //    Damager = null;
+        //}
     }
 
     public override void ActiveDeactiveComponents(bool t)
     {
+        transform.parent = transform.parent.transform.parent;
+        separated = true;
         stickmanLifesManager.partsLifes.Remove(this);
         base.ActiveDeactiveComponents(t);
-        if(ConnectedPart != null)
-        {
-            ConnectedPart.lifes = 0;
-        }
-
-        if (IsLeg)
-        {
-            ai.jumpForce -= QuarterJ;
-        }
-
         AssignedHandDrop();
     }
 
@@ -90,6 +75,21 @@ public class AIPartLifes : PartsLifes
         {
             AssignedHand.Drop();
             Destroy(AssignedHand);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Chunk"))
+        {
+            if (!separated)
+            {
+                transform.parent.transform.parent = collision.transform.parent;
+            }
+            else
+            {
+                transform.parent = collision.transform.parent;
+            } 
         }
     }
 }

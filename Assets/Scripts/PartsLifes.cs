@@ -6,10 +6,18 @@ public class PartsLifes : MonoBehaviour
 {
     public float lifes;
     public bool vitalPoint;
+    public bool IsLeg;
+    [SerializeField] PartsLifes ConnectedPart;
+    HumanoidController humanoid;
     [HideInInspector] public float OrLifes;
     public GameObject Damager;
     public SpriteRenderer sr;
     public Color OrColor;
+
+    private void Start()
+    {
+        humanoid = GetComponentInParent<HumanoidController>();
+    }
 
     public virtual void Update()
     {
@@ -26,6 +34,17 @@ public class PartsLifes : MonoBehaviour
         if (TryGetComponent(out Balance bal))
         {
             bal.enabled = t;
+        }
+
+        if (ConnectedPart != null && !t)
+        {
+            ConnectedPart.lifes = 0;
+        }
+
+        if (IsLeg && t == false)
+        {
+            humanoid.jumpForce -= humanoid.jumpForce / humanoid.LegsCount;
+            humanoid.speed -= humanoid.speed / humanoid.LegsCount;
         }
     }
 

@@ -12,6 +12,18 @@ public class HumanoidController : MonoBehaviour
     public float jumpForce;
     public bool canJump;
     bool t;
+    [HideInInspector] public float OriginalSpeed, OriginalJumpForce;
+    public int LegsCount;
+    private void Start()
+    {
+        foreach(PartsLifes parts in GetComponentsInChildren<PartsLifes>())
+        {
+            if (parts.IsLeg)
+                LegsCount++;
+        }
+        OriginalSpeed = speed;
+        OriginalJumpForce = jumpForce;
+    }
 
     public void CheckCanJump()
     {

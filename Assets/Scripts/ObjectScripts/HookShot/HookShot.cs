@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class HookShot : PickableObject
 {
@@ -27,8 +28,9 @@ public class HookShot : PickableObject
         HookScript.DmgMultiplier = DmgMultiplier;
     }
 
-    void Update()
+    public override void Update()
     {
+        base.Update();
         lineRenderer.SetPosition(0, OriginalHookPos.transform.position);
         lineRenderer.SetPosition(1, Hook.transform.position);
         if(Holded)
@@ -37,7 +39,7 @@ public class HookShot : PickableObject
             if (!PickedByAI)
             {
                 if (Input.GetMouseButton(0) && e)
-                    Shot();
+                    Shoot();
                 else if (!Input.GetMouseButton(0) && e == false)
                     UnShot(); 
             }
@@ -61,13 +63,13 @@ public class HookShot : PickableObject
             dir.Normalize();
             float rotz = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             rb.MoveRotation(rotz);
-            if (Vector2.Distance(transform.position, Hook.transform.position) > 5)
+            if (Vector2.Distance(transform.position, Hook.transform.position) > 5 && HookScript.isHooked)
             {
-                if (HookScript.isHooked && HookScript.col.TryGetComponent(out Rigidbody2D colRb))
+                if (HookScript.col.TryGetComponent(out Rigidbody2D colRb) && !HookScript.col.GetComponent<Tilemap>())
                 {
                     colRb.AddForce(1500 * Time.deltaTime * -dir, ForceMode2D.Impulse);
                 }
-                else if (HookScript.isHooked)
+                else
                 {
                     rb.AddForce(1500 * Time.deltaTime * dir, ForceMode2D.Impulse);
                 } 
@@ -97,7 +99,7 @@ public class HookShot : PickableObject
         }
     }
 
-    public void Shot()
+    public void Shoot()
     {
         CanGetChanged = false;
         if (!HookGatherUp)

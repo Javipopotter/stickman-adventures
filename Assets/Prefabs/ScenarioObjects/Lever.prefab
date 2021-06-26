@@ -174,7 +174,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   side: 0
-  CoolDownTime: 3
+  CoolDownTime: 0
 --- !u!1 &5109545764639540653
 GameObject:
   m_ObjectHideFlags: 0

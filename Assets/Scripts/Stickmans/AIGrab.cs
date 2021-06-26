@@ -21,7 +21,7 @@ public class AIGrab : MonoBehaviour
 
     private void GrabWeapon(Collider2D collision)
     {
-        if (collision.TryGetComponent(out PickableObject Picked) && !Picked.Holded && !grabbed && enabled)
+        if (collision.TryGetComponent(out PickableObject Picked) && !Picked.Holded && !grabbed && enabled && Picked.rb.velocity.magnitude < 40)
         {
             Rigidbody2D rb = collision.transform.GetComponent<Rigidbody2D>();
             PickUp(Picked, rb);
@@ -50,7 +50,7 @@ public class AIGrab : MonoBehaviour
         Destroy(GetComponent<FixedJoint2D>());
         if (pickableObject != null)
         {
-            pickableObject.ChangeProperties(false, false, 0, false, null);
+            pickableObject.ChangeProperties(false, false, LayerOfTheWeapon, false, null);
             pickableObject = null;
         }
     }

@@ -19,7 +19,6 @@ public class PickableObject : MonoBehaviour
     public float range;
     public Weapon ThisWeapon;
     public bool CanGetChanged = true;
-    [SerializeField] List<Collider2D> WeaponColliders;
     public float WeaponCoolDown = 0;
     public bool activateCoolDown;
     [SerializeField] float minVel;
@@ -34,6 +33,14 @@ public class PickableObject : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
         InitMaterial = sr.material;
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    public virtual void Update()
+    {
+        if(rb.velocity.magnitude < minVel * 2 && gameObject.layer != 0 && !Holded)
+        {
+            SetLayers(0);
+        }
     }
 
     public void ChangeProperties(bool take, bool PickedByAI, int layerToIgnore, bool PickedByAllie, GameObject Holder)
@@ -105,7 +112,7 @@ public class PickableObject : MonoBehaviour
         }
         else
         {
-            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, minVel * 3, Holder));
+            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier * 8, PickedByAI, minVel * 2, Holder));
         }
     }
 }

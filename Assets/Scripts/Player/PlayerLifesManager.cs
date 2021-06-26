@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HumanoidController))]
 public class PlayerLifesManager : MonoBehaviour
 {
+    HumanoidController PlayerController;
     public List<Vector2> positions;
     public List<Quaternion> rotation;
     public Grab[] grabs;
@@ -15,10 +17,14 @@ public class PlayerLifesManager : MonoBehaviour
             positions.Add(transform.GetChild(i).transform.localPosition);
             rotation.Add(transform.GetChild(i).transform.rotation);
         }
+        PlayerController = GetComponent<PlataformerMovement>();
     }
 
-    public void respawn()
+    public IEnumerator Respawn()
     {
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        PlayerController.speed = PlayerController.OriginalSpeed;
+        PlayerController.jumpForce = PlayerController.OriginalJumpForce;
         foreach (PlayerPartsLifes part in partsLifes)
         {
             part.ActiveDeactiveComponents(true);
@@ -40,5 +46,6 @@ public class PlayerLifesManager : MonoBehaviour
                 grab.Drop();
             }
         }
+
     }
 }

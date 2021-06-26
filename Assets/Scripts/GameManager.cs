@@ -18,7 +18,10 @@ public class GameManager : MonoBehaviour
     public List<Collider2D> AlliesColliders;
     public List<Collider2D> EnemyColliders;
     public List<FriendAI> Friends;
-    public int MoneyAmount;
+    public float MoneyAmount;
+    float lastAmount = 0;
+    [SerializeField] float SightDistance = 200;
+    DmgText txt;
     [SerializeField] TextMeshProUGUI MoneyCounter;
 
     void Awake()
@@ -34,7 +37,14 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CheckIfEnemyIsAlive();
-        MoneyCounter.text = MoneyAmount + "";
+        if (MoneyAmount != lastAmount)
+        {
+            if (lastAmount < MoneyAmount)
+                lastAmount++;
+            else if (lastAmount > MoneyAmount)
+                lastAmount--;
+            MoneyCounter.text = lastAmount + "";
+        }
     }
 
     public void UpdateAllies()
@@ -75,7 +85,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (GameObject room in GeneratedRooms)
             {
-                if (Vector2.Distance(room.transform.position, PlayerTorso.transform.position) < 200)
+                if (Vector2.Distance(room.transform.position, PlayerTorso.transform.position) < SightDistance)
                     room.SetActive(true);
                 else
                     room.SetActive(false);
@@ -94,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator DoDamage(Collision2D collision, Rigidbody2D rb, float DmgMultiplier, bool PickedByEnemy, float minVel, GameObject Holder)
     {
-        if ((collision.gameObject.CompareTag("enemy") || collision.gameObject.CompareTag("Player")) && rb.velocity.magnitude > minVel && collision.transform.TryGetComponent(out PartsLifes pl) && pl.lifes > 0)
+        if ((collision.gameObject.CompareTag("enemy") || collision.gameObject.CompareTag("Player")) && rb.velocity.magnitude >= minVel && collision.transform.TryGetComponent(out PartsLifes pl) && pl.lifes > 0)
         {
             if (!PickedByEnemy)
             {
@@ -132,21 +142,18 @@ public class GameManager : MonoBehaviour
 
     private void DmgTextManagement(Collision2D collision)
     {
-        GameObject txt = ObjectPooler.pool.GetPooledObject(1);
-        TextMeshPro txtMesh = txt.GetComponent<TextMeshPro>();
-        txt.transform.position = collision.GetContact(0).point;
         if (DmgSum > 0)
-            txtMesh.text = Mathf.RoundToInt(DmgSum) + "";
-        else
-            txtMesh.text = "";
-
-        if (!collision.gameObject.CompareTag("Player"))
         {
-            txtMesh.color = PlayerDmgColor;
-        }
-        else
-        {
-            txtMesh.color = Color.red;
+            txt = ObjectPooler.pool.GetPooledObject(1).GetComponent<DmgText>();
+            txt.TextSetting(collision.GetContact(0).point, Mathf.RoundToInt(DmgSum), Color.white);
+            if (!collision.gameObject.CompareTag("Player"))
+            {
+                txt.txt.color = PlayerDmgColor;
+            }
+            else
+            {
+                txt.txt.color = Color.red;
+            }
         }
     }
 }
