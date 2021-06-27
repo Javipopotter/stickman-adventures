@@ -51,6 +51,11 @@ public class PickableObject : MonoBehaviour
         Holded = take;
         if (take)
         {
+            if (!PickedByAI)
+            {
+                transform.parent = null; 
+            }
+
             if (blockRot)
             {
                 rb.freezeRotation = true;
@@ -98,7 +103,7 @@ public class PickableObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.CompareTag("Chunk"))
+        if(collision.transform.CompareTag("Chunk") && !Holded && !PickedByAI)
         {
             transform.parent = collision.transform.parent;
         }

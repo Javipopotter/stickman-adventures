@@ -18,11 +18,14 @@ public class GameManager : MonoBehaviour
     public List<Collider2D> AlliesColliders;
     public List<Collider2D> EnemyColliders;
     public List<FriendAI> Friends;
+    public GameObject DeathScreen, LoadingScreen;
     public float MoneyAmount;
     float lastAmount = 0;
+    [SerializeField]RoomsGenerator roomGenerator;
     [SerializeField] float SightDistance = 200;
     DmgText txt;
     [SerializeField] TextMeshProUGUI MoneyCounter;
+    public Slider WorldLoadingSlider;
 
     void Awake()
     {
@@ -155,6 +158,16 @@ public class GameManager : MonoBehaviour
                 txt.txt.color = Color.red;
             }
         }
+    }
+
+    public void GenerateNewWorld()
+    {
+        DeathScreen.SetActive(false);
+        LoadingScreen.SetActive(true);
+        ocuppedPos = new List<Vector2>();
+        GeneratedRooms = new List<GameObject>();
+        Destroy(roomGenerator.WorldContainer);
+        StartCoroutine(roomGenerator.Produce());
     }
 }
     //public void UpdateColliders(List<Collider2D> Colliders, bool active, List<Collider2D> list)

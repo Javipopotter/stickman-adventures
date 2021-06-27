@@ -10,8 +10,10 @@ public class PlayerLifesManager : MonoBehaviour
     public List<Quaternion> rotation;
     public Grab[] grabs;
     public List<PartsLifes> partsLifes;
+    InventoryManager inventory;
     void Awake()
     {
+        inventory = GetComponent<InventoryManager>();
         for (int i = 0; i < transform.childCount; i++)
         {
             positions.Add(transform.GetChild(i).transform.localPosition);
@@ -20,9 +22,9 @@ public class PlayerLifesManager : MonoBehaviour
         PlayerController = GetComponent<PlataformerMovement>();
     }
 
-    public IEnumerator Respawn()
+    public void Respawn()
     {
-        yield return new WaitUntil(() => Input.anyKeyDown);
+        SetPlayerMovement(true);
         PlayerController.speed = PlayerController.OriginalSpeed;
         PlayerController.jumpForce = PlayerController.OriginalJumpForce;
         foreach (PlayerPartsLifes part in partsLifes)
@@ -46,6 +48,29 @@ public class PlayerLifesManager : MonoBehaviour
                 grab.Drop();
             }
         }
+    }
 
+    public void SetPlayerMovement(bool active)
+    {
+        PlayerController.enabled = active;
+        inventory.enabled = active;
+        foreach (MoveArms moveArms in GetComponentsInChildren<MoveArms>())
+        {
+            moveArms.enabled = active;
+        }
+    }
+
+    public void Death()
+    {
+        inventory.Items.Clear();
+        GameManager.Gm.DeathScreen.SetActive(true);
+        for (int i = 0; i < Random.Range(5, 15); i++)
+        {
+            GameObject g = ObjectPooler.pool.GetPooledObject(2);
+            g.transform.position = PlayerController.torso.transform.position;
+            g.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10, 10), Random.Range(15, 25)), ForceMode2D.Impulse);
+        }
+        GameManager.Gm.MoneyAmount = 0;
+        SetPlayerMovement(false);
     }
 }

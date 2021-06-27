@@ -23,7 +23,7 @@ public class PlayerPartsLifes : PartsLifes
             ActiveDeactiveComponents(false);
             if (vitalPoint)
             {
-                StartCoroutine(playerLifesManager.Respawn());
+                playerLifesManager.Death();
             }
             this.enabled = false;
         }

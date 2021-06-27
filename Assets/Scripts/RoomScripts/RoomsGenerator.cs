@@ -19,19 +19,25 @@ public class RoomsGenerator : MonoBehaviour
     Vector2 dir;
     public Vector2[] directions;
     public List<GameObject> TypeOfRoom = null;
+    [HideInInspector]public GameObject WorldContainer;
+    PlayerLifesManager playerLifesManager;
+    float NumberOfRooms = 100;
     //public List<Vector2> occupedPositions;
     void Start()
     {
+        playerLifesManager = GameManager.Gm.PlayerTorso.GetComponentInParent<PlayerLifesManager>();
         StartCoroutine(Produce());
     }
 
-    IEnumerator Produce()
+    public IEnumerator Produce()
     {
+        WorldContainer = new GameObject();
+        WorldContainer = Instantiate(WorldContainer, transform.position, Quaternion.identity);
         roomPos = transform.position;
-        lastRoom = Instantiate(InitialRoom, roomPos, Quaternion.identity) as GameObject;
+        lastRoom = Instantiate(InitialRoom, roomPos, Quaternion.identity, WorldContainer.transform) as GameObject;
         GameManager.Gm.ocuppedPos.Add(roomPos);
         GameManager.Gm.GeneratedRooms.Add(lastRoom);
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < NumberOfRooms; i++)
         {
             dir = directions[Random.Range(0, directions.Length)];
             re1:
@@ -57,7 +63,7 @@ public class RoomsGenerator : MonoBehaviour
             {
                 lastRoom.GetComponent<RoomType>().AutoDestroy();
                 GameManager.Gm.GeneratedRooms.Remove(lastRoom);
-                GameManager.Gm.GeneratedRooms.Add(Instantiate(upRooms[Random.Range(0, upRooms.Count)], roomPos - dir * distance, Quaternion.identity));
+                GameManager.Gm.GeneratedRooms.Add(Instantiate(upRooms[Random.Range(0, upRooms.Count)], roomPos - dir * distance, Quaternion.identity, WorldContainer.transform));
                 roomPos = GameManager.Gm.ocuppedPos[Random.Range(0, GameManager.Gm.ocuppedPos.Count)];
                 goto re1;
             }
@@ -65,18 +71,23 @@ public class RoomsGenerator : MonoBehaviour
             CheckTypeOfRoom();
             CheckRoomChange();
             SpawnRoom = TypeOfRoom[Random.Range(0, TypeOfRoom.Count)];
-            lastRoom = Instantiate(SpawnRoom, roomPos, Quaternion.identity) as GameObject;
+            lastRoom = Instantiate(SpawnRoom, roomPos, Quaternion.identity, WorldContainer.transform) as GameObject;
             GameManager.Gm.GeneratedRooms.Add(lastRoom);
             TypeOfRoom.Clear();
             GameManager.Gm.ocuppedPos.Add(roomPos);
+            GameManager.Gm.WorldLoadingSlider.value = GameManager.Gm.GeneratedRooms.Count / NumberOfRooms;
             yield return new WaitForSeconds(0.05f);
         }
         Fill();
+        Fill();
+        GameManager.Gm.LoadingScreen.SetActive(false);
+        playerLifesManager.Respawn();
     }
 
     void Fill()
     {
         Vector2 FillPos;
+        List<Vector2> AuxiliaryList = new List<Vector2>();
         foreach(Vector2 pos in GameManager.Gm.ocuppedPos)
         {
             dir = Vector2.right;
@@ -86,12 +97,14 @@ public class RoomsGenerator : MonoBehaviour
                 FillPos += dir * distance;
                 if(!GameManager.Gm.ocuppedPos.Contains(FillPos))
                 {
-                    GameManager.Gm.GeneratedRooms.Add(Instantiate(Filler, FillPos, Quaternion.identity));
+                    GameManager.Gm.GeneratedRooms.Add(Instantiate(Filler, FillPos, Quaternion.identity, WorldContainer.transform));
+                    AuxiliaryList.Add(FillPos);
                 }
                 FillPos = pos;
                 dir = RotateRoom(dir);
             }
         }
+        GameManager.Gm.ocuppedPos.AddRange(AuxiliaryList);
     }
 
     void CheckTypeOfRoom()
@@ -159,7 +172,7 @@ public class RoomsGenerator : MonoBehaviour
         {
             lastRoom.GetComponent<RoomType>().AutoDestroy();
             GameManager.Gm.GeneratedRooms.Remove(lastRoom);
-            GameManager.Gm.GeneratedRooms.Add(lastRoom = Instantiate(rooms[Random.Range(0, rooms.Count)], roomPos - dir * distance, Quaternion.identity));
+            GameManager.Gm.GeneratedRooms.Add(lastRoom = Instantiate(rooms[Random.Range(0, rooms.Count)], roomPos - dir * distance, Quaternion.identity, WorldContainer.transform));
         }
     }
 

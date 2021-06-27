@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public GameObject[] Items;
+    public List<GameObject> Items;
     public GameObject[] ItemsAspect;
     [SerializeField]int ItemPos = 0;
     [SerializeField]int LastItemPos = 0;
