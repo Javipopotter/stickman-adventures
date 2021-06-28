@@ -12,7 +12,7 @@ public class HookShot : PickableObject
     Rigidbody2D hookRb;
     public GameObject OriginalHookPos;
     LineRenderer lineRenderer;
-    [SerializeField]bool e = true;
+    public bool e = true;
     public bool GatheredUp;
     public Vector2 dir;
     bool HookGatherUp;
@@ -36,14 +36,7 @@ public class HookShot : PickableObject
         if(Holded)
         {
             HookScript.PickedByEnemy = PickedByAI;
-            if (!PickedByAI)
-            {
-                if (Input.GetMouseButton(0) && e)
-                    Shoot();
-                else if (!Input.GetMouseButton(0) && e == false)
-                    UnShot(); 
-            }
-            else
+            if(PickedByAI)
             {
                 moveArms.enabled = false;
             }
@@ -110,8 +103,8 @@ public class HookShot : PickableObject
             Hook.GetComponent<BoxCollider2D>().enabled = true;
             hookRb.velocity = transform.right * HookForce;
             hookRb.freezeRotation = true;
-            GetComponent<MoveArms>().enabled = false; 
-        }
+            GetComponent<MoveArms>().enabled = false;
+        } 
     }
 
     public void UnShot()
@@ -122,6 +115,6 @@ public class HookShot : PickableObject
         hookRb.freezeRotation = false;
         Destroy(Hook.GetComponent<DistanceJoint2D>());
         Destroy(Hook.GetComponent<FixedJoint2D>());
-        Hook.transform.rotation = OriginalHookPos.transform.rotation;
+        Hook.transform.rotation = OriginalHookPos.transform.rotation; 
     }
 }

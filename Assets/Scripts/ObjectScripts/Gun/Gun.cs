@@ -17,26 +17,24 @@ public class Gun : PickableObject
     public override void Update()
     {
         base.Update();
-        if(Input.GetMouseButton(0) && WeaponCoolDown <= 0 && Holded && !PickedByAI)
-        {
-            Shoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }
-
         GunCoolDown();
     }
 
     public void Shoot(Vector2 dir)
     {
-        WeaponCoolDown = 0.3f;
-        InstantiatedBullet = ObjectPooler.pool.GetPooledObject(0);
-        InstantiatedBullet.layer = gameObject.layer;
-        InstantiatedBulletRb = InstantiatedBullet.GetComponent<Rigidbody2D>();
-        InstantiatedBullet.transform.SetPositionAndRotation(Zubroska.transform.position, transform.rotation);
-        InstantiatedBullet.GetComponent<Bullet>().holder = Holder;
-        InstantiatedBullet.GetComponent<Bullet>().PickedByAI = PickedByAI;
-        dir = new Vector2(InstantiatedBullet.transform.position.x, InstantiatedBullet.transform.position.y) - dir;
-        dir.Normalize();
-        InstantiatedBulletRb.velocity = -dir * BulletForce;
+        if (WeaponCoolDown <= 0)
+        {
+            WeaponCoolDown = 0.3f;
+            InstantiatedBullet = ObjectPooler.pool.GetPooledObject(0);
+            InstantiatedBullet.layer = gameObject.layer;
+            InstantiatedBulletRb = InstantiatedBullet.GetComponent<Rigidbody2D>();
+            InstantiatedBullet.transform.SetPositionAndRotation(Zubroska.transform.position, transform.rotation);
+            InstantiatedBullet.GetComponent<Bullet>().holder = Holder;
+            InstantiatedBullet.GetComponent<Bullet>().PickedByAI = PickedByAI;
+            dir = new Vector2(InstantiatedBullet.transform.position.x, InstantiatedBullet.transform.position.y) - dir;
+            dir.Normalize();
+            InstantiatedBulletRb.velocity = -dir * BulletForce; 
+        }
     }
 
     void GunCoolDown()

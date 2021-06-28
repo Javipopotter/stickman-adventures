@@ -15,18 +15,6 @@ public class Spear : PickableObject
     {
         base.Update();
         sr.color = Color.Lerp(Color.white,Color.red,WeaponCoolDown / 3);
-
-        if (Holded)
-        {
-            if (!PickedByAI)
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    Attack(GameManager.Gm.GetMouseVector(transform.position));
-                }
-
-            }
-        }
         CoolDownTimer();  
     }
 

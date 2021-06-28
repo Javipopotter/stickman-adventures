@@ -41,13 +41,6 @@ public class PlayerLifesManager : MonoBehaviour
             transform.GetChild(i).GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
-        foreach (Grab grab in grabs)
-        {
-            if (grab.grabbed)
-            {
-                grab.Drop();
-            }
-        }
     }
 
     public void SetPlayerMovement(bool active)
@@ -63,6 +56,17 @@ public class PlayerLifesManager : MonoBehaviour
     public void Death()
     {
         inventory.Items.Clear();
+        for(int i = 0; i < 3; i++)
+        {
+            inventory.Items.Add(null);
+        }
+        foreach (Grab grab in grabs)
+        {
+            if (grab.grabbed)
+            {
+                grab.Drop();
+            }
+        }
         GameManager.Gm.DeathScreen.SetActive(true);
         for (int i = 0; i < Random.Range(5, 15); i++)
         {

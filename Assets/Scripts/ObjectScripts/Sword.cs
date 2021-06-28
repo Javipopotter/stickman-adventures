@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword : PickableObject
 {
     public MoveArms MoveArms;
-    [SerializeField] float HoldTimer;
+    public float HoldTimer;
     bool e = true;
     public override void Awake()
     {
@@ -19,26 +19,7 @@ public class Sword : PickableObject
         if (e)
         {
             sr.color = Color.Lerp(Color.white, Color.yellow, HoldTimer / 1.5f);
-            if (Holded && PickedByAI == false)
-            {
-
-                if (Input.GetMouseButton(0))
-                {
-                    ChargeAttack();
-                }
-
-                if (HoldTimer >= 1.5f && Input.GetMouseButtonUp(0))
-                {
-                    HoldTimer = 0;
-                    StartCoroutine(Attack());
-                }
-
-                if (!Input.GetMouseButton(0))
-                {
-                    HoldTimer = 0;
-                }
-            }
-            else
+            if(!Holded)
             {
                 HoldTimer = 0;
             }
@@ -50,7 +31,7 @@ public class Sword : PickableObject
         HoldTimer = 0;
     }
 
-    public IEnumerator Attack()
+    public IEnumerator SpecialAttack()
     {
         e = false;
         MoveArms.punch = false;
@@ -59,7 +40,7 @@ public class Sword : PickableObject
         gameObject.layer = 7;
         MoveArms.force *= 4;
         transform.localScale = transform.localScale * 2;
-        MoveArms.Punch();
+        MoveArms.Punch(SoundManager.SoundMan.SwordSwings);
         yield return new WaitForSeconds(0.3f);
         e = true;
         MoveArms.punch = true;
@@ -71,6 +52,7 @@ public class Sword : PickableObject
         MoveArms.force /= 4;
         transform.localScale = transform.localScale / 2;
     }
+
     public void ChargeAttack()
     {
         if (HoldTimer >= 0.1f)

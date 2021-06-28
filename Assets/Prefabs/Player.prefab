@@ -954,7 +954,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &8621573056331816630
 MonoBehaviour:
@@ -1017,7 +1017,6 @@ MonoBehaviour:
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  legs: []
 --- !u!114 &5623452121114365247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,6 +1042,7 @@ GameObject:
   - component: {fileID: 8621573056370368451}
   - component: {fileID: 3284972088592957796}
   - component: {fileID: 5431495333475951196}
+  - component: {fileID: 2723345123200520883}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -1097,6 +1097,9 @@ MonoBehaviour:
   speed: 20
   jumpForce: 225
   canJump: 0
+  OriginalSpeed: 0
+  OriginalJumpForce: 0
+  LegsCount: 0
 --- !u!95 &8621573056370368451
 Animator:
   serializedVersion: 3
@@ -1146,11 +1149,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff934b3815277b1449071347f04c9935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ItemsAspect: []
   ItemPos: 0
   LastItemPos: 0
   PlayerGrab: {fileID: 8621573058167237321}
+--- !u!114 &2723345123200520883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621573056370368448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1698e68967e475447867817e9d8699fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grab: {fileID: 8621573058167237321}
 --- !u!1 &8621573056431185289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1319,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &8621573056431185291
 HingeJoint2D:
@@ -1346,7 +1365,6 @@ MonoBehaviour:
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  legs: []
 --- !u!114 &8415304480313887853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,7 +1526,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &8621573056513774955
 HingeJoint2D:
@@ -1554,7 +1572,6 @@ MonoBehaviour:
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  legs: []
 --- !u!114 &4219571053200992282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1717,7 +1734,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &8621573056730976400
 HingeJoint2D:
@@ -1904,7 +1921,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &8621573056797649401
 HingeJoint2D:
@@ -1950,7 +1967,6 @@ MonoBehaviour:
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  legs: []
 --- !u!114 &2138008626846372515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2096,7 +2112,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &8621573057137987684
 MonoBehaviour:
@@ -2285,7 +2301,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &8621573057186453952
 HingeJoint2D:
@@ -2348,7 +2364,6 @@ MonoBehaviour:
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  legs: []
 --- !u!114 &9067820446535269602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2628,7 +2643,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &8621573057730418488
 HingeJoint2D:
@@ -2674,7 +2689,6 @@ MonoBehaviour:
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  legs: []
 --- !u!114 &951041938457490701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2917,7 +2931,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &6131652289005472552
 MonoBehaviour:
@@ -2951,7 +2965,6 @@ MonoBehaviour:
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  legs: []
 --- !u!1 &8621573058167237334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,7 +3257,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &8621573058415199700
 HingeJoint2D:
@@ -3290,7 +3303,6 @@ MonoBehaviour:
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  legs: []
 --- !u!114 &2801000871254809409
 MonoBehaviour:
   m_ObjectHideFlags: 0

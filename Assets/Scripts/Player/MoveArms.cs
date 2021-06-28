@@ -34,20 +34,22 @@ public class MoveArms : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && punch)
         {
-            Punch();
+            Punch(SoundManager.SoundMan.SwordSwings);
         }
     }
 
-    public void Punch()
+    public void Punch(AudioClip[] sound)
     {
         dir = transform.InverseTransformDirection(dir);
         rotz = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         NormalizeFloat(rotz);
+        SoundManager.SoundMan.PlaySound(sound);
         rb.AddTorque(NormalizeFloat(rotz) * force);
     }
 
-    public void EnemyPunch(float dir)
+    public void Punch(float dir, AudioClip[] sound)
     {
+        SoundManager.SoundMan.PlaySound(sound);
         rb.AddTorque(force * NormalizeFloat(dir));
     }
 

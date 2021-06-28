@@ -103,7 +103,7 @@ public class AI : HumanoidController
             switch (f.ThisWeapon)
             {
                 case PickableObject.Weapon.Sword:
-                    p.GetComponent<Sword>().MoveArms.EnemyPunch(-EnemyDir.x);
+                    p.GetComponent<Sword>().MoveArms.Punch(-EnemyDir.x, SoundManager.SoundMan.SwordSwings);
                     AttackCoolDown = 0.5f;
                     n1 = 0.1f;
                     n2 = 0.2f;
@@ -122,7 +122,7 @@ public class AI : HumanoidController
                     break;
                 case PickableObject.Weapon.Gun:
                     p.GetComponent<Gun>().Shoot(enemy.transform.position);
-                    AttackCoolDown = 0.5f;
+                    AttackCoolDown = 0;
                     n1 = 0;
                     n2 = AttackCoolDown;
                     break;

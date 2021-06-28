@@ -190,18 +190,18 @@ public class RoomsGenerator : MonoBehaviour
             return new Vector2(33, 28);
     }
 
-    RoomType.RoomStructure SumRooms(RoomType.RoomStructure room1, RoomType.RoomStructure room2)
-    {
-        RoomType.RoomStructure returnRoom = new RoomType.RoomStructure();
-        if (room1.Up || room2.Up)
-            returnRoom.Up = true;
-        if (room1.Right || room2.Right)
-            returnRoom.Right = true;
-        if (room1.Down || room2.Down)
-            returnRoom.Down = true;
-        if (room1.Left || room2.Left)
-            returnRoom.Left = true;
-
-        return returnRoom;
-    }
 }
+    //RoomType.RoomStructure SumRooms(RoomType.RoomStructure room1, RoomType.RoomStructure room2)
+    //{
+    //    RoomType.RoomStructure returnRoom = new RoomType.RoomStructure();
+    //    if (room1.Up || room2.Up)
+    //        returnRoom.Up = true;
+    //    if (room1.Right || room2.Right)
+    //        returnRoom.Right = true;
+    //    if (room1.Down || room2.Down)
+    //        returnRoom.Down = true;
+    //    if (room1.Left || room2.Left)
+    //        returnRoom.Left = true;
+
+    //    return returnRoom;
+    //}
