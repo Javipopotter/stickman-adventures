@@ -21,7 +21,7 @@ public class RoomsGenerator : MonoBehaviour
     public List<GameObject> TypeOfRoom = null;
     [HideInInspector]public GameObject WorldContainer;
     PlayerLifesManager playerLifesManager;
-    float NumberOfRooms = 100;
+    [SerializeField] float NumberOfRooms = 100;
     //public List<Vector2> occupedPositions;
     void Start()
     {
@@ -31,8 +31,7 @@ public class RoomsGenerator : MonoBehaviour
 
     public IEnumerator Produce()
     {
-        WorldContainer = new GameObject();
-        WorldContainer = Instantiate(WorldContainer, transform.position, Quaternion.identity);
+        WorldContainer = Instantiate(new GameObject(), transform.position, Quaternion.identity);
         roomPos = transform.position;
         lastRoom = Instantiate(InitialRoom, roomPos, Quaternion.identity, WorldContainer.transform) as GameObject;
         GameManager.Gm.ocuppedPos.Add(roomPos);
@@ -76,7 +75,7 @@ public class RoomsGenerator : MonoBehaviour
             TypeOfRoom.Clear();
             GameManager.Gm.ocuppedPos.Add(roomPos);
             GameManager.Gm.WorldLoadingSlider.value = GameManager.Gm.GeneratedRooms.Count / NumberOfRooms;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
         }
         Fill();
         Fill();

@@ -7,6 +7,7 @@ public class Gun : PickableObject
     public GameObject Bullet;
     Rigidbody2D InstantiatedBulletRb;
     GameObject InstantiatedBullet;
+    public float cadence = 0.3f;
     [SerializeField] GameObject Zubroska;
     [SerializeField]float BulletForce;
     public override void Awake()
@@ -24,7 +25,7 @@ public class Gun : PickableObject
     {
         if (WeaponCoolDown <= 0)
         {
-            WeaponCoolDown = 0.3f;
+            WeaponCoolDown = cadence;
             InstantiatedBullet = ObjectPooler.pool.GetPooledObject(0);
             InstantiatedBullet.layer = gameObject.layer;
             InstantiatedBulletRb = InstantiatedBullet.GetComponent<Rigidbody2D>();

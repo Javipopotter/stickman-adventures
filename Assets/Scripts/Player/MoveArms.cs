@@ -34,7 +34,7 @@ public class MoveArms : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && punch)
         {
-            Punch(SoundManager.SoundMan.SwordSwings);
+            Punch(null);
         }
     }
 

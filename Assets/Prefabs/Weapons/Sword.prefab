@@ -193,8 +193,6 @@ MonoBehaviour:
   range: 10
   ThisWeapon: 1
   CanGetChanged: 1
-  WeaponColliders:
-  - {fileID: 6632668619617181128}
   WeaponCoolDown: 0
   activateCoolDown: 0
   minVel: 20
@@ -214,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8dd4290723d714181e4f10addfc713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punch: 1
+  punch: 0
   armLock: 0
   force: 50000
   rotOffset: 0

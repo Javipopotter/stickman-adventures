@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     DmgText txt;
     [SerializeField] TextMeshProUGUI MoneyCounter;
     public Slider WorldLoadingSlider;
+    public Tilemap tilemap;
 
     void Awake()
     {
@@ -164,6 +166,7 @@ public class GameManager : MonoBehaviour
     {
         DeathScreen.SetActive(false);
         LoadingScreen.SetActive(true);
+        tilemap.ClearAllTiles();
         ocuppedPos = new List<Vector2>();
         GeneratedRooms = new List<GameObject>();
         Destroy(roomGenerator.WorldContainer);

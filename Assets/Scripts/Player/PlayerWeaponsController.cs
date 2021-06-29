@@ -16,6 +16,12 @@ public class PlayerWeaponsController : MonoBehaviour
             {
                 case PickableObject.Weapon.Sword:
                     Sword sword = weapon.GetComponent<Sword>();
+
+                    if(Input.GetMouseButtonDown(0))
+                    {
+                        sword.MoveArms.Punch(SoundManager.SoundMan.SwordSwings);
+                    }
+
                     if (Input.GetMouseButton(0))
                     {
                         sword.ChargeAttack();
