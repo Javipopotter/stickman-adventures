@@ -211,6 +211,8 @@ MonoBehaviour:
     Right: 1
     Down: 1
     Left: 1
+  tilesPos: []
+  tilemap: {fileID: 7562306930117964271}
 --- !u!1 &7703762870109878497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,6 +2362,11 @@ PrefabInstance:
 --- !u!4 &3049047101767915049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7815814635991036015, guid: c26f667c419cf4a4eb68ccc64b5bd663, type: 3}
+  m_PrefabInstance: {fileID: 5055077479887464006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1839735485 &7562306930117964271 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 3374753275535628201, guid: c26f667c419cf4a4eb68ccc64b5bd663, type: 3}
   m_PrefabInstance: {fileID: 5055077479887464006}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7074921511912553857 stripped

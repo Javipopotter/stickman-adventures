@@ -127,6 +127,8 @@ MonoBehaviour:
     Right: 1
     Down: 1
     Left: 1
+  tilesPos: []
+  tilemap: {fileID: 6089481893691309065}
 --- !u!1001 &52928415093167681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22043,6 +22045,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c26f667c419cf4a4eb68ccc64b5bd663, type: 3}
+--- !u!1839735485 &6089481893691309065 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 3374753275535628201, guid: c26f667c419cf4a4eb68ccc64b5bd663, type: 3}
+  m_PrefabInstance: {fileID: 8815699227994205088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6800349897499504743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2596348885741198279, guid: c26f667c419cf4a4eb68ccc64b5bd663, type: 3}

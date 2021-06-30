@@ -75,7 +75,7 @@ public class RoomsGenerator : MonoBehaviour
             TypeOfRoom.Clear();
             GameManager.Gm.ocuppedPos.Add(roomPos);
             GameManager.Gm.WorldLoadingSlider.value = GameManager.Gm.GeneratedRooms.Count / NumberOfRooms;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
         Fill();
         Fill();
@@ -169,7 +169,7 @@ public class RoomsGenerator : MonoBehaviour
     {
         if (dir == vector && !typeOfRoom)
         {
-            lastRoom.GetComponent<RoomType>().AutoDestroy();
+            lastRoom.GetComponent<RoomType>().AutoDestroy();          
             GameManager.Gm.GeneratedRooms.Remove(lastRoom);
             GameManager.Gm.GeneratedRooms.Add(lastRoom = Instantiate(rooms[Random.Range(0, rooms.Count)], roomPos - dir * distance, Quaternion.identity, WorldContainer.transform));
         }
