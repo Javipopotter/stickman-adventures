@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public float MoneyAmount;
     float lastAmount = 0;
     [SerializeField]RoomsGenerator roomGenerator;
-    [SerializeField] float SightDistance = 200;
+    public float SightDistance = 200;
     DmgText txt;
     [SerializeField] TextMeshProUGUI MoneyCounter;
     public Slider WorldLoadingSlider;
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
                 else
                     room.SetActive(false);
             }
-            yield return new WaitForSeconds(0.3f); 
+            yield return new WaitForEndOfFrame();
         }
     }
 

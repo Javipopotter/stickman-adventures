@@ -6,13 +6,13 @@ using UnityEngine.Tilemaps;
 public class SpawnTile : MonoBehaviour
 {
     Tilemap tilemapToSetUp;
-    [SerializeField] RuleTile tile;
+    public RuleTile[] tile;
     GridLayout tilemapGrid;
     void Start()
     {
         tilemapToSetUp = GameManager.Gm.tilemap;
         tilemapGrid = tilemapToSetUp.layoutGrid;
-        tilemapToSetUp.SetTile(tilemapGrid.WorldToCell(transform.position), tile);
-        Destroy(transform.parent.transform.parent.gameObject);
+        tilemapToSetUp.SetTile(tilemapGrid.WorldToCell(transform.position), tile[Random.Range(0, tile.Length)]);
+        Destroy(gameObject);
     }
 }

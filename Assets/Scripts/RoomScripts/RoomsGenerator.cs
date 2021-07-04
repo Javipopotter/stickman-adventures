@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class RoomsGenerator : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class RoomsGenerator : MonoBehaviour
     public List<GameObject> upRooms;
     public List<GameObject> downRooms;
     [SerializeField] GameObject InitialRoom;
-    GameObject lastRoom;
+    [SerializeField]GameObject lastRoom;
     RoomType.RoomStructure lastRoomOrigin;
     GameObject SpawnRoom;
     [SerializeField] GameObject Filler;
@@ -31,6 +32,8 @@ public class RoomsGenerator : MonoBehaviour
 
     public IEnumerator Produce()
     {
+        GameManager.Gm.SightDistance = 0;
+        GameManager.Gm.tilemap.GetComponent<TilemapCollider2D>().enabled = false;
         WorldContainer = Instantiate(new GameObject(), transform.position, Quaternion.identity);
         roomPos = transform.position;
         lastRoom = Instantiate(InitialRoom, roomPos, Quaternion.identity, WorldContainer.transform) as GameObject;
@@ -75,10 +78,12 @@ public class RoomsGenerator : MonoBehaviour
             TypeOfRoom.Clear();
             GameManager.Gm.ocuppedPos.Add(roomPos);
             GameManager.Gm.WorldLoadingSlider.value = GameManager.Gm.GeneratedRooms.Count / NumberOfRooms;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForFixedUpdate();
         }
         Fill();
         Fill();
+        GameManager.Gm.tilemap.GetComponent<TilemapCollider2D>().enabled = true;
+        GameManager.Gm.SightDistance = 130;
         GameManager.Gm.LoadingScreen.SetActive(false);
         playerLifesManager.Respawn();
     }

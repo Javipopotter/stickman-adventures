@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
         if (clip != null)
         {
             audioSource.clip = clip[Random.Range(0, SwordSwings.Length)];
-            audioSource.PlayOneShot(audioSource.clip); 
+            audioSource.Play(); 
         }
     }
 

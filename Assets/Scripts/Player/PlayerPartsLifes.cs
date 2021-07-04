@@ -27,5 +27,10 @@ public class PlayerPartsLifes : PartsLifes
             }
             this.enabled = false;
         }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            lifes = 0;
+        }
     }
 }

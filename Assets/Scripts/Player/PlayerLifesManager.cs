@@ -25,6 +25,7 @@ public class PlayerLifesManager : MonoBehaviour
     public void Respawn()
     {
         SetPlayerMovement(true);
+        GameManager.Gm.PlayerEnemy = null;
         PlayerController.speed = PlayerController.OriginalSpeed;
         PlayerController.jumpForce = PlayerController.OriginalJumpForce;
         foreach (PlayerPartsLifes part in partsLifes)
@@ -40,7 +41,6 @@ public class PlayerLifesManager : MonoBehaviour
             transform.GetChild(i).transform.rotation = rotation[i];
             transform.GetChild(i).GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
-
     }
 
     public void SetPlayerMovement(bool active)

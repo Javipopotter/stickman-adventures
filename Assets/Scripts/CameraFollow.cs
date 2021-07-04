@@ -20,6 +20,7 @@ public class CameraFollow : MonoBehaviour
         if (!area.Contains(player.transform.position))
         {
             transform.Translate(new Vector2(-dir.x * Hardness, 0));
+
             if (player.transform.position.y >= transform.position.y + area.extents.y)
             {
                 YUpdate(area.extents.y);
@@ -27,7 +28,7 @@ public class CameraFollow : MonoBehaviour
             if (player.transform.position.y <= transform.position.y - area.extents.y)
             {
                 YUpdate(-area.extents.y);
-            } 
+            }
         }
     }
 
@@ -48,3 +49,14 @@ public class CameraFollow : MonoBehaviour
         Gizmos.DrawCube(area.center, area.extents * 2);
     }
 }
+    //if (Vector2.Distance(area.center, player.transform.position) > 50)
+    //{
+    //    if (area.center.x < player.transform.position.x)
+    //    {
+    //        LeanTween.moveX(gameObject, transform.position.x + 100, 0.2f);
+    //    }
+    //    else
+    //    {
+    //        LeanTween.moveX(gameObject, transform.position.x - 100, 0.2f);
+    //    }
+    //}
