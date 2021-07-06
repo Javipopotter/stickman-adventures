@@ -13,7 +13,7 @@ public class TorsoCollisions : MonoBehaviour
     {
         if(collision.transform.CompareTag("DeathZone"))
         {
-            respawn.Respawn();
+            respawn.Death();
         }
     }
 }

@@ -9,7 +9,7 @@ public class RoomType : MonoBehaviour
     public List<Vector3> tilesPos;
     public Tilemap tilemap;
 
-    private void Start()
+    void Awake()
     {
         foreach(SpawnTile tile in tilemap.GetComponentsInChildren<SpawnTile>())
         {
@@ -41,6 +41,7 @@ public class RoomType : MonoBehaviour
         {
             GameManager.Gm.tilemap.SetTile(GameManager.Gm.tilemap.layoutGrid.WorldToCell(pos), null);
         }
+        GameManager.Gm.GeneratedRooms.Remove(gameObject);
         Destroy(this.gameObject);
     }
 }

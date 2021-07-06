@@ -32,6 +32,7 @@ public class RoomsGenerator : MonoBehaviour
 
     public IEnumerator Produce()
     {
+        Debug.Break();
         GameManager.Gm.SightDistance = 0;
         GameManager.Gm.tilemap.GetComponent<TilemapCollider2D>().enabled = false;
         WorldContainer = Instantiate(new GameObject(), transform.position, Quaternion.identity);
@@ -41,14 +42,14 @@ public class RoomsGenerator : MonoBehaviour
         GameManager.Gm.GeneratedRooms.Add(lastRoom);
         for (int i = 0; i < NumberOfRooms; i++)
         {
-            dir = directions[Random.Range(0, directions.Length)];
             re1:
+            dir = directions[Random.Range(0, directions.Length)];
             roomPos += dir * distance;
             Vector2 originalDir = dir;
 
             for(int c = 0; c < 4; c ++)
             {
-                if(GameManager.Gm.ocuppedPos.Contains(roomPos))
+                if (GameManager.Gm.ocuppedPos.Contains(roomPos))
                 {
                     roomPos -= dir * distance;
                     dir = RotateRoom(dir);
@@ -59,13 +60,11 @@ public class RoomsGenerator : MonoBehaviour
                     }
                     roomPos += dir * distance;
                 }
+                else break;
             }
 
-            if (roomPos.y <= -1000)
+            if (roomPos.y <= -200 || roomPos.y >= 200)
             {
-                lastRoom.GetComponent<RoomType>().AutoDestroy();
-                GameManager.Gm.GeneratedRooms.Remove(lastRoom);
-                GameManager.Gm.GeneratedRooms.Add(Instantiate(upRooms[Random.Range(0, upRooms.Count)], roomPos - dir * distance, Quaternion.identity, WorldContainer.transform));
                 roomPos = GameManager.Gm.ocuppedPos[Random.Range(0, GameManager.Gm.ocuppedPos.Count)];
                 goto re1;
             }
@@ -173,8 +172,7 @@ public class RoomsGenerator : MonoBehaviour
     {
         if (dir == vector && !typeOfRoom)
         {
-            lastRoom.GetComponent<RoomType>().AutoDestroy();          
-            GameManager.Gm.GeneratedRooms.Remove(lastRoom);
+            lastRoom.GetComponent<RoomType>().AutoDestroy();      
             GameManager.Gm.GeneratedRooms.Add(lastRoom = Instantiate(rooms[Random.Range(0, rooms.Count)], roomPos - dir * distance, Quaternion.identity, WorldContainer.transform));
         }
     }
@@ -187,10 +185,8 @@ public class RoomsGenerator : MonoBehaviour
             return Vector2.left;
         else if (v == Vector2.left)
             return Vector2.up;
-        else if (v == Vector2.up)
+        else 
             return Vector2.right;
-        else
-            return new Vector2(33, 28);
     }
 }
     //RoomType.RoomStructure SumRooms(RoomType.RoomStructure room1, RoomType.RoomStructure room2)

@@ -69,9 +69,9 @@ public class GameManager : MonoBehaviour
         {
             if (PlayerEnemy.transform.parent.TryGetComponent(out AI ai))
             {
-                if (!ai.enabled) 
+                if (!ai.enabled)
                 {
-                    PlayerEnemy = null; EnemyLifeBar.SetActive(false); 
+                    PlayerEnemy = null;
                 }
                 else if(PlayerEnemy.transform.parent.TryGetComponent(out StickmanLifesManager lifesManager)) 
                 {
@@ -81,6 +81,10 @@ public class GameManager : MonoBehaviour
                     EnemyLifeBar.GetComponent<Slider>().value = lifesManager.TotalLife / lifesManager.MaxLife;
                 }
             }
+        }
+        else
+        {
+            EnemyLifeBar.SetActive(false);
         }
     }
 

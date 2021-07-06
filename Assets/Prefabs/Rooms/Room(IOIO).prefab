@@ -71,6 +71,9 @@ MonoBehaviour:
     Left: 0
   tilesPos: []
   tilemap: {fileID: 6170169044680832808}
+  area:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 100, y: 100, z: 0}
 --- !u!114 &6827916359515363751
 MonoBehaviour:
   m_ObjectHideFlags: 0

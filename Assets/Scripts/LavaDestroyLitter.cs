@@ -8,7 +8,7 @@ public class LavaDestroyLitter : MonoBehaviour
     {
         if(collision.GetComponent<Rigidbody2D>() && !collision.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 }
