@@ -13,9 +13,8 @@ public class Sword : PickableObject
         MoveArms = GetComponent<MoveArms>();
     }
 
-    public override void Update()
+    void Update()
     {
-        base.Update();
         if (e)
         {
             sr.color = Color.Lerp(Color.white, Color.yellow, HoldTimer / 1.5f);

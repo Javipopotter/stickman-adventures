@@ -81,9 +81,8 @@ public class RoomsGenerator : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         Fill();
-        Fill();
         GameManager.Gm.tilemap.GetComponent<TilemapCollider2D>().enabled = true;
-        GameManager.Gm.SightDistance = 130;
+        GameManager.Gm.SightDistance = 150;
         GameManager.Gm.LoadingScreen.SetActive(false);
         playerLifesManager.Respawn();
     }
@@ -193,7 +192,6 @@ public class RoomsGenerator : MonoBehaviour
         else
             return new Vector2(33, 28);
     }
-
 }
     //RoomType.RoomStructure SumRooms(RoomType.RoomStructure room1, RoomType.RoomStructure room2)
     //{

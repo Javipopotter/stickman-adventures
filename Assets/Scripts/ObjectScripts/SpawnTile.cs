@@ -8,7 +8,7 @@ public class SpawnTile : MonoBehaviour
     Tilemap tilemapToSetUp;
     public RuleTile[] tile;
     GridLayout tilemapGrid;
-    void Start()
+    void Awake()
     {
         tilemapToSetUp = GameManager.Gm.tilemap;
         tilemapGrid = tilemapToSetUp.layoutGrid;

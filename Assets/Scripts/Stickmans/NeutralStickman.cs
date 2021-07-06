@@ -7,7 +7,7 @@ public class NeutralStickman : AI
     public override void Awake()
     {
         base.Awake();
-        aIGrab.LayerOfTheWeapon = 0;
+        aIGrab.LayerOfTheWeapon = 10;
     }
 
     public override void FixedUpdate()

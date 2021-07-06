@@ -24,6 +24,7 @@ public class PlayerLifesManager : MonoBehaviour
 
     public void Respawn()
     {
+        GameManager.Gm.PlayerTorso.transform.parent.gameObject.SetActive(true);
         SetPlayerMovement(true);
         GameManager.Gm.PlayerEnemy = null;
         PlayerController.speed = PlayerController.OriginalSpeed;

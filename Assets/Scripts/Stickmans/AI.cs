@@ -14,12 +14,10 @@ public class AI : HumanoidController
     public float Range = 5;
     public float PlayerPersonalDistance = 5;
     public Balance[] Arms;
-    LayerMask DefaultLayer;
     float n1;
     float n2;
     public virtual void Awake()
     {
-        DefaultLayer = LayerMask.NameToLayer("Default");
         aIGrab = GetComponentInChildren<AIGrab>();
         rb = torso.GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
@@ -44,29 +42,17 @@ public class AI : HumanoidController
             StartCoroutine(Jump());
         }
 
-        if(aIGrab.grabbed == false)
+        if(aIGrab.grabbed == false && enemy != null)
         {
-            Collider2D col = Physics2D.OverlapCircle(torso.transform.position, 50, DefaultLayer);
-            if(col)
+            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= 20)
             {
-                if (col.gameObject.CompareTag("Pickable"))
-                {
-                    MovementDir(col.gameObject, 2);
-                    ArmsMove(col.transform.position - torso.transform.position, 300); 
-                }
+                MovementDir(enemy, -2);
+                ArmsMove(90, 300);
             }
-            else if (enemy != null)
+            else
             {
-                if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= 20)
-                {
-                    MovementDir(enemy, -2);
-                    ArmsMove(90, 300);
-                }
-                else
-                {
-                    ArmsMove(0, 0);
-                } 
-            }
+                ArmsMove(0, 0);
+            } 
         }   
     }
 
@@ -125,6 +111,10 @@ public class AI : HumanoidController
                     AttackCoolDown = 0;
                     n1 = 0;
                     n2 = AttackCoolDown;
+                    break;
+                case PickableObject.Weapon.Boomerang:
+                    p.GetComponent<Boomerang>().Throw(enemy.transform.position);
+                    aIGrab.Drop();
                     break;
             } 
         }

@@ -28,9 +28,8 @@ public class HookShot : PickableObject
         HookScript.DmgMultiplier = DmgMultiplier;
     }
 
-    public override void Update()
+    void Update()
     {
-        base.Update();
         lineRenderer.SetPosition(0, OriginalHookPos.transform.position);
         lineRenderer.SetPosition(1, Hook.transform.position);
         if(Holded)

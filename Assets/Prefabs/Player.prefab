@@ -2391,7 +2391,7 @@ GameObject:
   - component: {fileID: 8621573057416835041}
   - component: {fileID: 8621573057416835040}
   - component: {fileID: 3447801095021592801}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: 'InteractionZone '
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -2980,7 +2980,7 @@ GameObject:
   - component: {fileID: 8621573058167237321}
   - component: {fileID: 8621573058167237324}
   - component: {fileID: 21930386082518290}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: InteractionZone
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}

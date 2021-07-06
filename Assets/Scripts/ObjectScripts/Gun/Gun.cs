@@ -15,9 +15,8 @@ public class Gun : PickableObject
         base.Awake();
     }
 
-    public override void Update()
+    void Update()
     {
-        base.Update();
         GunCoolDown();
     }
 

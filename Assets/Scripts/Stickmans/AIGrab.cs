@@ -8,7 +8,7 @@ public class AIGrab : MonoBehaviour
     public bool grabbed;
     public PickableObject pickableObject;
     public GameObject grabbedObject;
-    [HideInInspector] public int LayerOfTheWeapon;
+    public int LayerOfTheWeapon;
     private void Awake()
     {
         ai = GetComponentInParent<AI>();

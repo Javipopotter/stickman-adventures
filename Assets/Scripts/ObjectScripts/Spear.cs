@@ -7,14 +7,15 @@ public class Spear : PickableObject
 {
     [SerializeField] float force = 150;
     int attackCount = 0;
+    public float spearCoolDown = 3;
+    public int attacks = 3;
     public override void Awake()
     {
         base.Awake();
     }
-    public override void Update()
+    void Update()
     {
-        base.Update();
-        sr.color = Color.Lerp(Color.white,Color.red,WeaponCoolDown / 3);
+        sr.color = Color.Lerp(Color.white,Color.red,WeaponCoolDown / attacks);
         CoolDownTimer();  
     }
 
@@ -36,10 +37,10 @@ public class Spear : PickableObject
 
     void CoolDownTimer()
     {
-        if(attackCount >= 3)
+        if(attackCount >= attacks)
         {
             if(activateCoolDown == false)
-                WeaponCoolDown = 3;
+                WeaponCoolDown = spearCoolDown;
 
             activateCoolDown = true;
         }

@@ -162,14 +162,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 1
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 1
 --- !u!114 &4417375882229404933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,14 +370,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 1
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 1
 --- !u!114 &4212821845232463218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,14 +578,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 200
   vitalPoint: 0
+  IsLeg: 0
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 0
 --- !u!114 &754113365838083798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,14 +745,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 0
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 0
 --- !u!114 &5888426514693567796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,14 +968,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 1
+  ConnectedPart: {fileID: 560236942553559653}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 560236942553559653}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 1
 --- !u!114 &4682806801878439737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 8918046665132781771}
   - component: {fileID: 6124101798948035224}
   - component: {fileID: 6794703698017878208}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: 'InteractionZone '
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}
@@ -1285,14 +1285,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 0
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 0
 --- !u!114 &7572627479916335001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,14 +1508,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 1
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 1
 --- !u!114 &5825085371770086603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,14 +1690,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 500
   vitalPoint: 1
+  IsLeg: 0
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 0
 --- !u!61 &1234639551666143045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1837,6 +1837,9 @@ MonoBehaviour:
   speed: 10
   jumpForce: 180
   canJump: 0
+  OriginalSpeed: 0
+  OriginalJumpForce: 0
+  LegsCount: 0
   Player: {fileID: 0}
   enemy: {fileID: 0}
   EnemyDir: {x: 0, y: 0}
@@ -1995,14 +1998,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 0
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 0
 --- !u!114 &3207997135909162150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,14 +2206,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 0
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 1
   AssignedHand: {fileID: 0}
-  IsLeg: 0
 --- !u!114 &2388043908911440169
 MonoBehaviour:
   m_ObjectHideFlags: 0

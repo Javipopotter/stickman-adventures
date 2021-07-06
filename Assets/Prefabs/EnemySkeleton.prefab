@@ -97,7 +97,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.4666667, z: 0, w: 0.5}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 3.0666666}
     newSize: {x: 1, y: 1}
@@ -234,14 +234,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 200
   vitalPoint: 0
+  IsLeg: 0
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
   Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 0
 --- !u!50 &1785873919748290703
 Rigidbody2D:
   serializedVersion: 4
@@ -296,7 +296,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.4666667, z: 0, w: 0.5}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 3.0666666}
     newSize: {x: 1, y: 1}
@@ -322,7 +322,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.4666667, z: 0, w: 0.5}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 3.0666666}
     newSize: {x: 1, y: 1}
@@ -348,7 +348,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.4666667, z: 0, w: 0.5}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 3.0666666}
     newSize: {x: 1, y: 1}
@@ -473,6 +473,9 @@ MonoBehaviour:
   speed: 10
   jumpForce: 180
   canJump: 0
+  OriginalSpeed: 0
+  OriginalJumpForce: 0
+  LegsCount: 0
   Player: {fileID: 0}
   enemy: {fileID: 0}
   EnemyDir: {x: 0, y: 0}
@@ -499,7 +502,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.4666667, z: 0, w: 0.5}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 3.0666666}
     newSize: {x: 1, y: 1}
@@ -551,7 +554,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.4666667, z: 0, w: 0.5}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 3.0666666}
     newSize: {x: 0.6666667, y: 3.0666666}
@@ -577,7 +580,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.4666667, z: 0, w: 0.5}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 3.0666666}
     newSize: {x: 1, y: 1}
@@ -603,7 +606,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.4666667, z: 0, w: 0.5}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 3.0666666}
     newSize: {x: 1, y: 1}
@@ -1483,6 +1486,10 @@ PrefabInstance:
     - target: {fileID: 1235029196267303356, guid: 010cfb214ed26a046bc78fc76f7f4d8f, type: 3}
       propertyPath: m_Name
       value: 'InteractionZone '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235029196267303356, guid: 010cfb214ed26a046bc78fc76f7f4d8f, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2334872398578485134, guid: 010cfb214ed26a046bc78fc76f7f4d8f, type: 3}
       propertyPath: m_Anchor.x

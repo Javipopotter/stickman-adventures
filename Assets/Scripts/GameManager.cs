@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
                 else
                     room.SetActive(false);
             }
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
         }
     }
 
@@ -164,6 +164,7 @@ public class GameManager : MonoBehaviour
 
     public void GenerateNewWorld()
     {
+        PlayerTorso.transform.parent.gameObject.SetActive(false);
         DeathScreen.SetActive(false);
         LoadingScreen.SetActive(true);
         tilemap.ClearAllTiles();

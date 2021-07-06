@@ -7,17 +7,17 @@ public class PlayerWeaponsController : MonoBehaviour
     public Grab grab;
     PickableObject weapon;
 
-    void Update()
+    void FixedUpdate()
     {
         if(grab.objectGrab && grab.grabbed)
         {
             weapon = grab.pickable;
-            switch(weapon.ThisWeapon)
+            switch (weapon.ThisWeapon)
             {
                 case PickableObject.Weapon.Sword:
                     Sword sword = weapon.GetComponent<Sword>();
 
-                    if(Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButtonDown(0))
                     {
                         sword.MoveArms.Punch(SoundManager.SoundMan.SwordSwings);
                     }
@@ -57,7 +57,15 @@ public class PlayerWeaponsController : MonoBehaviour
                     if (Input.GetMouseButton(0))
                         weapon.GetComponent<Gun>().Shoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                     break;
-            }
+
+                case PickableObject.Weapon.Boomerang:
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        weapon.GetComponent<Boomerang>().Throw(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                        grab.Drop();
+                    }
+                    break;
+            } 
         }
     }
 }

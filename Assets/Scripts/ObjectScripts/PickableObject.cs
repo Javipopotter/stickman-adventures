@@ -26,7 +26,7 @@ public class PickableObject : MonoBehaviour
     public GameObject Holder;
     public enum Weapon
     {
-        Spear, Sword, HookShot, Gun
+        Spear, Sword, HookShot, Gun, Boomerang
     }
     public virtual void Awake()
     {
@@ -35,7 +35,7 @@ public class PickableObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
         if(rb.velocity.magnitude < minVel * 2 && gameObject.layer != 0 && !Holded)
         {
@@ -109,7 +109,7 @@ public class PickableObject : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (Holded)
         {
