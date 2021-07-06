@@ -11,19 +11,18 @@ public class RoomsGenerator : MonoBehaviour
     public List<GameObject> upRooms;
     public List<GameObject> downRooms;
     [SerializeField] GameObject InitialRoom;
-    [SerializeField]GameObject lastRoom;
-    RoomType.RoomStructure lastRoomOrigin;
+    [SerializeField] GameObject lastRoom;
+    [SerializeField] RoomType.RoomStructure lastRoomOrigin;
+    [SerializeField] Vector2 dir;
     GameObject SpawnRoom;
     [SerializeField] GameObject Filler;
     public float distance;
     Vector2 roomPos;
-    Vector2 dir;
     public Vector2[] directions;
     public List<GameObject> TypeOfRoom = null;
     [HideInInspector]public GameObject WorldContainer;
     PlayerLifesManager playerLifesManager;
     [SerializeField] float NumberOfRooms = 100;
-    //public List<Vector2> occupedPositions;
     void Start()
     {
         playerLifesManager = GameManager.Gm.PlayerTorso.GetComponentInParent<PlayerLifesManager>();
@@ -63,14 +62,14 @@ public class RoomsGenerator : MonoBehaviour
                 else break;
             }
 
-            if (roomPos.y <= -200 || roomPos.y >= 200)
+            if (roomPos.y <= -1000 || roomPos.y >= 1000)
             {
                 roomPos = GameManager.Gm.ocuppedPos[Random.Range(0, GameManager.Gm.ocuppedPos.Count)];
                 goto re1;
             }
 
-            CheckTypeOfRoom();
             CheckRoomChange();
+            CheckTypeOfRoom();
             SpawnRoom = TypeOfRoom[Random.Range(0, TypeOfRoom.Count)];
             lastRoom = Instantiate(SpawnRoom, roomPos, Quaternion.identity, WorldContainer.transform) as GameObject;
             GameManager.Gm.GeneratedRooms.Add(lastRoom);
