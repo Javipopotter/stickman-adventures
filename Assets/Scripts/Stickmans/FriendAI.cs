@@ -7,7 +7,6 @@ public class FriendAI : AI
     public override void Awake()
     {
         base.Awake();
-        aIGrab.LayerOfTheWeapon = 10;
         GameManager.Gm.Friends.Add(this);
         GameManager.Gm.UpdateAllies();
     }

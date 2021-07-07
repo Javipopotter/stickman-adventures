@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AIPartLifes : PartsLifes
 {
-    AI ai;
     StickmanLifesManager stickmanLifesManager;
     public bool IsHand;
     public AIGrab AssignedHand;

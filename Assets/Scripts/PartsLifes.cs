@@ -10,7 +10,6 @@ public class PartsLifes : MonoBehaviour
     [SerializeField] PartsLifes ConnectedPart;
     HumanoidController humanoid;
     [HideInInspector] public float OrLifes;
-    public GameObject Damager;
     public SpriteRenderer sr;
     public Color OrColor;
 

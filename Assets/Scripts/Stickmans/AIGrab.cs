@@ -40,7 +40,7 @@ public class AIGrab : MonoBehaviour
         Picked.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
-        Picked.ChangeProperties(true, true, LayerOfTheWeapon, true, ai.torso);
+        Picked.ChangeProperties(true, true, LayerOfTheWeapon, ai.torso);
     }
 
     public void Drop()
@@ -50,7 +50,7 @@ public class AIGrab : MonoBehaviour
         Destroy(GetComponent<FixedJoint2D>());
         if (pickableObject != null)
         {
-            pickableObject.ChangeProperties(false, false, LayerOfTheWeapon, false, null);
+            pickableObject.ChangeProperties(false, false, LayerOfTheWeapon, null);
             pickableObject = null;
         }
     }

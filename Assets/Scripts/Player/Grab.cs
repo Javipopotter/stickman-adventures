@@ -90,7 +90,7 @@ public class Grab : MonoBehaviour
     {
         if (collision.TryGetComponent(out PickableObject Picked))
         {
-            if ((holding && !grabbed && Grabs && !collision.GetComponent<PickableObject>().Holded) || Invoke)
+            if ((holding || Invoke) && !grabbed && Grabs && !collision.GetComponent<PickableObject>().Holded)
             {
                 Rigidbody2D rb = collision.transform.GetComponent<Rigidbody2D>();
                 PickUp(Picked, rb);
@@ -123,7 +123,7 @@ public class Grab : MonoBehaviour
         fj.anchor = fj.connectedAnchor = Vector2.zero;
         Picked.sr.material = Picked.InitMaterial;
         ActiveDeactivePunches(Picked.CanPunch, Picked.BlockArm);
-        Picked.ChangeProperties(true, false, 10, true, GameManager.Gm.PlayerTorso);
+        Picked.ChangeProperties(true, false, 10, GameManager.Gm.PlayerTorso);
     }
 
     public void Drop()
@@ -133,7 +133,7 @@ public class Grab : MonoBehaviour
         if (Grabs && pickable != null)
         {
             ActiveDeactivePunches(true, false);
-            pickable.ChangeProperties(false, false, 10, true, null);
+            pickable.ChangeProperties(false, false, 10, null);
             pickable = null;
         }
     }

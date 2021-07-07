@@ -43,6 +43,6 @@ public class Hook : MonoBehaviour
             HookShot.GetComponent<HookShot>().UnShot();
         }
 
-        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByEnemy, 20, HookShootScript.Holder));
+        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, 20, HookShootScript.Holder));
     }
 }

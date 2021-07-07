@@ -40,16 +40,15 @@ public class Sword : PickableObject
         MoveArms.force *= 4;
         transform.localScale = transform.localScale * 2;
         MoveArms.Punch(SoundManager.SoundMan.SwordSwings);
+        DmgMultiplier *= 2;
         yield return new WaitForSeconds(0.3f);
         e = true;
         MoveArms.punch = true;
         CanGetChanged = true;
-        if (Holded)
-        {
-            gameObject.layer = 9; 
-        }
+        gameObject.layer = 10;
         MoveArms.force /= 4;
         transform.localScale = transform.localScale / 2;
+        DmgMultiplier /= 2;
     }
 
     public void ChargeAttack()

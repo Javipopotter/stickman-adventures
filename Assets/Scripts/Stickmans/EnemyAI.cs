@@ -8,7 +8,6 @@ public class EnemyAI : AI
     {
         base.Awake();
         enemy = Player;
-        aIGrab.LayerOfTheWeapon = 11;
     }
 
     public override void FixedUpdate()

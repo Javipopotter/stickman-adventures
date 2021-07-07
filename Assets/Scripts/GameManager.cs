@@ -111,19 +111,23 @@ public class GameManager : MonoBehaviour
         return dir;
     }
 
-    public IEnumerator DoDamage(Collision2D collision, Rigidbody2D rb, float DmgMultiplier, bool PickedByEnemy, float minVel, GameObject Holder)
+    public IEnumerator DoDamage(Collision2D collision, Rigidbody2D rb, float DmgMultiplier, float minVel, GameObject Holder)
     {
         if ((collision.gameObject.CompareTag("enemy") || collision.gameObject.CompareTag("Player")) && rb.velocity.magnitude >= minVel && collision.transform.TryGetComponent(out PartsLifes pl) && pl.lifes > 0)
         {
-            if (!PickedByEnemy)
+            if (Holder.GetComponentInParent<PlataformerMovement>())
             {
                 PlayerEnemy = collision.gameObject;
             }
+
+            if(collision.gameObject.GetComponentInParent<AI>())
+            {
+                collision.gameObject.GetComponentInParent<AI>().enemy = Holder;
+            }
+
             float dmg = DmgMultiplier * rb.velocity.magnitude;
             DmgSum += dmg;
             pl.lifes -= dmg;
-            pl.Damager = Holder;
-
             yield return new WaitForSeconds(0.05f);
             DmgTextManagement(collision);
             DmgSum = 0;
@@ -178,41 +182,3 @@ public class GameManager : MonoBehaviour
         StartCoroutine(roomGenerator.Produce());
     }
 }
-    //public void UpdateColliders(List<Collider2D> Colliders, bool active, List<Collider2D> list)
-    //{
-    //    foreach (Collider2D col1 in Colliders)
-    //    {
-    //        if (active)
-    //        {
-    //            list.Add(col1); 
-    //        }
-
-    //        foreach (Collider2D col2 in list)
-    //        {
-    //            Physics2D.IgnoreCollision(col1, col2, active);
-    //        }
-
-    //        if (!active)
-    //        {
-    //            list.Remove(col1);
-    //        }
-    //    }
-    //}
-
-    //public void UpdateColliders(Collider2D col1, bool active, List<Collider2D> list)
-    //{
-    //    if (active)
-    //    {
-    //        list.Add(col1); 
-    //    }
-
-    //    foreach (Collider2D col2 in list)
-    //    {
-    //        Physics2D.IgnoreCollision(col1, col2, active);
-    //    }
-
-    //    if (!active)
-    //    {
-    //        list.Remove(col1);
-    //    }
-    //}

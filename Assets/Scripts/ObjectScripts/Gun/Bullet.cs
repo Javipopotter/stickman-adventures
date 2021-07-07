@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
     {
         lifetime = 3;
         rb = GetComponent<Rigidbody2D>();
-        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, 20, holder));
+        GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, 20, holder));
         gameObject.SetActive(false);
     }
 }

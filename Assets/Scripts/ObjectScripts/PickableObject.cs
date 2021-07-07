@@ -22,8 +22,8 @@ public class PickableObject : MonoBehaviour
     public float WeaponCoolDown = 0;
     public bool activateCoolDown;
     [SerializeField] float minVel;
-    public bool PickedByAllie;
     public GameObject Holder;
+    public List<Collider2D> colliders;
     public enum Weapon
     {
         Spear, Sword, HookShot, Gun, Boomerang
@@ -33,6 +33,13 @@ public class PickableObject : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
         InitMaterial = sr.material;
         rb = GetComponent<Rigidbody2D>();
+        foreach(Collider2D col in GetComponents<Collider2D>())
+        {
+            if(!col.isTrigger)
+            {
+                colliders.Add(col);
+            }
+        }
     }
 
     public virtual void FixedUpdate()
@@ -43,11 +50,10 @@ public class PickableObject : MonoBehaviour
         }
     }
 
-    public void ChangeProperties(bool take, bool PickedByAI, int layerToIgnore, bool PickedByAllie, GameObject Holder)
+    public void ChangeProperties(bool take, bool PickedByAI, int layerToIgnore, GameObject Holder)
     {
         this.Holder = Holder;
         this.PickedByAI = PickedByAI;
-        this.PickedByAllie = PickedByAllie;
         Holded = take;
         if (take)
         {
@@ -113,11 +119,11 @@ public class PickableObject : MonoBehaviour
     {
         if (Holded)
         {
-            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, PickedByAI, minVel, Holder)); 
+            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier, minVel, Holder)); 
         }
         else
         {
-            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier * 8, PickedByAI, minVel * 2, Holder));
+            GameManager.Gm.StartCoroutine(GameManager.Gm.DoDamage(collision, rb, DmgMultiplier * 8, minVel * 2, Holder));
         }
     }
 }

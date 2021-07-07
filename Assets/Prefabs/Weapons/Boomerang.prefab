@@ -139,9 +139,9 @@ MonoBehaviour:
   CanGetChanged: 1
   WeaponCoolDown: 0
   activateCoolDown: 0
-  minVel: 40
-  PickedByAllie: 0
+  minVel: 20
   Holder: {fileID: 0}
+  colliders: []
   force: 100
 --- !u!1 &7539599454319030504
 GameObject:

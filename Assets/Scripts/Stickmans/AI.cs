@@ -22,14 +22,7 @@ public class AI : HumanoidController
         rb = torso.GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
         Player = GameManager.Gm.PlayerTorso;
-    }
-
-    public void GetEnemy(GameObject en)
-    {
-        if(enemy == null)
-        {
-            enemy = en;
-        }
+        aIGrab.LayerOfTheWeapon = transform.gameObject.layer;
     }
 
     public virtual void FixedUpdate()

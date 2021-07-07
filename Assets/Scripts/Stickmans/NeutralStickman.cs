@@ -7,7 +7,10 @@ public class NeutralStickman : AI
     public override void Awake()
     {
         base.Awake();
-        aIGrab.LayerOfTheWeapon = 10;
+        if (transform.gameObject.layer == 11)
+        {
+            enemy = GameManager.Gm.PlayerTorso;
+        }
     }
 
     public override void FixedUpdate()
@@ -16,7 +19,7 @@ public class NeutralStickman : AI
 
         if (enemy != null && aIGrab.grabbed)
         {
-            if (Vector2.Distance(enemy.transform.position, torso.transform.position) > Range)
+            if(Vector2.Distance(torso.transform.position, enemy.transform.position) < 120 && Vector2.Distance(enemy.transform.position, torso.transform.position) > Range)
             {
                 MovementDir(enemy, 1);
             }

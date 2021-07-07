@@ -7,7 +7,7 @@ public class PlayerWeaponsController : MonoBehaviour
     public Grab grab;
     PickableObject weapon;
 
-    void FixedUpdate()
+    void Update()
     {
         if(grab.objectGrab && grab.grabbed)
         {

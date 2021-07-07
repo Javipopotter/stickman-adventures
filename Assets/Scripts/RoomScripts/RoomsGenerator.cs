@@ -12,8 +12,8 @@ public class RoomsGenerator : MonoBehaviour
     public List<GameObject> downRooms;
     [SerializeField] GameObject InitialRoom;
     [SerializeField] GameObject lastRoom;
-    [SerializeField] RoomType.RoomStructure lastRoomOrigin;
-    [SerializeField] Vector2 dir;
+    RoomType.RoomStructure lastRoomOrigin;
+    Vector2 dir;
     GameObject SpawnRoom;
     [SerializeField] GameObject Filler;
     public float distance;
