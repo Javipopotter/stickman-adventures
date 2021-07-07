@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7081579661240101875}
   - component: {fileID: 2665266453952068453}
   - component: {fileID: 7351983144799882107}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Pierna2
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -188,14 +188,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 1
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 1
 --- !u!114 &7351983144799882107
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4981512694308462623}
   - component: {fileID: 2782499508965568596}
   - component: {fileID: 1480391924043578171}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: LeftArm
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -173,14 +173,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 300
   vitalPoint: 0
+  IsLeg: 0
+  ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
-  ConnectedPart: {fileID: 0}
   IsHand: 0
   AssignedHand: {fileID: 0}
-  IsLeg: 0
 --- !u!114 &2782499508965568596
 MonoBehaviour:
   m_ObjectHideFlags: 0

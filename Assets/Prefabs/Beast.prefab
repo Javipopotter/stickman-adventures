@@ -165,7 +165,6 @@ MonoBehaviour:
   IsLeg: 1
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -373,7 +372,6 @@ MonoBehaviour:
   IsLeg: 1
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -581,7 +579,6 @@ MonoBehaviour:
   IsLeg: 0
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -748,7 +745,6 @@ MonoBehaviour:
   IsLeg: 0
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -971,7 +967,6 @@ MonoBehaviour:
   IsLeg: 1
   ConnectedPart: {fileID: 560236942553559653}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -1288,7 +1283,6 @@ MonoBehaviour:
   IsLeg: 0
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -1511,7 +1505,6 @@ MonoBehaviour:
   IsLeg: 1
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -1693,7 +1686,6 @@ MonoBehaviour:
   IsLeg: 0
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -1736,7 +1728,6 @@ GameObject:
   - component: {fileID: 345219169524431519}
   - component: {fileID: 3220601334724003310}
   - component: {fileID: 8035003010869061401}
-  - component: {fileID: 7928195515213854834}
   m_Layer: 11
   m_Name: Beast
   m_TagString: enemy
@@ -1816,41 +1807,6 @@ MonoBehaviour:
   MaxLife: 0
   TotalLife: 0
   requiredDmgToDie: 0.5
---- !u!114 &7928195515213854834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7177784292467004534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a42c83cd6e041a34ab4c8fa69a2b521a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floor:
-    serializedVersion: 2
-    m_Bits: 256
-  torso: {fileID: 6288027119078497952}
-  rb: {fileID: 0}
-  an: {fileID: 0}
-  speed: 10
-  jumpForce: 180
-  canJump: 0
-  OriginalSpeed: 0
-  OriginalJumpForce: 0
-  LegsCount: 0
-  Player: {fileID: 0}
-  enemy: {fileID: 0}
-  EnemyDir: {x: 0, y: 0}
-  aIGrab: {fileID: 6124101798948035224}
-  Range: 5
-  PlayerPersonalDistance: 5
-  Arms:
-  - {fileID: 6557633039380792566}
-  - {fileID: 3767182109790788213}
-  - {fileID: 768787551081317472}
-  - {fileID: 5234027582242113891}
 --- !u!1 &7842045636998112950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,7 +1957,6 @@ MonoBehaviour:
   IsLeg: 0
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -2209,7 +2164,6 @@ MonoBehaviour:
   IsLeg: 0
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 1

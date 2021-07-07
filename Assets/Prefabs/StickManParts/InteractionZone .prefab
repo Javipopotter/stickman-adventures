@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2334872398578485134}
   - component: {fileID: 1105994356421750237}
   - component: {fileID: 427777236068317061}
-  m_Layer: 6
+  m_Layer: 4
   m_Name: 'InteractionZone '
   m_TagString: InteractionZone
   m_Icon: {fileID: 0}

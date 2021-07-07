@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5889324956611775477}
   - component: {fileID: 2027732141234462839}
   - component: {fileID: 7798031148442808071}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Head
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -166,7 +166,6 @@ MonoBehaviour:
   IsLeg: 0
   ConnectedPart: {fileID: 0}
   OrLifes: 0
-  Damager: {fileID: 0}
   sr: {fileID: 0}
   OrColor: {r: 0, g: 0, b: 0, a: 0}
   IsHand: 0
@@ -193,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5889324956740910721}
   - component: {fileID: 5889324956740910720}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
