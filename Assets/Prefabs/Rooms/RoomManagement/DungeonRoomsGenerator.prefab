@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4349884002333879270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4349884002333879268}
+  - component: {fileID: 4349884002333879271}
+  m_Layer: 0
+  m_Name: DungeonRoomsGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4349884002333879268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4349884002333879270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.1, y: 1.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4349884002333879271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4349884002333879270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f654b96d5cb69448c06d3e4c85d235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IIOO:
+  - {fileID: 5209982691179710495, guid: 53efb2a7444d2b64d8059df0600adf85, type: 3}
+  IOIO:
+  - {fileID: 784617857789053530, guid: 1e7eb45eb3065454a90766d5b9d3df75, type: 3}
+  IOOI:
+  - {fileID: 3090232892552515958, guid: 84e08aff0419f32438bcbac400c2171f, type: 3}
+  OIIO:
+  - {fileID: 2881255757584147606, guid: 6be41b0bfd4600849a1f0edd8a7dcd05, type: 3}
+  OIOI:
+  - {fileID: 4639685185850644189, guid: 95a7c00988ec3c4468cda64922d749f5, type: 3}
+  OOII:
+  - {fileID: 5551035444781160298, guid: 04967b78aa6ff0b498ee9f4d3f1c2143, type: 3}
+  IIII:
+  - {fileID: 746477524943394212, guid: 87246193ae63b304d9c8d487b2606295, type: 3}
+  leftRooms:
+  - {fileID: 4639685185850644189, guid: 95a7c00988ec3c4468cda64922d749f5, type: 3}
+  - {fileID: 7395162542966096080, guid: fc3e1d8804e854543b143b8efcc93bba, type: 3}
+  - {fileID: 746477524943394212, guid: 87246193ae63b304d9c8d487b2606295, type: 3}
+  - {fileID: 3090232892552515958, guid: 84e08aff0419f32438bcbac400c2171f, type: 3}
+  - {fileID: 5551035444781160298, guid: 04967b78aa6ff0b498ee9f4d3f1c2143, type: 3}
+  rightRooms:
+  - {fileID: 4639685185850644189, guid: 95a7c00988ec3c4468cda64922d749f5, type: 3}
+  - {fileID: 7395162542966096080, guid: fc3e1d8804e854543b143b8efcc93bba, type: 3}
+  - {fileID: 746477524943394212, guid: 87246193ae63b304d9c8d487b2606295, type: 3}
+  - {fileID: 5209982691179710495, guid: 53efb2a7444d2b64d8059df0600adf85, type: 3}
+  - {fileID: 2881255757584147606, guid: 6be41b0bfd4600849a1f0edd8a7dcd05, type: 3}
+  upRooms:
+  - {fileID: 746477524943394212, guid: 87246193ae63b304d9c8d487b2606295, type: 3}
+  - {fileID: 3090232892552515958, guid: 84e08aff0419f32438bcbac400c2171f, type: 3}
+  - {fileID: 5209982691179710495, guid: 53efb2a7444d2b64d8059df0600adf85, type: 3}
+  - {fileID: 784617857789053530, guid: 1e7eb45eb3065454a90766d5b9d3df75, type: 3}
+  downRooms:
+  - {fileID: 7395162542966096080, guid: fc3e1d8804e854543b143b8efcc93bba, type: 3}
+  - {fileID: 746477524943394212, guid: 87246193ae63b304d9c8d487b2606295, type: 3}
+  - {fileID: 784617857789053530, guid: 1e7eb45eb3065454a90766d5b9d3df75, type: 3}
+  - {fileID: 5551035444781160298, guid: 04967b78aa6ff0b498ee9f4d3f1c2143, type: 3}
+  - {fileID: 2881255757584147606, guid: 6be41b0bfd4600849a1f0edd8a7dcd05, type: 3}
+  InitialRoom: {fileID: 746477524943394212, guid: 87246193ae63b304d9c8d487b2606295, type: 3}
+  lastRoom: {fileID: 0}
+  distance: 100
+  directions:
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  TypeOfRoom: []
+  WorldContainer: {fileID: 0}
+  NumberOfRooms: 20
+  Downlim: {fileID: 0}
+  Uplim: {fileID: 0}
+  Uplimit: 100
+  Downlimit: -1000
+  HellRoomsGenerator: {fileID: 3849291135492275551, guid: b221a208b91101545b916ea0cc38a601, type: 3}

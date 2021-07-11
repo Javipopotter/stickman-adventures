@@ -5,17 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class RoomsGenerator : MonoBehaviour
 {
-    public List<GameObject> IIOO, IOIO, IOOI, OIIO, OIOI, OOII;
-    public List<GameObject> leftRooms;
-    public List<GameObject> rightRooms;
-    public List<GameObject> upRooms;
-    public List<GameObject> downRooms;
-    [SerializeField] GameObject InitialRoom;
-    [SerializeField] GameObject lastRoom;
+    public List<GameObject> IIOO, IOIO, IOOI, OIIO, OIOI, OOII, IIII;
+    public List<GameObject> leftRooms, rightRooms, upRooms, downRooms;
+    [SerializeField] GameObject InitialRoom, lastRoom;
     RoomType.RoomStructure lastRoomOrigin;
     Vector2 dir;
     GameObject SpawnRoom;
-    [SerializeField] GameObject Filler;
     public float distance;
     Vector2 roomPos;
     public Vector2[] directions;
@@ -23,9 +18,14 @@ public class RoomsGenerator : MonoBehaviour
     [HideInInspector]public GameObject WorldContainer;
     PlayerLifesManager playerLifesManager;
     [SerializeField] float NumberOfRooms = 100;
+    [SerializeField] GameObject Downlim, Uplim;
+    public float Uplimit, Downlimit;
+    public GameObject HellRoomsGenerator;
     void Start()
     {
         playerLifesManager = GameManager.Gm.PlayerTorso.GetComponentInParent<PlayerLifesManager>();
+        Uplimit = transform.position.y + 100;
+        Downlimit = transform.position.y - NumberOfRooms * 100;
         StartCoroutine(Produce());
     }
 
@@ -34,21 +34,20 @@ public class RoomsGenerator : MonoBehaviour
         Debug.Break();
         GameManager.Gm.SightDistance = 0;
         GameManager.Gm.tilemap.GetComponent<TilemapCollider2D>().enabled = false;
-        WorldContainer = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+        WorldContainer = Instantiate(new GameObject(), transform.position, Quaternion.identity, transform);
         roomPos = transform.position;
-        lastRoom = Instantiate(InitialRoom, roomPos, Quaternion.identity, WorldContainer.transform) as GameObject;
-        GameManager.Gm.ocuppedPos.Add(roomPos);
-        GameManager.Gm.GeneratedRooms.Add(lastRoom);
+        lastRoom = Instantiate(InitialRoom, roomPos, Quaternion.identity, WorldContainer.transform);
+        Downlim = Uplim = lastRoom;
         for (int i = 0; i < NumberOfRooms; i++)
         {
-            re1:
+        re1:
             dir = directions[Random.Range(0, directions.Length)];
             roomPos += dir * distance;
             Vector2 originalDir = dir;
 
-            for(int c = 0; c < 4; c ++)
+            for (int c = 0; c < 4; c++)
             {
-                if (GameManager.Gm.ocuppedPos.Contains(roomPos))
+                if (GameManager.Gm.ocuppedPos.Contains(roomPos) || roomPos.y <= Downlimit || roomPos.y >= Uplimit)
                 {
                     roomPos -= dir * distance;
                     dir = RotateRoom(dir);
@@ -62,27 +61,49 @@ public class RoomsGenerator : MonoBehaviour
                 else break;
             }
 
-            if (roomPos.y <= -1000 || roomPos.y >= 1000)
-            {
-                roomPos = GameManager.Gm.ocuppedPos[Random.Range(0, GameManager.Gm.ocuppedPos.Count)];
-                goto re1;
-            }
-
             CheckRoomChange();
             CheckTypeOfRoom();
             SpawnRoom = TypeOfRoom[Random.Range(0, TypeOfRoom.Count)];
-            lastRoom = Instantiate(SpawnRoom, roomPos, Quaternion.identity, WorldContainer.transform) as GameObject;
-            GameManager.Gm.GeneratedRooms.Add(lastRoom);
+            lastRoom = Instantiate(SpawnRoom, roomPos, Quaternion.identity, WorldContainer.transform);
             TypeOfRoom.Clear();
-            GameManager.Gm.ocuppedPos.Add(roomPos);
             GameManager.Gm.WorldLoadingSlider.value = GameManager.Gm.GeneratedRooms.Count / NumberOfRooms;
             yield return new WaitForFixedUpdate();
         }
-        Fill();
-        GameManager.Gm.tilemap.GetComponent<TilemapCollider2D>().enabled = true;
-        GameManager.Gm.SightDistance = 150;
-        GameManager.Gm.LoadingScreen.SetActive(false);
-        playerLifesManager.Respawn();
+        CheckLims();
+        if (HellRoomsGenerator != null)
+        {
+            RoomsGenerator hellRooms;
+            hellRooms = Instantiate(HellRoomsGenerator, new Vector2(Downlim.transform.position.x, Downlim.transform.position.y - 100), Quaternion.identity, WorldContainer.transform).GetComponent<RoomsGenerator>();
+            hellRooms.Uplimit = Downlim.transform.position.y;
+        }
+        else
+        {
+            Fill();
+            GameManager.Gm.tilemap.GetComponent<TilemapCollider2D>().enabled = true;
+            GameManager.Gm.SightDistance = 150;
+            GameManager.Gm.LoadingScreen.SetActive(false);
+            playerLifesManager.Respawn();
+        }
+    }
+
+    void CheckLims()
+    {
+        foreach(GameObject go in GameManager.Gm.GeneratedRooms)
+        {
+            if(go.transform.position.y > Uplim.transform.position.y)
+            {
+                Uplim = go;
+            }
+            else if(go.transform.position.y < Downlim.transform.position.y)
+            {
+                Downlim = go;
+            }
+        }
+
+        dir = Vector2.up;
+        RoomChange(Vector2.up, Uplim.GetComponent<RoomType>().TypeOfRoom.Up, IIII, Uplim);
+        dir = Vector2.down;
+        RoomChange(Vector2.down, Downlim.GetComponent<RoomType>().TypeOfRoom.Down, IIII, Downlim);
     }
 
     void Fill()
@@ -93,19 +114,35 @@ public class RoomsGenerator : MonoBehaviour
         {
             dir = Vector2.right;
             FillPos = pos;
-            for(int i = 0; i < 4; i++)
+            for(int i = 0; i < 8; i++)
             {
                 FillPos += dir * distance;
                 if(!GameManager.Gm.ocuppedPos.Contains(FillPos))
                 {
-                    GameManager.Gm.GeneratedRooms.Add(Instantiate(Filler, FillPos, Quaternion.identity, WorldContainer.transform));
+                    CheckTypeOfFilling(FillPos);
                     AuxiliaryList.Add(FillPos);
                 }
                 FillPos = pos;
-                dir = RotateRoom(dir);
+                dir = RotateRoomV2(dir);
             }
         }
         GameManager.Gm.ocuppedPos.AddRange(AuxiliaryList);
+    }
+
+    private void CheckTypeOfFilling(Vector2 FillPos)
+    {
+        if (FillPos.y > Uplimit)
+        {
+            Instantiate(GameManager.Gm.DungeonFiller, FillPos, Quaternion.identity, WorldContainer.transform); 
+        }
+        else if(FillPos.y < Uplimit - 100)
+        {
+            Instantiate(GameManager.Gm.HellFiller, FillPos, Quaternion.identity, WorldContainer.transform);
+        }
+        else
+        {
+            Instantiate(GameManager.Gm.MidFiller, FillPos, Quaternion.identity, WorldContainer.transform);
+        }
     }
 
     void CheckTypeOfRoom()
@@ -158,21 +195,21 @@ public class RoomsGenerator : MonoBehaviour
     {
         RoomType roomType = lastRoom.GetComponent<RoomType>();
         
-        RoomChange(Vector2.up, roomType.TypeOfRoom.Up, upFixedType);
+        RoomChange(Vector2.up, roomType.TypeOfRoom.Up, upFixedType, lastRoom);
 
-        RoomChange(Vector2.down, roomType.TypeOfRoom.Down, downFixedType);
+        RoomChange(Vector2.down, roomType.TypeOfRoom.Down, downFixedType, lastRoom);
 
-        RoomChange(Vector2.right, roomType.TypeOfRoom.Right, rightFixedType);
+        RoomChange(Vector2.right, roomType.TypeOfRoom.Right, rightFixedType, lastRoom);
 
-        RoomChange(Vector2.left, roomType.TypeOfRoom.Left, leftFixedType);
+        RoomChange(Vector2.left, roomType.TypeOfRoom.Left, leftFixedType, lastRoom);
     }
 
-    void RoomChange(Vector2 vector, bool typeOfRoom, List<GameObject> rooms)
+    void RoomChange(Vector2 vector, bool typeOfRoom, List<GameObject> rooms, GameObject room)
     {
         if (dir == vector && !typeOfRoom)
         {
-            lastRoom.GetComponent<RoomType>().AutoDestroy();      
-            GameManager.Gm.GeneratedRooms.Add(lastRoom = Instantiate(rooms[Random.Range(0, rooms.Count)], roomPos - dir * distance, Quaternion.identity, WorldContainer.transform));
+            room.GetComponent<RoomType>().AutoDestroy();      
+            lastRoom = Instantiate(rooms[Random.Range(0, rooms.Count)], room.transform.position, Quaternion.identity, WorldContainer.transform);
         }
     }
 
@@ -185,6 +222,26 @@ public class RoomsGenerator : MonoBehaviour
         else if (v == Vector2.left)
             return Vector2.up;
         else 
+            return Vector2.right;
+    }
+
+    Vector2 RotateRoomV2(Vector2 v)
+    {
+        if (v == Vector2.right)
+            return Vector2.down;
+        else if (v == Vector2.down)
+            return Vector2.left;
+        else if (v == Vector2.left)
+            return Vector2.up;
+        else if (v == Vector2.up)
+            return new Vector2(1, 1);
+        else if (v == new Vector2(1, 1))
+            return new Vector2(1, -1);
+        else if (v == new Vector2(1, -1))
+            return new Vector2(-1, -1);
+        else if (v == new Vector2(-1, -1))
+            return new Vector2(-1, 1);
+        else
             return Vector2.right;
     }
 }
