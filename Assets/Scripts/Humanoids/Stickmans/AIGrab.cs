@@ -50,7 +50,7 @@ public class AIGrab : MonoBehaviour
         Destroy(GetComponent<FixedJoint2D>());
         if (pickableObject != null)
         {
-            pickableObject.ChangeProperties(false, false, gameObject.layer, null);
+            pickableObject.ChangeProperties(false, false, gameObject.layer, ai.torso);
             pickableObject = null;
         }
     }

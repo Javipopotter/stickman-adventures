@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
         if (DmgSum > 0)
         {
             txt = ObjectPooler.pool.GetPooledObject(1).GetComponent<DmgText>();
-            txt.TextSetting(collision.GetContact(0).point, Mathf.RoundToInt(DmgSum), Color.white);
+            txt.TextSetting(collision.GetContact(0).point, Mathf.RoundToInt(DmgSum).ToString(), Color.white);
             if (!collision.gameObject.CompareTag("Player"))
             {
                 txt.txt.color = PlayerDmgColor;

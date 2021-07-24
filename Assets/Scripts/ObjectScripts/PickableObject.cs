@@ -26,7 +26,7 @@ public class PickableObject : MonoBehaviour
     public List<Collider2D> colliders;
     public enum Weapon
     {
-        Spear, Sword, HookShot, Gun, Boomerang
+        Spear, Sword, HookShot, Gun, Boomerang, Nothing
     }
     public virtual void Awake()
     {
@@ -46,6 +46,7 @@ public class PickableObject : MonoBehaviour
     {
         if(rb.velocity.magnitude < minVel * 2 && gameObject.layer != 0 && !Holded)
         {
+            Holder = null;
             SetLayers(0);
         }
     }

@@ -15,10 +15,10 @@ public class DmgText : MonoBehaviour
         OriginalSize = txt.fontSize;
     }
 
-    public void TextSetting(Vector2 pos, float value ,Color color)
+    public void TextSetting(Vector2 pos, string message ,Color color)
     {
         transform.position = pos;
-        txt.text = value + "";
+        txt.text = message;
         txt.color = color;
         //txt.fontSize = OriginalSize * sizeMultiplier;
     }

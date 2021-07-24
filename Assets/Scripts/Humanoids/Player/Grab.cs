@@ -133,7 +133,7 @@ public class Grab : MonoBehaviour
         if (Grabs && pickable != null)
         {
             ActiveDeactivePunches(true, false);
-            pickable.ChangeProperties(false, false, gameObject.layer, null);
+            pickable.ChangeProperties(false, false, gameObject.layer, GameManager.Gm.PlayerTorso);
             pickable = null;
         }
     }

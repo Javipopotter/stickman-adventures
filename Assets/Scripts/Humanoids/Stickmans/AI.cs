@@ -9,7 +9,7 @@ public class AI : HumanoidController
     public GameObject enemy;
     Vector2 FeetRay;
     public Vector2 EnemyDir;
-    public AIGrab aIGrab;
+    public AIGrab[] aIGrab;
     float AttackCoolDown;
     public float Range = 5;
     public float PlayerPersonalDistance = 5;
@@ -18,9 +18,13 @@ public class AI : HumanoidController
     float n2;
     public virtual void Awake()
     {
-        aIGrab = GetComponentInChildren<AIGrab>();
+        aIGrab = GetComponentsInChildren<AIGrab>();
         rb = torso.GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
+    }
+
+    public virtual void Start()
+    {
         Player = GameManager.Gm.PlayerTorso;
     }
 
@@ -34,7 +38,7 @@ public class AI : HumanoidController
             StartCoroutine(Jump());
         }
 
-        if(aIGrab.grabbed == false && enemy != null)
+        if(aIGrab[0].grabbed == false && enemy != null)
         {
             if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= 20)
             {
@@ -68,7 +72,7 @@ public class AI : HumanoidController
         }
     }
     
-    public void Attack(GameObject p, PickableObject f, GameObject a)
+    public void Attack(GameObject p, GameObject a, AIGrab aIGrab)
     {
         EnemyDir = a.transform.position - torso.transform.position;
         EnemyDir.Normalize();
@@ -78,7 +82,7 @@ public class AI : HumanoidController
         AttackCoolDown -= Time.fixedDeltaTime;
         if (AttackCoolDown <= 0)
         {
-            switch (f.ThisWeapon)
+            switch (p.GetComponent<PickableObject>().ThisWeapon)
             {
                 case PickableObject.Weapon.Sword:
                     p.GetComponent<Sword>().MoveArms.Punch(-EnemyDir.x, SoundManager.SoundMan.SwordSwings);
@@ -94,6 +98,8 @@ public class AI : HumanoidController
                     break;
                 case PickableObject.Weapon.HookShot:
                     p.GetComponent<HookShot>().Shoot();
+                    if(Vector2.Distance(torso.transform.position, p.GetComponent<HookShot>().Hook.transform.position) < 10 && p.GetComponent<HookShot>().HookScript.isHooked)
+                       p.GetComponent<HookShot>().UnShot();
                     AttackCoolDown = 0.5f;
                     n1 = 0;
                     n2 = AttackCoolDown;
@@ -137,9 +143,12 @@ public class AI : HumanoidController
             transform.GetChild(i).GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
-        if(aIGrab.grabbed)
+        foreach (AIGrab aIGrab in aIGrab)
         {
-            aIGrab.grabbedObject.transform.position = pointToTeleport;
+            if (aIGrab.grabbed)
+            {
+                aIGrab.grabbedObject.transform.position = pointToTeleport;
+            } 
         }
     }
 }

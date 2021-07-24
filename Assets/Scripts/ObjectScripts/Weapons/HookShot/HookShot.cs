@@ -34,7 +34,6 @@ public class HookShot : PickableObject
         lineRenderer.SetPosition(1, Hook.transform.position);
         if(Holded)
         {
-            HookScript.PickedByEnemy = PickedByAI;
             if(PickedByAI)
             {
                 moveArms.enabled = false;
@@ -108,12 +107,15 @@ public class HookShot : PickableObject
 
     public void UnShot()
     {
-        HookGatherUp = true;
-        Hook.GetComponent<BoxCollider2D>().enabled = false;
-        HookScript.isHooked = false;
-        hookRb.freezeRotation = false;
-        Destroy(Hook.GetComponent<DistanceJoint2D>());
-        Destroy(Hook.GetComponent<FixedJoint2D>());
-        Hook.transform.rotation = OriginalHookPos.transform.rotation; 
+        if (GatheredUp == false)
+        {
+            HookGatherUp = true;
+            Hook.GetComponent<BoxCollider2D>().enabled = false;
+            HookScript.isHooked = false;
+            hookRb.freezeRotation = false;
+            Destroy(Hook.GetComponent<DistanceJoint2D>());
+            Destroy(Hook.GetComponent<FixedJoint2D>());
+            Hook.transform.rotation = OriginalHookPos.transform.rotation;  
+        }
     }
 }

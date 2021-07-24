@@ -16,18 +16,25 @@ public class NeutralStickman : AI
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+        Movement();
+    }
 
-        if (enemy != null && aIGrab.grabbed)
+    private void Movement()
+    {
+        if (enemy != null && aIGrab[0].grabbed)
         {
-            if(Vector2.Distance(torso.transform.position, enemy.transform.position) < 120 && Vector2.Distance(enemy.transform.position, torso.transform.position) > Range)
+            foreach (AIGrab aIGrab in aIGrab)
             {
-                MovementDir(enemy, 1);
-            }
+                if (Vector2.Distance(torso.transform.position, enemy.transform.position) < 120 && Vector2.Distance(enemy.transform.position, torso.transform.position) > aIGrab.pickableObject.range)
+                {
+                    MovementDir(enemy, 1);
+                }
 
-            if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= Range)
-            {
-                Attack(aIGrab.grabbedObject, aIGrab.pickableObject, enemy);
-            } 
+                if (Vector2.Distance(torso.transform.position, enemy.transform.position) <= aIGrab.pickableObject.range)
+                {
+                    Attack(aIGrab.grabbedObject, enemy, aIGrab);
+                } 
+            }
         }
     }
 }

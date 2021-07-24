@@ -32,7 +32,7 @@ public class CoinScript : MonoBehaviour
             {
                 GameManager.Gm.MoneyAmount += coinValue;
                 DmgText txt = ObjectPooler.pool.GetPooledObject(1).GetComponent<DmgText>();
-                txt.TextSetting(transform.position, coinValue, Color.green);
+                txt.TextSetting(transform.position, "+" + coinValue + "€", Color.green);
                 gameObject.SetActive(false); 
             }
         }

@@ -65,7 +65,7 @@ MonoBehaviour:
   - {fileID: 2454451549284938236, guid: 947a13cb5b7fc4444b88f66c4eced6c9, type: 3}
   downRooms:
   - {fileID: 2454451549284938236, guid: 947a13cb5b7fc4444b88f66c4eced6c9, type: 3}
-  InitialRoom: {fileID: 2454451549284938236, guid: 947a13cb5b7fc4444b88f66c4eced6c9, type: 3}
+  InitialRoom: {fileID: 54908257484291534, guid: 3a9fdbb442cf83645a830e900effaa1d, type: 3}
   lastRoom: {fileID: 0}
   distance: 100
   directions:
@@ -78,6 +78,8 @@ MonoBehaviour:
   NumberOfRooms: 20
   Downlim: {fileID: 0}
   Uplim: {fileID: 0}
+  Rightlim: {fileID: 0}
   Uplimit: 0
   Downlimit: 0
   HellRoomsGenerator: {fileID: 0}
+  MezhGoryeBossRoom: {fileID: 0}

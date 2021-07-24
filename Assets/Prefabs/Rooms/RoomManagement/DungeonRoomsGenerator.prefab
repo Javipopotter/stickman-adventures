@@ -93,6 +93,10 @@ MonoBehaviour:
   NumberOfRooms: 20
   Downlim: {fileID: 0}
   Uplim: {fileID: 0}
+  Rightlim: {fileID: 0}
+  LeftLim: {fileID: 0}
   Uplimit: 100
   Downlimit: -1000
   HellRoomsGenerator: {fileID: 3849291135492275551, guid: b221a208b91101545b916ea0cc38a601, type: 3}
+  MezhGoryeBossRoom: {fileID: 7939806581569047155, guid: 4eb19574ab2eb6e429e2c7aeb1b477c4, type: 3}
+  DungeonKeyRoom: {fileID: 759542418144718709, guid: a5f684cd5bb6e144c9275dbe34554c23, type: 3}

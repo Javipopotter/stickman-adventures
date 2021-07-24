@@ -11,6 +11,9 @@ TagManager:
   - DeathZone
   - Chunk
   - rope
+  - Key
+  - HellKey
+  - SurfaceKey
   layers:
   - Default
   - TransparentFX

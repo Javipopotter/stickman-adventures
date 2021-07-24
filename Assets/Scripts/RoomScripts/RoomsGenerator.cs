@@ -18,9 +18,9 @@ public class RoomsGenerator : MonoBehaviour
     [HideInInspector]public GameObject WorldContainer;
     PlayerLifesManager playerLifesManager;
     [SerializeField] float NumberOfRooms = 100;
-    [SerializeField] GameObject Downlim, Uplim;
+    [SerializeField] GameObject Downlim, Uplim, Rightlim, LeftLim;
     public float Uplimit, Downlimit;
-    public GameObject HellRoomsGenerator;
+    public GameObject HellRoomsGenerator, MezhGoryeBossRoom, DungeonKeyRoom;
     void Start()
     {
         playerLifesManager = GameManager.Gm.PlayerTorso.GetComponentInParent<PlayerLifesManager>();
@@ -37,7 +37,7 @@ public class RoomsGenerator : MonoBehaviour
         WorldContainer = Instantiate(new GameObject(), transform.position, Quaternion.identity, transform);
         roomPos = transform.position;
         lastRoom = Instantiate(InitialRoom, roomPos, Quaternion.identity, WorldContainer.transform);
-        Downlim = Uplim = lastRoom;
+        Downlim = Uplim = Rightlim = LeftLim = lastRoom;
         for (int i = 0; i < NumberOfRooms; i++)
         {
         re1:
@@ -73,6 +73,8 @@ public class RoomsGenerator : MonoBehaviour
         if (HellRoomsGenerator != null)
         {
             RoomsGenerator hellRooms;
+            Instantiate(DungeonKeyRoom, new Vector2(LeftLim.transform.position.x - 100, LeftLim.transform.position.y), Quaternion.identity, WorldContainer.transform);
+            Instantiate(MezhGoryeBossRoom, new Vector2(Rightlim.transform.position.x + 100, Rightlim.transform.position.y), Quaternion.identity, WorldContainer.transform);
             hellRooms = Instantiate(HellRoomsGenerator, new Vector2(Downlim.transform.position.x, Downlim.transform.position.y - 100), Quaternion.identity, WorldContainer.transform).GetComponent<RoomsGenerator>();
             hellRooms.Uplimit = Downlim.transform.position.y;
         }
@@ -98,12 +100,23 @@ public class RoomsGenerator : MonoBehaviour
             {
                 Downlim = go;
             }
+
+            if(go.transform.position.x > Rightlim.transform.position.x)
+            {
+                Rightlim = go;
+            }
+            else if(go.transform.position.x < LeftLim.transform.position.x)
+            {
+                LeftLim = go;
+            }
         }
 
-        dir = Vector2.up;
-        RoomChange(Vector2.up, Uplim.GetComponent<RoomType>().TypeOfRoom.Up, IIII, Uplim);
-        dir = Vector2.down;
-        RoomChange(Vector2.down, Downlim.GetComponent<RoomType>().TypeOfRoom.Down, IIII, Downlim);
+        //dir = Vector2.up;
+        //RoomChange(Vector2.up, Uplim.GetComponent<RoomType>().TypeOfRoom.Up, IIII, Uplim);
+        //dir = Vector2.down;
+        //RoomChange(Vector2.down, Downlim.GetComponent<RoomType>().TypeOfRoom.Down, IIII, Downlim);
+        //dir = Vector2.right;
+        //RoomChange(Vector2.right, Rightlim.GetComponent<RoomType>().TypeOfRoom.Right, IIII, Rightlim);
     }
 
     void Fill()

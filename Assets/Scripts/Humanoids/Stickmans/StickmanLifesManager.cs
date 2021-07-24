@@ -9,6 +9,7 @@ public class StickmanLifesManager : MonoBehaviour
     public float MaxLife;
     public float TotalLife;
     public float requiredDmgToDie = 0.5f;
+    public GameObject drop;
 
     private void Start()
     {
@@ -50,6 +51,10 @@ public class StickmanLifesManager : MonoBehaviour
             GameObject g = ObjectPooler.pool.GetPooledObject(2);
             g.transform.position = aI.torso.transform.position;
             g.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10, 10), Random.Range(15, 25)), ForceMode2D.Impulse); 
+        }
+        if(drop != null)
+        {
+            Instantiate(drop, aI.torso.transform.position, Quaternion.identity);
         }
         enabled = false;
         aI.enabled = false;
